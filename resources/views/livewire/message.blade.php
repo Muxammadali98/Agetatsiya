@@ -59,7 +59,7 @@
 
       </div>
       
-      @if (!empty($messages))
+      @if (!empty($messages->all()))
         <div class="col-md-6 col-lg-7 col-xl-8">
 
           <ul class="list-unstyled " style="height: 500px; overflow-y:auto">

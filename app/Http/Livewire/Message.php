@@ -26,32 +26,31 @@ class Message extends Component
 
 
         function delete($id) {
-            Message::delete($id);
+            Message::destroy($id);
         }
     
-  
+        public function mount(){
+
+       
+            $this->messages = ModelsMessage::all();
+    
+        }
 
     public function handleMessage()
     {   
        
-        dd('test');
         $this->messages = ModelsMessage::where('chat_id', 2)->with('chat')->orderBy('id', 'DESC')->get();
     }
 
-    public function mount(){
-
-       
-        $this->messages = ModelsMessage::all();
-
-    }
+  
 
 
     
 
     public function render()
     {
-
-        return view('livewire.message');
+        $messages =  ModelsMessage::all();
+        return view('livewire.message',compact('messages'));
     }
     
 }

@@ -31,6 +31,17 @@ class MessageController extends Controller
         $data = $request->all();
         $data['is_admin'] = true; 
 
+        if(!isset($request->chat_id)){
+            $id = auth()->guard('api')->id();
+
+            $chat = Chat::find($id);
+
+            if(!isset($chat->id)){
+                $chat = Chat::create(['worker_id'=>$id, 'user_id'=>1]);
+            }
+            $data['chat_id'] = $chat->id;
+        }
+
         Message::create($data);
 
         $chats =Chat::all();
