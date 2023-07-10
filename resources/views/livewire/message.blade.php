@@ -58,7 +58,10 @@
         </div>
 
       </div>
-      
+
+      @if (Session::has('message'))
+          <h1>{{ sesion('message') }}</h1>
+      @endif      
       @if (!empty($messages->all()))
         <div class="col-md-6 col-lg-7 col-xl-8">
 
@@ -92,8 +95,7 @@
               @else
 
                   <li  class="d-flex justify-content-start mb-4">
-
-                    <a href="#" wire:click="delete({{ $message->chat->worker->id }})">Delete</a>
+                    <a href="#" wire:click="delete({{ $message->id }})">Delete</a>
                     <img src="/images/{{ $message->chat->worker->image }}" alt="avatar"
                       class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" height="60px" width="60">
                     <div class="card w-100">
@@ -145,11 +147,11 @@
   <script>
     let button = document.getElementById('emit');
 
-  function test(){
-    console.log('test ishladi');
-    Livewire.emit('postAdded');
-    button.click()
-  }
+    function test(){
+      console.log('test ishladi');
+      Livewire.emit('postAdded');
+      button.click()
+    }
 
 
 
