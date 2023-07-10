@@ -21,18 +21,18 @@ class Client extends Model
     ];
 
     function status() {
-        return $this->belongsTo(Status::class);
+        return $this->belongsTo(Status::class)->withTrashed();
     }
 
     function worker() {
-        return $this->belongsTo(Worker::class);
+        return $this->belongsTo(Worker::class)->withTrashed();
     }
     function group() {
-        return $this->belongsTo(Group::class);
+        return $this->belongsTo(Group::class)->withTrashed();
     }
 
     function task() {
-        return $this->belongsTo(Task::class);
+        return $this->belongsTo(Task::class)->withTrashed();
     }
 
 }

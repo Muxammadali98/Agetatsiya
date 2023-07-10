@@ -5,12 +5,5 @@
 @endsection
 
 @section('content')
-    {{-- @include('sections.chat.chat') --}}
-    @empty($messages)
-        @php
-            $messages = [];
-        @endphp
-    @endempty
-
-    @livewire('message', ['chats'=>$chats])
+    @livewire('message')
 @endsection

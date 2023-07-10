@@ -123,15 +123,21 @@
                       <div class="alert alert-danger">{{ $message }}</div>
                   @enderror
 
-                  <button id="form"  class="btn btn-info btn-rounded float-end m-2 ">
+                  <button onclick={up()} id="form"  class="btn btn-info btn-rounded float-end m-2 ">
+              
                     Send
                   </button>
                 </form>
-               
+                <a href="#{{ $messages[0]->id }}" id="ok"></a>
             </div>
           @endif
     
         </div>
     </section>
- 
+    <script>
+      function up(){
+        let up = document.getElementById('ok');
+        up.click()
+      }
+    </script>
 </div>

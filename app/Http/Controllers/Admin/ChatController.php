@@ -10,9 +10,8 @@ class ChatController extends Controller
 {
    function index() {
 
-      $chats = Chat::all();
 
-      return view('admin.chat.index', compact('chats'));
+      return view('admin.chat.index', );
  
    }
 }

@@ -16,19 +16,14 @@ class Message extends Component
     public $text;
     public $is_admin;
 
-
-
     public function getMessage($id) {
         $this->chatId = $id;
         $this->messages = ModelsMessage::where('chat_id', $id)->with('chat')->orderBy('id', 'DESC')->get();
     }
-    
 
     protected $listeners = [
         'eventCreated' => 'handleMessage',
     ];
-
-
 
 
     public function mount()
@@ -37,12 +32,9 @@ class Message extends Component
     }
 
 
-
-
     public function handleMessage($id)
     {   
         if($id['data'] == $this->chatId){
-
             $this->messages = ModelsMessage::where('chat_id', $this->chatId)->with('chat')->orderBy('id', 'DESC')->get();
         }
     }
@@ -53,13 +45,14 @@ class Message extends Component
         $text = $this->text;
         $is_admin = true; 
 
-        ModelsMessage::create([
+       $data =  ModelsMessage::create([
             'text' => $this->text,
             'is_admin' => true,
             'chat_id' => $this->chatId,
         ]);
 
-       event(new MessageEvent($this->chatId));
+        $this->messages = ModelsMessage::where('chat_id', $this->chatId)->with('chat')->orderBy('id', 'DESC')->get();
+        event(new MessageEvent($data));
 
        $this->text = '';
     }

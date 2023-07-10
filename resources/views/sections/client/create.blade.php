@@ -60,10 +60,13 @@
                       <label>Status</label>
                       <div class="select-position">
                         <select name="status_id">
-                          @foreach ($status as $item)
+                          @foreach ($statuses as $item)
                           <option value="{{ $item->id }}">{{ $item->title }}</option>
                           @endforeach
                         </select>
+                        @error('status_id')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                       </div>
                     </div>
                     <div class="select-style-1">
@@ -73,6 +76,9 @@
                           @foreach ($tasks as $item)
                           <option value="{{ $item->id }}">{{ $item->company->title }}</option>
                           @endforeach
+                          @error('task_id')
+                              <div class="alert alert-danger">{{ $message }}</div>
+                          @enderror
                         </select>
                       </div>
                     </div>
@@ -84,11 +90,17 @@
                           <option value="{{ $item->id }}">{{ $item->name }}</option>
                           @endforeach
                         </select>
+                        @error('worker_id')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                       </div>
                     </div>
                     <div class="input-style-1">
                       <label>Comment</label>
                       <textarea name="comment" id="" cols="25" rows="10"></textarea>
+                      @error('comment')
+                          <div class="alert alert-danger">{{ $message }}</div>
+                      @enderror
                     </div>
          
 

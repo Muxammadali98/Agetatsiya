@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Events\MessageEvent;
+use App\Events\MyEvent;
 use App\Helpers\Traits\ApiResponcer;
 use App\Http\Controllers\Controller;
 use App\Models\Chat;
@@ -45,7 +46,7 @@ class MessageController extends Controller
 
         $messages = Message::where('chat_id', $data['chat_id'])->orderBy('id', 'DESC')->get();
 
-        event(new MessageEvent($message));
+        event(new MyEvent($data['chat_id']));
 
         return $this->success($messages, 'add message', 201, );
 

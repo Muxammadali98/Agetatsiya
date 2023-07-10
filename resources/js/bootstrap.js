@@ -59,6 +59,6 @@ const pusher = new Pusher(import.meta.env.VITE_PUSHER_APP_KEY, {
 
 const channel = pusher.subscribe('message');
 
-channel.bind('App\\Events\\MessageEvent', function(data) {
+channel.bind('App\\Events\\MyEvent', function(data) {
     Livewire.emit('eventCreated', data);
 });

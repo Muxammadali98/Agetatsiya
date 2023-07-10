@@ -20,23 +20,8 @@ class MyEvent implements ShouldBroadcast
 
     public function broadcastOn()
     {
-        return new Channel('my-channel');
+        return new Channel('message');
     }
-    
-
-    public function broadcastAS()
-    {
-        return 'my-event';
-    }
-    
-
-        /**
-     * Get the data to broadcast.
-     *
-     * @return array
-     */
-
-     
     public function broadcastWith()
     {
         return [
