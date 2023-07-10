@@ -1,6 +1,8 @@
-<?php
+<?php   
 
 namespace App\Http\Livewire;
+
+
 
 use App\Models\Message as ModelsMessage;
 use Livewire\Component;
@@ -12,37 +14,42 @@ class Message extends Component
 
     public $chats;
 
-   
+    public $messages;
 
 
-    // protected $listeners = ['echo:laravel_database_message,message' => 'notifyNewOrder'];
+ 
+    public function messageDelete($id)
+    {
+
+        ModelsMessage::destroy($id);
+    }
+    
+    
+    public function createEvent()
+    {
+        // Hodisa sodir qilish jarayoni
+        $this->emit('eventCreated');
+    }
+
     protected $listeners = [
         'echo:laravel_database_message,message' => 'handleMessage',
-        'postAdded'=>'handleMessage'
+        'echo:eventName' => 'handleMessage',
     ];
 
+    public function mount()
+    {
+        $this->listeners['eventCreated'] = 'handleMessage';
+
+        $this->messages = ModelsMessage::where('chat_id', 1)->with('chat')->orderBy('id', 'DESC')->get();
+    }
 
 
-
-
-        function delete($id) {
-            
-            session(['message'=>'ishladi']);
-            ModelsMessage::find($id)->delete(); 
-        }
-    
-            //     public function mount(){
-
-            
-            //         $this->messages = ModelsMessage::all();
-            
-            //     }
-
-            // public function handleMessage()
-            // {   
-            
-            //     $this->messages = ModelsMessage::where('chat_id', 2)->with('chat')->orderBy('id', 'DESC')->get();
-            // }
+    public function handleMessage()
+    {   
+        session(['message'=>'test']);
+        
+        $this->messages = ModelsMessage::where('chat_id', 6)->with('chat')->orderBy('id', 'DESC')->get();
+    }
 
   
 
@@ -51,11 +58,9 @@ class Message extends Component
 
     public function render()
     {
-        // $this->messages =  ModelsMessage::all();
+     
 
-        $messages = ModelsMessage::all();
-
-        return view('livewire.message',compact('messages'));
+        return view('livewire.message');
     }
     
 }

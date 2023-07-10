@@ -62,5 +62,11 @@ class MessageController extends Controller
     }
 
 
+    function destroy($id) {
+        Message::destroy($id);
+        return true;
+    }
+
+
 
 }

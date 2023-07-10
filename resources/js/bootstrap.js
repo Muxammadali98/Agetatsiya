@@ -36,7 +36,6 @@ import Echo from 'laravel-echo';
 import io from 'socket.io-client';
 
 
-console.log('Livewire');
 window.io = io;
 
 const echo = new Echo({
@@ -47,7 +46,9 @@ const echo = new Echo({
 
 echo.channel('laravel_database_message')
     .listen('.message', (data) => {
+        Livewire.emit('eventName');
         test();
+
         console.log('Hodisa tinglandi:', data);
     });
 

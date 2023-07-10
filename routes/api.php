@@ -48,6 +48,7 @@ Route::middleware('auth:api')->group(function(){
 
     Route::post('/message',[MessageController::class, 'store']);
     Route::get('/message',[MessageController::class, 'index']);
+    Route::delete('/message/{id}',[MessageController::class, 'destroy']);
 
 });
 

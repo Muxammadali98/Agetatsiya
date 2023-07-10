@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="/assets/css/fullcalendar.css" />
     <link rel="stylesheet" href="/assets/css/fullcalendar.css" />
     <link rel="stylesheet" href="/assets/css/main.css" />
-
+    @livewireStyles()
   </head>
   <body>
     <!-- ======== sidebar-nav start =========== -->
@@ -855,5 +855,6 @@
       });
       // =========== chart four end
     </script>
+     @livewireScripts
   </body>
 </html>
