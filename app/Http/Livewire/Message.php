@@ -2,65 +2,73 @@
 
 namespace App\Http\Livewire;
 
-
-
+use App\Events\MessageEvent;
+use App\Models\Chat;
 use App\Models\Message as ModelsMessage;
 use Livewire\Component;
 
 class Message extends Component
 {
 
-
-
     public $chats;
-
     public $messages;
+    public $chatId;
+    public $text;
+    public $is_admin;
 
 
- 
-    public function messageDelete($id)
-    {
 
-        ModelsMessage::destroy($id);
+    public function getMessage($id) {
+        $this->chatId = $id;
+        $this->messages = ModelsMessage::where('chat_id', $id)->with('chat')->orderBy('id', 'DESC')->get();
     }
     
-    
-    public function createEvent()
-    {
-        // Hodisa sodir qilish jarayoni
-        $this->emit('eventCreated');
-    }
 
     protected $listeners = [
-        'echo:laravel_database_message,message' => 'handleMessage',
-        'echo:eventName' => 'handleMessage',
+        'eventCreated' => 'handleMessage',
     ];
+
+
+
 
     public function mount()
     {
-        $this->listeners['eventCreated'] = 'handleMessage';
-
-        $this->messages = ModelsMessage::where('chat_id', 1)->with('chat')->orderBy('id', 'DESC')->get();
+        $this->chats = Chat::all(); 
     }
 
 
-    public function handleMessage()
+
+
+    public function handleMessage($id)
     {   
-        session(['message'=>'test']);
-        
-        $this->messages = ModelsMessage::where('chat_id', 6)->with('chat')->orderBy('id', 'DESC')->get();
+        if($id['data'] == $this->chatId){
+
+            $this->messages = ModelsMessage::where('chat_id', $this->chatId)->with('chat')->orderBy('id', 'DESC')->get();
+        }
     }
 
-  
 
+    public function addMessage(){
 
-    
+        $text = $this->text;
+        $is_admin = true; 
+
+        ModelsMessage::create([
+            'text' => $this->text,
+            'is_admin' => true,
+            'chat_id' => $this->chatId,
+        ]);
+
+       event(new MessageEvent($this->chatId));
+
+       $this->text = '';
+    }
+
 
     public function render()
     {
-     
-
         return view('livewire.message');
     }
+
     
 }

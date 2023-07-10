@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\TaskEvent;
 use App\Http\Controllers\Controller;
 use App\Models\Client;
 use App\Models\Company;
@@ -37,8 +38,12 @@ class TaskController extends Controller
         ]);
 
         $task = Task::create($request->all());
-
-
+        $data = [
+            'id'=>$task->id,
+            'company'=>$task->company,
+            'date'=>$task->date
+        ];
+        event(new TaskEvent($data));
         return redirect()->route('task.index');
     }
 
@@ -65,6 +70,8 @@ class TaskController extends Controller
         ]);
 
         $task = Task::find($id);
+
+      
         $task->update($request->all());
   
         return redirect()->route('task.index');

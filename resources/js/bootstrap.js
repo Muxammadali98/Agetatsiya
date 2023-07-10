@@ -31,27 +31,34 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     enabledTransports: ['ws', 'wss'],
 // });
 
-import Echo from 'laravel-echo';
 
-import io from 'socket.io-client';
+// import Echo from 'laravel-echo';
+
+// import io from 'socket.io-client';
+
+// window.io = io;
+
+// const echo = new Echo({
+//     broadcaster: 'socket.io',
+//     host: window.location.hostname + ':6001', // Laravel Echo Serverning manzili
+// });
 
 
-window.io = io;
+// echo.channel('laravel_database_message')
+//     .listen('MessageEvent', (data) => {
+//         Livewire.emit('eventCreated', data);
+//     });
 
-const echo = new Echo({
-    broadcaster: 'socket.io',
-    host: window.location.hostname + ':6001', // Laravel Echo Serverning manzili
+
+import Pusher from 'pusher-js';
+
+
+const pusher = new Pusher(import.meta.env.VITE_PUSHER_APP_KEY, {
+    cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER,
 });
 
+const channel = pusher.subscribe('message');
 
-echo.channel('laravel_database_message')
-    .listen('.message', (data) => {
-        Livewire.emit('eventName');
-        test();
-
-        console.log('Hodisa tinglandi:', data);
-    });
-
-
-
-    
+channel.bind('App\\Events\\MessageEvent', function(data) {
+    Livewire.emit('eventCreated', data);
+});

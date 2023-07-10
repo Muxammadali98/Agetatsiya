@@ -81,7 +81,7 @@
                               <div class="product">
                                 <div class="image m-1">
                                   @foreach ($company->images as $image)
-                                    <img src="{{ '/images/'.$image->image }}" height="50px" alt="">
+                                    <img style="height:150px; margin:5px" src="{{ '/images/'.$image->image }}" height="50px" alt="">
                                   @endforeach
                                 </div>
                               </div>

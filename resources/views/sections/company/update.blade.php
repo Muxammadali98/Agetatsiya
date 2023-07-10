@@ -62,21 +62,12 @@
                       <label>Images </label>
                       <input type="file" name="images[]" multiple  />
                     </div>
-
-                    
-
-                 
-           
                   <!-- end col -->
-
-
-         
-
                 </form>
                 <!-- end card -->
                   <div class="image m-1 d-flex align-items-end">
                     @foreach ($company->images as $image)
-                        <img src="{{ '/images/'.$image->image }}" height="100px" alt="">
+                        <img style="height:150px; margin:5px" src="{{ '/images/'.$image->image }}" height="100px" alt="">
                         <form action="{{ route('company.show', $image->id) }}" style="justify-content: end" method="GET">
                           @csrf
                           <button class="text-danger fs-5  " style="border: 0 ; background-color: #fff ">

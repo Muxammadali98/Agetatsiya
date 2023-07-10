@@ -30,30 +30,27 @@ return [
 
     'connections' => [
 
-        // 'pusher' => [
-        //     'driver' => 'pusher',
-        //     'key' => env('PUSHER_APP_KEY'),
-        //     'secret' => env('PUSHER_APP_SECRET'),
-        //     'app_id' => env('PUSHER_APP_ID'),
-        //     'options' => [
-        //         'cluster' => env('PUSHER_APP_CLUSTER'),
-        //         'host' => env('PUSHER_HOST') ?: 'api-'.env('PUSHER_APP_CLUSTER', 'mt1').'.pusher.com',
-        //         'port' => env('PUSHER_PORT', 443),
-        //         'scheme' => env('PUSHER_SCHEME', 'https'),
-        //         'encrypted' => true,
-        //         'useTLS' => env('PUSHER_SCHEME', 'https') === 'https',
-        //     ],
-        //     'client_options' => [
-        //         // Guzzle client options: https://docs.guzzlephp.org/en/stable/request-options.html
-        //     ],
-        // ],
-        'socketio' => [
-            'driver' => 'socketio',
-            'host' => env('SOCKET_IO_HOST', 'http://192.168.0.125'),
-            'port' => env('SOCKET_IO_PORT', 6001),
-            'client' => env('SOCKET_IO_CLIENT', 'redis'), // agar Redis-ni ishlatishni xohlaysiz
-            'protocol' => env('SOCKET_IO_PROTOCOL', null), // agar SSL protokolini ishlatmoqchi bo'lsangiz
+        'pusher' => [
+            'driver' => 'pusher',
+            'key' => env('PUSHER_APP_KEY'),
+            'secret' => env('PUSHER_APP_SECRET'),
+            'app_id' => env('PUSHER_APP_ID'),
+            'options' => [
+                'cluster' => 'ap2',
+                'useTLS' => true
+              ],
         ],
+
+
+        // 'socketio' => [
+        //     'driver' => 'socketio',
+        //     'host' => env('SOCKET_IO_HOST', 'http://192.168.0.125'),
+        //     'port' => env('SOCKET_IO_PORT', 6001),
+        //     'client' => env('SOCKET_IO_CLIENT', 'redis'), // agar Redis-ni ishlatishni xohlaysiz
+        //     'protocol' => env('SOCKET_IO_PROTOCOL', null), // agar SSL protokolini ishlatmoqchi bo'lsangiz
+        // ],
+
+
 
         'ably' => [
             'driver' => 'ably',

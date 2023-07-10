@@ -20,7 +20,7 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
 Broadcast::channel('message',function(){
     return true;
 });
-
-Broadcast::channel('my-channel',function(){
+Broadcast::channel('channel_.{id}',function(){
     return true;
 });
+

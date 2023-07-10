@@ -10,10 +10,10 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class MessageEvent implements ShouldBroadcast
+class TaskEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-    public $data;
+    public $data ;
     /**
      * Create a new event instance.
      */
@@ -29,13 +29,12 @@ class MessageEvent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        
-        return new Channel('chat_'.$this->data->chat->worker_id);
+        return new Channel('channel_'.$this->data['id']);
     }
 
     public function broadcastAs()
     {
-        return 'message';
+        return 'alert';
     }
 
     public function broadcastWith()
@@ -44,5 +43,6 @@ class MessageEvent implements ShouldBroadcast
             'data' => $this->data,
         ];
     }
+
 
 }
