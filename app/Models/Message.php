@@ -10,7 +10,7 @@ class Message extends Model
     use HasFactory;
 
     protected $fillable = [
-        'is_admin',
+        'user_id',
         'text',
         'chat_id'
         
@@ -19,5 +19,9 @@ class Message extends Model
 
     function chat() {
         return $this->belongsTo(Chat::class)->with('worker');
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }

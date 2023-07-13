@@ -21,6 +21,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'image',
         'password',
     ];
 
@@ -45,6 +46,6 @@ class User extends Authenticatable
     ];
 
     function chats() {
-        return $this->hasMany(Chat::class)->with('worker');
+        return $this->hasMany(Chat::class)->with('worker')->withTrashed();
     }
 }

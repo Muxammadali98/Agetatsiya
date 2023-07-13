@@ -37,57 +37,48 @@
           <li class="nav-item">
             <a href="{{ route('group.index') }}">
         
-              </span>
-              <span class="text">Groups</span>
+              <span class="text">Guruhlar</span>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{ route('city.index') }}">
         
-              </span>
-              <span class="text">Cities</span>
+              <span class="text">Shaharlar</span>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{ route('worker.index') }}">
-        
-              </span>
-              <span class="text">Workers</span>
+              <span class="text">Ishchilar</span>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{ route('task.index') }}">
-        
-              </span>
-              <span class="text">Task</span>
+              <span class="text">Topshiriqlar</span>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{ route('client.index') }}">
-        
-              </span>
-              <span class="text">Client</span>
+              <span class="text">Mijozlar</span>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{ route('status.index') }}">
-        
-              </span>
-              <span class="text">Status</span>
+              <span class="text">Holatlar(Status)</span>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{ route('company.index') }}">
-        
-              </span>
-              <span class="text">Company</span>
+              <span class="text">Companyalar</span>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{ route('chat') }}">
-        
-              </span>
-              <span class="text">Chat</span>
+              <span class="text">Yozishmalar</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('notification.index') }}">
+              <span class="text">Bildirishnoma</span>
             </a>
           </li>
         </ul>
@@ -181,63 +172,13 @@
                     </li>
                   </ul>
                 </div>
-                <!-- notification end -->
-                <!-- message start -->
-                <div class="header-message-box ml-15 d-none d-md-flex">
-                  <button
-                    class="dropdown-toggle"
-                    type="button"
-                    id="message"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    <i class="lni lni-envelope"></i>
-                    <span>3</span>
-                  </button>
-                  <ul
-                    class="dropdown-menu dropdown-menu-end"
-                    aria-labelledby="message"
-                  >
-                    <li>
-                      <a href="#0">
-                        <div class="image">
-                          <img src="/assets/images/lead/lead-5.png" alt="" />
-                        </div>
-                        <div class="content">
-                          <h6>Jacob Jones</h6>
-                          <p>Hey!I can across your profile and ...</p>
-                          <span>10 mins ago</span>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#0">
-                        <div class="image">
-                          <img src="/assets/images/lead/lead-3.png" alt="" />
-                        </div>
-                        <div class="content">
-                          <h6>John Doe</h6>
-                          <p>Would you mind please checking out</p>
-                          <span>12 mins ago</span>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#0">
-                        <div class="image">
-                          <img src="/assets/images/lead/lead-2.png" alt="" />
-                        </div>
-                        <div class="content">
-                          <h6>Anee Lee</h6>
-                          <p>Hey! are you available for freelance?</p>
-                          <span>1h ago</span>
-                        </div>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <!-- message end -->
-                <!-- filter start -->
+                <!-- notification end --> --}}
+
+
+                @livewire('notifikation')
+
+
+                {{-- <!-- filter start -->
                 <div class="filter-box ml-15 d-none d-md-flex">
                   <button class="" type="button" id="filter">
                     <i class="lni lni-funnel"></i>
@@ -258,7 +199,7 @@
                         <h6>{{ auth()->user()->name }}</h6>
                         <div class="image">
                           <img
-                            src="/assets/images/profile/profile-image.png"
+                            src="{{ auth()->user()->image?'/images/'. auth()->user()->image : '/assets/images/profile/image.png' }}"
                             alt=""
                           />
                           <span class="status"></span>
@@ -273,7 +214,7 @@
                   >
                     <li>
                       <a href="/profile">
-                        <i class="lni lni-user"></i> View Profile
+                        <i class="lni lni-user"></i> Shxasiy ma'lumotlar
                       </a>
                     </li>
                     
@@ -282,7 +223,7 @@
                         @csrf
                    
                         <button style="display: block; width: 100%; background: none; border: none " >
-                          <a href="#0"> <i class="lni lni-exit"></i> Sign Out </a>
+                          <a> <i class="lni lni-exit"></i> Chiqish </a>
                         </button>
                       </form>
                     </li>
@@ -325,8 +266,7 @@
                   justify-content-center justify-content-md-end
                 "
               >
-                <a href="#0" class="text-sm">Term & Conditions</a>
-                <a href="#0" class="text-sm ml-15">Privacy & Policy</a>
+                <a href="#0" class="text-sm"> Company Find Work</a>
               </div>
             </div>
           </div>

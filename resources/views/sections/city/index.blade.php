@@ -7,7 +7,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Cities</h2>
+                  <h2>Shaharlar</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -16,10 +16,10 @@
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item">
-                        <a href="{{ route('group.index') }}">Dashboard</a>
+                        <a href="{{ route('group.index') }}">Bosh sahifa</a>
                       </li>
                       <li class="breadcrumb-item active" aria-current="page">
-                        Cities
+                        Shaharlar
                       </li>
                     </ol>
                   </nav>
@@ -38,9 +38,9 @@
               <!-- end col -->
               <div class="col-lg-12">
                 <div class="card-style mb-30">
-                  <h6 class="mb-10">Table for cities</h6>
+                  <h6 class="mb-10">Shaharlar Jadvali</h6>
                   <a href="{{ route('city.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover"
-                  >Add City</a
+                  >Shahar qo'shish</a
                 >
 
                 @if (!empty($cities->all()))
@@ -49,11 +49,11 @@
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th><h6>City's Name</h6></th>
+                          <th><h6>Shahar Nomi</h6></th>
                   
-                          <th><h6>Update </h6></th>
+                          <th><h6>O'zgartirish </h6></th>
                             
-                          <th><h6> Deete</h6></th>
+                          <th><h6>O'chirish</h6></th>
                         </tr>
                         <!-- end table row-->
                       </thead>
@@ -101,7 +101,7 @@
                 @else
                 <div class="input-style-3" style="display: flex; justify-content: center">
                   <h2>
-                    Not City
+                    Shahar mavj emas
                   </h2>
                 </div>
                 @endif

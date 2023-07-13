@@ -17,10 +17,10 @@ class Task extends Model
     ];
 
     function group() {
-        return $this->belongsTo(Group::class);
+        return $this->belongsTo(Group::class)->withTrashed();
     }
     function company() {
-        return $this->belongsTo(Company::class);
+        return $this->belongsTo(Company::class)->withTrashed();
     }
     function images() {
         return $this->hasMany(TaskImage::class);
@@ -31,6 +31,6 @@ class Task extends Model
     }
 
     function clients() {
-        return $this->hasMany(Client::class);
+        return $this->hasMany(Client::class)->withTrashed();
     }
 }

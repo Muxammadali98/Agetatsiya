@@ -140,7 +140,7 @@
                                     <select name="status" class="light-bg">
                                       <option value=1>Active</option>
 
-                                      <option {{ 0 == $worker->status?'selected':'' }} value="">Not Active</option>
+                                      <option {{ 0 == $worker->status?'selected':'' }} value="0">Not Active</option>
                                           
                                     </select>
                                   </div>
@@ -151,7 +151,7 @@
                                     <select name="job_title" class="light-bg">
                                       <option value=1>Leader</option>
 
-                                      <option {{ 0 == $worker->job_title?'selected':'' }} value="">Worker</option>
+                                      <option {{ 0 == $worker->job_title?'selected':'' }} value=0>Worker</option>
                                           
                                     </select>
                                   </div>

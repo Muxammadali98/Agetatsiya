@@ -39,7 +39,7 @@ class TaskController extends Controller
 
         $task = Task::create($request->all());
         $data = [
-            'id'=>$task->id,
+            'id'=>$task->group_id,
             'company'=>$task->company,
             'date'=>$task->date
         ];

@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\StatusController;
 use App\Http\Controllers\Admin\TaskController;
 use App\Http\Controllers\Admin\WorkerController;
 use App\Http\Controllers\Admin\ChatController;
+use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +48,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/messages/{id}',[MessageController::class, 'index'])->name('messages');
     Route::post('/messages',[MessageController::class, 'store']);
     Route::get('/filterClient',[FilterController::class, 'filterClient'])->name('filterClient');
+    Route::resource('/notification',NotificationController::class);
+    Route::get('/notifigroup',[NotificationController::class, 'createGroup'])->name('createGroup');
+    Route::post('/notifigroup',[NotificationController::class, 'storeGroup'])->name('storeGroup');
 });
 
 

@@ -11,7 +11,8 @@ class Chat extends Model
 
     protected $fillable = [
         'worker_id',
-        'user_id'
+        'user_id',
+        'message'
     ];
 
 
@@ -21,7 +22,7 @@ class Chat extends Model
 
 
     function messages() {
-        return $this->hasMany(Message::class);
+        return $this->hasMany(Message::class)->with('user');
     }
 
     function user() {

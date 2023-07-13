@@ -6,7 +6,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Create City</h2>
+                  <h2>Shahar Qo'shish</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -15,11 +15,11 @@
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item">
-                        <a href="{{ route('group.index') }}">Dashboard</a>
+                        <a href="{{ route('group.index') }}">Bosh sahifa</a>
                       </li>
-                      <li class="breadcrumb-item"><a href="{{ route('city.index') }}">Cities</a></li>
+                      <li class="breadcrumb-item"><a href="{{ route('city.index') }}">Shaharlar</a></li>
                       <li class="breadcrumb-item active" aria-current="page">
-                        Create
+                        Yaratish
                       </li>
                     </ol>
                   </nav>
@@ -40,11 +40,11 @@
                   @csrf
                   <div class="card-style mb-30">
                     <div class="input-style-3" style="display: flex; justify-content: right">
-                      <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Create</button>
+                      <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Saqlash</button>
                     </div>
                     <div class="input-style-1">
-                      <label>Name City</label>
-                      <input type="text" name="name"  placeholder="Name City" />
+                      <label>Shahar nomi</label>
+                      <input type="text" name="name"  placeholder="Fergana" />
                       @error('name')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror

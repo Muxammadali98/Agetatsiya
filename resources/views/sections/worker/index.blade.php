@@ -51,6 +51,7 @@
                             <th><h6>Name</h6></th>
                             <th><h6>Surname</h6></th>
                             <th><h6>Group Name</h6></th>
+                            <th><h6>Job Title</h6></th>
                             <th><h6>City Name</h6></th>
                             <th><h6>Address</h6></th>
                             <th><h6> Show</h6></th>
@@ -81,6 +82,9 @@
                           </td>
                           <td>
                             <p>{{ is_null($worker->group_id)? 'Not group' : $worker->group->title }}</p>
+                          </td>
+                          <td>
+                            <p>{{ $worker->job_title==0? 'Worker' : 'Leader' }}</p>
                           </td>
                           <td>
                             <p>{{ is_null($worker->city_id)? 'Not city' : $worker->city->name }}</p>

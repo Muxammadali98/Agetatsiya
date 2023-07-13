@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Events\MessageEvent;
 use App\Events\MyEvent;
+use App\Events\NotifiAdminEvent;
 use App\Helpers\Traits\ApiResponcer;
 use App\Http\Controllers\Controller;
 use App\Models\Chat;
@@ -28,18 +29,21 @@ class MessageController extends Controller
 
 
         $data = $request->all();
-            if(!isset($request->chat_id)){
+        if(!isset($request->chat_id)){
             $user = auth()->guard('api')->user();
-
             $chat = Chat::where('worker_id',$user->id)->first();
-
+            
             if(!isset($chat->id)){
-                $chat = Chat::create(['worker_id'=>$user->id, 'user_id'=>1]);
+                $chat = Chat::create(['worker_id'=>$user->id]);
             }
             $data['chat_id'] = $chat->id;
         }
 
-        $data['is_admin'] = false; 
+        $chat->message = $chat->message + 1;
+        $chat->save();
+        
+    
+
 
         $message = Message::create($data);
 
@@ -47,6 +51,8 @@ class MessageController extends Controller
         $messages = Message::where('chat_id', $data['chat_id'])->orderBy('id', 'DESC')->get();
 
         event(new MyEvent($data['chat_id']));
+        
+
 
         return $this->success($messages, 'add message', 201, );
 
@@ -57,7 +63,14 @@ class MessageController extends Controller
         
         $worker = auth()->guard('api')->user();
 
-        return $this->success($worker->chat->messages);
+        // $chat = $chat->whereDate('created_at', '>=', now()->subDays(30));
+
+        $data = $worker->chat->messages->groupBy(function ($item) {
+            return $item->created_at->format('Y-m-d');
+        });
+        
+
+        return $this->success($data);
     }
 
 

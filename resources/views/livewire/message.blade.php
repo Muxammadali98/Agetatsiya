@@ -7,11 +7,11 @@
     
           <div class="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0">
     
-            <h5 class="font-weight-bold mb-3 text-center text-lg-start">Member</h5>
     
             <div class="card">
               <div class="card-body">
-    
+                <h5 class="font-weight-bold mb-3 text-center text-lg-start">Members</h5>
+
                 <ul class="list-unstyled mb-0" style="height: 540px; overflow-y:auto">
                   {{-- <li class="p-2 border-bottom" style="background-color: #eee;">
                     <a href="#!" class="d-flex justify-content-between">
@@ -29,26 +29,38 @@
                       </div>
                     </a>
                   </li> --}}
-    
+
+                  @if(empty($chats->all()))
+                    <li class="p-2 border-bottom" style="background-color: #eee;">
+                      <a href="#!" class="d-flex justify-content-between">
+                        <div class="d-flex flex-row">
+                          <div class="pt-1">
+                            <p class="fw-bold mb-0">Yozishmalar mavjud emas</p>
+                            <p class="small text-muted">Hello, Are you there?</p>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  @endif
     
                   @foreach ($chats as $chat)
                       <li class="p-2 border-bottom">
                         <a href="#" wire:click="getMessage({{ $chat->id }})" class="d-flex justify-content-between">
                           <div class="d-flex flex-row">
-                            <img style="height:60px; width:60px"  src="/images/{{ $chat->worker->image }}" alt="avatar"
+                            <img style="height:60px; width:60px"  src="{{ $chat->worker->image?'/images/'. $chat->worker->image : '/assets/images/profile/image.png' }}" alt="avatar"
                               class="rounded-circle d-flex align-self-center me-3 shadow-1-strong" width="60">
                             <div class="pt-1">
                               <div style="display: flex">
     
                                 <p style="margin-right: 15px" class="fw-bold mb-0">{{ $chat->worker->name }}</p>
-                                <p style="font-size: 10 px; color: rgb(150, 150, 135)">{{ $chat->messages[0]->created_at->format('d M') }}</p>
+                                <p style="font-size: 10 px; color: rgb(150, 150, 135)">{{ $chat->messages->last()->created_at->format('d M') }}</p>
                               </div>
-                              <p class="small text-muted">{{ substr($chat->messages[0]->text, 0,30 ) }}</p>
+                              <p class="small text-muted">{{ substr($chat->messages->last()->text, 0,30 ) }}</p>
                             </div>
                           </div>
                           <div class="pt-1">
-                            <p class="small text-muted mb-1">{{ $chat->messages[0]->created_at->format('H:i') }}</p>
-                            <span class="badge bg-danger float-end">1</span>
+                            <p class="small text-muted mb-1">{{ $chat->messages->last()->created_at->format('H:i') }}</p>
+                            <span class="badge bg-danger float-end">{{ $chat->message}}</span>
                           </div>
                         </a>
                       </li>
@@ -72,14 +84,14 @@
                   @foreach ($messages as $message)
     
     
-                  @if ($message->is_admin)
+                  @if ($message->user_id)
     
     
                       <li  id="{{ $message->id }}" class="d-flex justify-content-between mb-4">
                         <div class="card w-100">
                           <div class="card-header d-flex justify-content-between p-3">
                             <p class="text-muted small mb-0"><i class="far fa-clock"></i> {{ $message->created_at->format('H:i') }}</p>
-                            <p class="fw-bold mb-0">{{ $message->chat->user->name }}</p>
+                            <p class="fw-bold mb-0">{{ $message->user->name }}</p>
                           </div>
                           <div class="card-body">
                             <p class="mb-0 d-flex justify-content-end">
@@ -87,7 +99,7 @@
                             </p>
                           </div>
                         </div>
-                        <img style="height:60px; width:60px" src="/assets/images/profile/profile-image.png" alt="avatar"
+                        <img style="height:60px; width:60px" src="{{ $message->user->image?'/images/'. $message->user->image : '/assets/images/profile/image.png' }}" alt="avatar"
                           class="rounded-circle d-flex align-self-start ms-3 shadow-1-strong" width="60">
                       </li>
     
@@ -96,7 +108,7 @@
                       <li  id="{{ $message->id }}" class="d-flex justify-content-start mb-4">
                   
     
-                        <img style="height:60px; width:60px" src="/images/{{ $message->chat->worker->image }}" alt="avatar"
+                        <img style="height:60px; width:60px" src="{{ $message->chat->worker->image?'/images/'. $message->chat->worker->image : '/assets/images/profile/image.png' }}" alt="avatar"
                           class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" height="60px" width="60">
                         <div class="card w-100">
                           <div class="card-header d-flex justify-content-between p-3">
@@ -129,6 +141,10 @@
                   </button>
                 </form>
                 <a href="#{{ $messages[0]->id }}" id="ok"></a>
+            </div>
+          @else
+            <div class="col-md-6 col-lg-7 col-xl-8 " style="display: flex; justify-content: center; align-items: center; border:2px solid rgb(199, 191, 191); border-radius: 10px">
+              <h1>Chatni Tanlang</h1>
             </div>
           @endif
     
