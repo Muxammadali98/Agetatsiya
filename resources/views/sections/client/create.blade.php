@@ -6,7 +6,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Create client</h2>
+                  <h2>Mijoz Q'shish</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -15,11 +15,11 @@
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item">
-                        <a href="{{ route('client.index') }}">Dashboard</a>
+                        <a href="{{ route('client.index') }}">Bosh sahifa</a>
                       </li>
-                      <li class="breadcrumb-item"><a href="{{ route('client.index') }}">clients</a></li>
+                      <li class="breadcrumb-item"><a href="{{ route('client.index') }}">Mijozlar</a></li>
                       <li class="breadcrumb-item active" aria-current="page">
-                        Create
+                        Qo'shish
                       </li>
                     </ol>
                   </nav>
@@ -40,7 +40,7 @@
                   @csrf
                   <div class="card-style mb-30">
                     <div class="input-style-3" style="display: flex; justify-content: right">
-                      <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Create</button>
+                      <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Saqlash</button>
                     </div>
                     <div class="input-style-1">
                       <label>F.I.O.</label>
@@ -83,7 +83,7 @@
                       </div>
                     </div>
                     <div class="select-style-1">
-                      <label>Worker</label>
+                      <label>Ishchi</label>
                       <div class="select-position">
                         <select name="worker_id">
                           @foreach ($workers as $item)
@@ -91,7 +91,7 @@
                           @endforeach
                         </select>
                         @error('worker_id')
-                            <div class="alert alert-danger">{{ $message }}</div>
+                          <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                       </div>
                     </div>

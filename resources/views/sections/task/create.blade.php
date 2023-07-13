@@ -6,7 +6,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Create Task</h2>
+                  <h2>Topshiriq Qo'shish</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -15,11 +15,11 @@
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item">
-                        <a href="{{ route('group.index') }}">Dashboard</a>
+                        <a href="{{ route('group.index') }}">Bosh sahifa</a>
                       </li>
-                      <li class="breadcrumb-item"><a href="{{ route('task.index') }}">Tasks</a></li>
+                      <li class="breadcrumb-item"><a href="{{ route('task.index') }}">Topshiriqlar</a></li>
                       <li class="breadcrumb-item active" aria-current="page">
-                        Create
+                        Yaratish
                       </li>
                     </ol>
                   </nav>
@@ -40,12 +40,12 @@
                   @csrf
                   <div class="card-style mb-30">
                     <div class="input-style-3" style="display: flex;   justify-content: right">
-                      <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Create</button>
+                      <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Saqlash</button>
                     </div>
                     <div class="row">
                       <div class="col-xxl-4">
                         <div class="select-style-1">
-                          <label>Group</label>
+                          <label>Guruh</label>
                           <div class="select-position">
                             <select name="group_id">
                               @foreach ($groups as $group)
@@ -57,7 +57,7 @@
                       </div>
                       <div class="col-xxl-4">
                         <div class="select-style-1">
-                          <label>Compony</label>
+                          <label>Tashkilot </label>
                           <div class="select-position">
                             <select name="company_id">
                               @foreach ($companies as $compony)
@@ -69,7 +69,7 @@
                       </div>
                       <div class="col-xxl-4">
                         <div class="input-style-1">
-                          <label>Date</label>
+                          <label>Sana</label>
                           <input type="date" name="date" placeholder="City" />
                           @error('date')
                               <div class="alert alert-danger">{{ $message }}</div>

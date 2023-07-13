@@ -7,7 +7,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Groups</h2>
+                  <h2>Guruhlar</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -16,10 +16,10 @@
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item">
-                        <a href="#0">Dashboard</a>
+                        <a href="#0">Bosh sahifa</a>
                       </li>
                       <li class="breadcrumb-item active" aria-current="page">
-                        Geroups
+                        Guruhlar
                       </li>
                     </ol>
                   </nav>
@@ -38,10 +38,9 @@
               <!-- end col -->
               <div class="col-lg-12">
                 <div class="card-style mb-30">
-                  <h6 class="mb-10">Table for Groups</h6>
+                  <h6 class="mb-10">Guruhlar Jadvali</h6>
                   <a href="{{ route('group.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover"
-                  >Add Group</a
-                >
+                  >Guruh Qo'shish</a>
 
                 @if (!empty($groups->all()))
                          <div class="table-wrapper table-responsive">
@@ -49,12 +48,11 @@
                       <thead>
                         <tr>
                           <th></th>
-                          <th><h6>Title</h6></th>
-                          <th><h6>Count Workers</h6></th>
-                          <th><h6>Tasks</h6></th>
-                          <th><h6>Update </h6></th>
-                            
-                          <th><h6> Deete</h6></th>
+                          <th><h6>Nomi</h6></th>
+                          <th><h6>Hodimlar soni</h6></th>
+                          <th><h6>Topshiriqlar soni</h6></th>
+                          <th><h6>O'zgartirish </h6></th>
+                          <th><h6>O'chirish</h6></th>
                         </tr>
                         <!-- end table row-->
                       </thead>
@@ -107,7 +105,7 @@
                 @else
                 <div class="input-style-3" style="display: flex; justify-content: center">
                   <h2>
-                    Not Group
+                    Guruh Topilmadi
                   </h2>
                 </div>
                 @endif

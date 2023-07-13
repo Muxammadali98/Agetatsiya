@@ -6,7 +6,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Update City</h2>
+                  <h2>Shaharni o'zgartirish</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -15,11 +15,11 @@
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item">
-                        <a href="{{ route('group.index') }}">Dashboard</a>
+                        <a href="{{ route('group.index') }}">Bosh sahifa</a>
                       </li>
-                      <li class="breadcrumb-item"><a href="{{ route('city.index') }}">Cities</a></li>
+                      <li class="breadcrumb-item"><a href="{{ route('city.index') }}">Shaharlar</a></li>
                       <li class="breadcrumb-item active" aria-current="page">
-                        Update
+                        O'zgartirish
                       </li>
                     </ol>
                   </nav>
@@ -44,23 +44,16 @@
                       <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Update</button>
                     </div>
                     <div class="input-style-1">
-                      <label>Name city</label>
-                      <input type="text" value="{{ $city->name }}" name="name" placeholder="Name city" />
+                      <label>Shahar nomi</label>
+                      <input type="text" value="{{ $city->name }}" name="name" placeholder="Shahar nomi" />
                       @error('name')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
-
-                 
                   </div>
                   <!-- end col -->
-
-
-         
-
                 </form>
                 <!-- end card -->
-
             </div>
             <!-- end row -->
           </div>

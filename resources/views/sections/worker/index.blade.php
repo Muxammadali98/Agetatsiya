@@ -7,7 +7,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Tables</h2>
+                  <h2>Hodimlar</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -16,10 +16,10 @@
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item">
-                        <a href="#0">Dashboard</a>
+                        <a href="#0">Bosh sahifa</a>
                       </li>
                       <li class="breadcrumb-item active" aria-current="page">
-                        Workers
+                        Hodimlar
                       </li>
                     </ol>
                   </nav>
@@ -38,24 +38,21 @@
               <!-- end col -->
               <div class="col-lg-12">
                 <div class="card-style mb-30">
-                  <h6 class="mb-10">Table for Workers</h6>
-                  <a href="{{ route('worker.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover"
-                  >Add Worker</a
-                >
-
+                  <h6 class="mb-10">Hodimlar Jadvali</h6>
+                  <a href="{{ route('worker.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover">Hodim Qo'shish</a>
                 @if (!empty($workers->all()))
                   <div class="table-wrapper table-responsive">
                     <table class="table striped-table">
                       <thead>
                           <tr>
-                            <th><h6>Name</h6></th>
-                            <th><h6>Surname</h6></th>
-                            <th><h6>Group Name</h6></th>
-                            <th><h6>Job Title</h6></th>
-                            <th><h6>City Name</h6></th>
-                            <th><h6>Address</h6></th>
-                            <th><h6> Show</h6></th>
-                            <th><h6> Delete</h6></th>
+                            <th><h6>Nomi</h6></th>
+                            <th><h6>Familya</h6></th>
+                            <th><h6>Guruh Nomi</h6></th>
+                            <th><h6>Lavozimi</h6></th>
+                            <th><h6>Shahar Nomi</h6></th>
+                            <th><h6>Manzil</h6></th>
+                            <th><h6> O'zgartirish</h6></th>
+                            <th><h6>O'chirish</h6></th>
                           </tr>
                         <!-- end table row-->
                       </thead>
@@ -81,10 +78,10 @@
                             <p>{{ $worker->surname }}</p>
                           </td>
                           <td>
-                            <p>{{ is_null($worker->group_id)? 'Not group' : $worker->group->title }}</p>
+                            <p>{{ is_null($worker->group_id)? 'Guruh Mavjut emas' : $worker->group->title }}</p>
                           </td>
                           <td>
-                            <p>{{ $worker->job_title==0? 'Worker' : 'Leader' }}</p>
+                            <p>{{ $worker->job_title==0? 'Hodim' : 'Sardor' }}</p>
                           </td>
                           <td>
                             <p>{{ is_null($worker->city_id)? 'Not city' : $worker->city->name }}</p>

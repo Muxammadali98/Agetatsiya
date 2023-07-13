@@ -6,7 +6,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Create Status</h2>
+                  <h2>Guruhga Bildirishnoma Jonatish</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -15,11 +15,11 @@
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item">
-                        <a href="{{ route('group.index') }}">Dashboard</a>
+                        <a href="{{ route('group.index') }}">Bosh sahifa</a>
                       </li>
-                      <li class="breadcrumb-item"><a href="{{ route('notification.index') }}">Notification</a></li>
+                      <li class="breadcrumb-item"><a href="{{ route('notification.index') }}">Bildirishnoma</a></li>
                       <li class="breadcrumb-item active" aria-current="page">
-                        Create
+                        Yaratish
                       </li>
                     </ol>
                   </nav>
@@ -43,7 +43,7 @@
                     <div style="display: flex; align-items: center; justify-content: space-between">
                     <div class="col-xxl-4">
                       <div class="select-style-1">
-                        <label>Group</label>
+                        <label>Guruh</label>
                         <div class="select-position">
                           <select name="group_id">
                             @foreach ($groups as $group)
@@ -54,13 +54,13 @@
                       </div>
                     </div>
                     <div class="input-style-3" style="display: flex; justify-content: right">
-                      <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Send</button>
+                      <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Jo'natish</button>
                     </div>
                     <input type="hidden" name="type" value="g">
                     </div>
                     <div class="input-style-1">
-                      <label>Text </label>
-                      <input type="text" name="text"  placeholder="Text" />
+                      <label>Matin </label>
+                      <input type="text" name="text"  placeholder="Matin" />
                       @error('text')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror

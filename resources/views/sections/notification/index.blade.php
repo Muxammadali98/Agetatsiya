@@ -7,7 +7,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>notifications</h2>
+                  <h2>Bildirishnomalar</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -16,10 +16,10 @@
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item">
-                        <a href="{{ route('status.index') }}">Dashboard</a>
+                        <a href="{{ route('status.index') }}">Bosh sahifa</a>
                       </li>
                       <li class="breadcrumb-item active" aria-current="page">
-                        notifications
+                        Bildirishnomalar
                       </li>
                     </ol>
                   </nav>
@@ -38,9 +38,9 @@
               <!-- end col -->
               <div class="col-lg-12">
                 <div class="card-style mb-30">
-                  <h6 class="mb-10">Table for notifications</h6>
-                  <a href="{{ route('createGroup') }}" style="padding: 5px" class="main-btn primary-btn btn-hover m-3">Notification to Group</a>
-                  <a href="{{ route('notification.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover m-3">Notification to Workers</a>
+                  <h6 class="mb-10">Bildirishnomalar Jadvali</h6>
+                  <a href="{{ route('createGroup') }}" style="padding: 5px" class="main-btn primary-btn btn-hover m-3">Bildirishnoma Guruh uchun</a>
+                  <a href="{{ route('notification.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover m-3">Bildirishnoma Hodimlar uchun</a>
 
                 @if (!empty($notifications->all()))
                   <div class="table-wrapper table-responsive">
@@ -48,12 +48,12 @@
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th><h6>Text Notification</h6></th>
-                          <th><h6>Type Notification</h6></th>
+                          <th><h6>Bildirishnoma matni</h6></th>
+                          <th><h6>Bildirishnoma Turi</h6></th>
                   
                           {{-- <th><h6>Update </h6></th> --}}
                             
-                          <th><h6> Deete</h6></th>
+                          <th><h6> O'chirish</h6></th>
                         </tr>
                         <!-- end table row-->
                       </thead>
@@ -113,7 +113,7 @@
                 @else
                 <div class="input-style-3" style="display: flex; justify-content: center">
                   <h2>
-                    Not status
+                    Bildirishnoma Topilmadi
                   </h2>
                 </div>
                 @endif

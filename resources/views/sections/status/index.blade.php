@@ -7,7 +7,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>statuses</h2>
+                  <h2>Holatlar (Statuses)</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -16,10 +16,10 @@
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item">
-                        <a href="{{ route('status.index') }}">Dashboard</a>
+                        <a href="{{ route('status.index') }}">Bosh sahifa</a>
                       </li>
                       <li class="breadcrumb-item active" aria-current="page">
-                        statuses
+                        Holatlar
                       </li>
                     </ol>
                   </nav>
@@ -38,9 +38,8 @@
               <!-- end col -->
               <div class="col-lg-12">
                 <div class="card-style mb-30">
-                  <h6 class="mb-10">Table for statuses</h6>
-                  <a href="{{ route('status.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover"
-                  >Add status</a
+                  <h6 class="mb-10">Holatlar (Statuses) Jadvali</h6>
+                  <a href="{{ route('status.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover">Holat Qo'shish</a
                 >
 
                 @if (!empty($statuses->all()))
@@ -49,11 +48,11 @@
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th><h6>status's Name</h6></th>
+                          <th><h6>Holat Nomi</h6></th>
                   
-                          <th><h6>Update </h6></th>
+                          <th><h6>O'zgartirish</h6></th>
                             
-                          <th><h6> Deete</h6></th>
+                          <th><h6>O'chirish</h6></th>
                         </tr>
                         <!-- end table row-->
                       </thead>
@@ -71,10 +70,8 @@
                             <td>
                               <p>{{ $status->title }}</p>
                             </td>
-
                             <td>
                               <div class="action">
-                             
                                 <a href="{{ route('status.edit', $status->id) }}" class="text-warning fs-5  ">
                                     <i class="lni lni-eye"></i>
                                 </a>
@@ -101,7 +98,7 @@
                 @else
                 <div class="input-style-3" style="display: flex; justify-content: center">
                   <h2>
-                    Not status
+                    Holat (Status) Topilmadi
                   </h2>
                 </div>
                 @endif

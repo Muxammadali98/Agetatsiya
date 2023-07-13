@@ -7,7 +7,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Company</h2>
+                  <h2>Tashkilot</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -16,10 +16,10 @@
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item">
-                        <a href="{{ route('group.index') }}">Dashboard</a>
+                        <a href="{{ route('group.index') }}">Bosh sahifa</a>
                       </li>
                       <li class="breadcrumb-item active" aria-current="page">
-                        Company
+                        Tashkilot
                       </li>
                     </ol>
                   </nav>
@@ -38,9 +38,9 @@
               <!-- end col -->
               <div class="col-lg-12">
                 <div class="card-style mb-30">
-                  <h6 class="mb-10">Table for Company</h6>
+                  <h6 class="mb-10">Tashkilotlar Jadvali</h6>
                   <a href="{{ route('company.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover"
-                  >Add Company</a
+                  >Tashkilot Qo'shish</a
                 >
 
                 @if (!empty($companies->all()))
@@ -49,14 +49,14 @@
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th><h6>Company Name</h6></th>
-                          <th><h6>Address</h6></th>
-                          <th><h6>Images</h6></th>
+                          <th><h6>Tashkilot Nomi</h6></th>
+                          <th><h6>Manzil</h6></th>
+                          <th><h6>Rasmlar</h6></th>
                 
                   
-                          <th><h6>Update </h6></th>
+                          <th><h6>O'zgartirish</h6></th>
                             
-                          <th><h6> Deete</h6></th>
+                          <th><h6>O'chirish</h6></th>
                         </tr>
                         <!-- end table row-->
                       </thead>
@@ -116,7 +116,7 @@
                 @else
                 <div class="input-style-3" style="display: flex; justify-content: center">
                   <h2>
-                    Not company
+                    Tashkilot Topilmadi
                   </h2>
                 </div>
                 @endif

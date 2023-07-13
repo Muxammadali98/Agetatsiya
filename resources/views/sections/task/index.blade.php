@@ -7,7 +7,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Task</h2>
+                  <h2>Topshiriqlar</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -16,10 +16,10 @@
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item">
-                        <a href="{{ route('group.index') }}">Dashboard</a>
+                        <a href="{{ route('group.index') }}">Bosh sahifa</a>
                       </li>
                       <li class="breadcrumb-item active" aria-current="page">
-                        Task
+                        Topshiriqlar
                       </li>
                     </ol>
                   </nav>
@@ -40,8 +40,8 @@
                 <div class="card-style mb-30">
                   <div class="row">
                     <div class="col-6">
-                      <h6 class="mb-10">Table for Task</h6>
-                      <a href="{{ route('task.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover">Add Task</a>
+                      <h6 class="mb-10">Topshiriqlar Jadvali</h6>
+                      <a href="{{ route('task.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover">Topshiriq Qo'shish</a>
                     </div>
 
                     <form class="col-6"  action="{{ route('filterTask') }}" method="GET" style="display: flex; justify-content: flex-end; flex-direction: column;">
@@ -49,10 +49,10 @@
                       <div class="row col-lg-12">
                           <div class="col-xxl-3">
                             <div class="select-style-1">
-                              <label>Groups</label>
+                              <label> Guruhlar  </label>
                               <div class="select-position">
                                 <select name="group_id">
-                                  <option value="">All</option>
+                                  <option value="">Barchasi</option>
                                   @foreach ($groups as $group)
                                   <option {{ !empty($_GET['group_id'])&&$_GET['group_id']==$group->id? 'selected':''; }} value="{{ $group->id }}">{{ $group->title }}</option>
                                   @endforeach
@@ -60,12 +60,13 @@
                               </div>
                             </div>
                           </div>
+
                           <div class="col-xxl-3">
                             <div class="select-style-1">
                               <label>Compony</label>
                               <div class="select-position">
                                 <select name="company_id">
-                                  <option value="">All</option>
+                                  <option value="">Barchasi</option>
                                   @foreach ($companies as $compony)
                                   <option {{ !empty($_GET['company_id'])&&$_GET['company_id']==$compony->id? 'selected':''; }} value="{{ $compony->id }}">{{ $compony->title }}</option>
                                   @endforeach
@@ -73,18 +74,20 @@
                               </div>
                             </div>
                           </div>
+
                           <div class="col-xxl-3">
                             <div class="select-style-1">
                               <label>Status</label>
                               <div class="select-position">
                                 <select name="status_id">
-                                  <option value="">All</option>
-                                  <option {{ !empty($_GET['status_id'])&&$_GET['status_id']==1? 'selected':''; }} value="{{ 1 }}">Finished</option>
-                                  <option {{ isset($_GET['status_id'])&&$_GET['status_id']==0? 'selected':''; }} value="{{ 0 }}">Un Finished</option>
+                                  <option value="">Barchasi</option>
+                                  <option {{ !empty($_GET['status_id'])&&$_GET['status_id']==1? 'selected':''; }} value="{{ 1 }}">Tugatilgan</option>
+                                  <option {{ isset($_GET['status_id'])&&$_GET['status_id']==0? 'selected':''; }} value="{{ 0 }}">Tugatilamagan</option>
                                 </select>
                               </div>
                             </div>
                           </div>
+
                           <div class="col-xxl-3" style="display: flex; align-items: center" >
                             <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Filter</button>
                           </div>
@@ -99,14 +102,14 @@
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th><h6> Geroups</h6></th>
-                          <th><h6> Companies</h6></th>
-                          <th><h6> Date</h6></th>
+                          <th><h6> Guruhlar</h6></th>
+                          <th><h6> Tashkilotlar</h6></th>
+                          <th><h6> Sana</h6></th>
                           <th><h6> Status</h6></th>
                   
-                          <th><h6>Update </h6></th>
+                          <th><h6>O'zgartirish </h6></th>
                             
-                          <th><h6> Deete</h6></th>
+                          <th><h6> O'chirish</h6></th>
                         </tr>
                         <!-- end table row-->
                       </thead>
@@ -163,7 +166,7 @@
                 @else
                 <div class="input-style-3" style="display: flex; justify-content: center">
                   <h2>
-                    Not Task
+                    Topshiriq Topilmadi
                   </h2>
                 </div>
                 @endif

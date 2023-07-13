@@ -11,7 +11,7 @@
     />
 
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 
     <title>@yield('title')</title>
 
@@ -22,6 +22,9 @@
     <link rel="stylesheet" href="/assets/css/fullcalendar.css" />
     <link rel="stylesheet" href="/assets/css/fullcalendar.css" />
     <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="/build/assets/app-9273b9a5.css">
+    <link rel="stylesheet" href="/build/manifest.json">
+
     @livewireStyles()
   </head>
   <body>
@@ -214,7 +217,7 @@
                   >
                     <li>
                       <a href="/profile">
-                        <i class="lni lni-user"></i> Shxasiy ma'lumotlar
+                        <i class="lni lni-user"></i> Shaxsiy ma'lumotlar
                       </a>
                     </li>
                     
@@ -289,6 +292,8 @@
     <script src="/assets/js/polyfill.js"></script>
     <script src="/assets/js/main.js"></script>
     <script src="/livewire/livewire.js"></script>
+
+    <script src="/build/assets/app-9cb9ba1b.js"></script>
 
 
 

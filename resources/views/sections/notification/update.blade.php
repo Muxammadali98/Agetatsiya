@@ -6,7 +6,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Update status</h2>
+                  <h2>Bildirishnomani O'zgartirish</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -15,11 +15,11 @@
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item">
-                        <a href="{{ route('group.index') }}">Dashboard</a>
+                        <a href="{{ route('group.index') }}">Bosh sahifa</a>
                       </li>
-                      <li class="breadcrumb-item"><a href="{{ route('status.index') }}">Cities</a></li>
+                      <li class="breadcrumb-item"><a href="{{ route('status.index') }}">Bildirishnomalar</a></li>
                       <li class="breadcrumb-item active" aria-current="page">
-                        Update
+                        O'zgartirish
                       </li>
                     </ol>
                   </nav>
@@ -41,7 +41,7 @@
                   @method('PATCH')
                   <div class="card-style mb-30">
                     <div class="input-style-3" style="display: flex; justify-content: right">
-                      <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover"> Update </button>
+                      <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover"> O'zgartirish </button>
                     </div>
                     <div class="input-style-1">
                       <label>Title</label>

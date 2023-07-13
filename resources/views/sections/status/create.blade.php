@@ -6,7 +6,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Create Status</h2>
+                  <h2>Holat(Status) Qo'shish</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -15,11 +15,11 @@
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item">
-                        <a href="{{ route('group.index') }}">Dashboard</a>
+                        <a href="{{ route('group.index') }}">Bosh sahifa</a>
                       </li>
-                      <li class="breadcrumb-item"><a href="{{ route('status.index') }}">Status</a></li>
+                      <li class="breadcrumb-item"><a href="{{ route('status.index') }}">Holatlar</a></li>
                       <li class="breadcrumb-item active" aria-current="page">
-                        Create
+                        Yaratish
                       </li>
                     </ol>
                   </nav>
@@ -43,8 +43,8 @@
                       <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Create</button>
                     </div>
                     <div class="input-style-1">
-                      <label>Title </label>
-                      <input type="text" name="title"  placeholder="Title" />
+                      <label>Nomi </label>
+                      <input type="text" name="title"  placeholder="Nomi" />
                       @error('title')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror

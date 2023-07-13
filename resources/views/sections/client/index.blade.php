@@ -7,7 +7,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Clients</h2>
+                  <h2>Mijozlar</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -16,10 +16,10 @@
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item">
-                        <a href="#0">Dashboard</a>
+                        <a href="#0">Bosh sahifa</a>
                       </li>
                       <li class="breadcrumb-item active" aria-current="page">
-                        Clients
+                        Mijozlar
                       </li>
                     </ol>
                   </nav>
@@ -40,8 +40,8 @@
                 <div class="card-style mb-30">
                   <div class="row">
                     <div class="col-6">
-                      <h6 class="mb-10">Table for clients</h6>
-                      <a href="{{ route('client.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover">Add Client</a>
+                      <h6 class="mb-10">Mijozlar Jadvali</h6>
+                      <a href="{{ route('client.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover">Mijoz Qo'shish</a>
                     </div>
                     
                     <form class="col-6"  action="{{ route('filterClient') }}" method="GET" style="display: flex; justify-content: flex-end; flex-direction: column;">
@@ -49,10 +49,10 @@
                       <div class="row col-lg-12">
                           <div class="col-xxl-3">
                             <div class="select-style-1">
-                              <label>Groups</label>
+                              <label>Guruhlar</label>
                               <div class="select-position">
                                 <select name="group_id">
-                                  <option value="">All</option>
+                                  <option value="">Barchasi</option>
                                   @foreach ($groups as $group)
                                   <option {{ !empty($_GET['group_id'])&&$_GET['group_id']==$group->id? 'selected':''; }} value="{{ $group->id }}">{{ $group->title }}</option>
                                   @endforeach
@@ -63,10 +63,10 @@
 
                           <div class="col-xxl-3">
                             <div class="select-style-1">
-                              <label>Status</label>
+                              <label>Holatlar(Status)</label>
                               <div class="select-position">
                                 <select name="status_id">
-                                  <option value="">All</option>
+                                  <option value="">Barchasi</option>
                                   @foreach ($statuses as $status)
                                   <option {{ !empty($_GET['status_id'])&&$_GET['status_id']==$status->id? 'selected':''; }} value="{{ $status->id }}">{{ $status->title }}</option>
                                   @endforeach
@@ -75,7 +75,7 @@
                             </div>
                           </div>
                           <div class="col-xxl-3" style="display: flex; align-items: center" >
-                            <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Filter</button>
+                            <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Saralash</button>
                           </div>
                   
                         </div>
@@ -91,15 +91,15 @@
                         <thead>
                           <tr>
                             <th>#</th>
-                            <th><h6>Title</h6></th>
-                            <th><h6>Phone</h6></th>
-                            <th><h6>Status</h6></th>
-                            <th><h6>Worker</h6></th>
-                            <th><h6>Group</h6></th>
-                            <th><h6>Comment</h6></th>
-                            <th><h6>Update </h6></th>
+                            <th><h6>F.I.O</h6></th>
+                            <th><h6>Tel raqami</h6></th>
+                            <th><h6>Holat(Status)</h6></th>
+                            <th><h6>Hodim</h6></th>
+                            <th><h6>Guruh nomi</h6></th>
+                            <th><h6>Izoh</h6></th>
+                            <th><h6>O'zgatirish </h6></th>
                               
-                            <th><h6> Delete</h6></th>
+                            <th><h6> O'chirish</h6></th>
                           </tr>
                           <!-- end table row-->
                         </thead>
@@ -161,7 +161,7 @@
                   @else
                 <div class="input-style-3" style="display: flex; justify-content: center">
                   <h2>
-                    Not client
+                    Mijozlar mavjud emas
                   </h2>
                 </div>
                 @endif

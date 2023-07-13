@@ -40,7 +40,7 @@
                 <div class="card-style mb-30">
                   <h6 class="mb-10">Shaharlar Jadvali</h6>
                   <a href="{{ route('city.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover"
-                  >Shahar qo'shish</a
+                  >Shahar Qo'shish</a
                 >
 
                 @if (!empty($cities->all()))

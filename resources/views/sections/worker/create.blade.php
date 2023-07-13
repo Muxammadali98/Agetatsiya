@@ -6,7 +6,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Create Group</h2>
+                  <h2>Hodim Qo'shish</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -15,11 +15,11 @@
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item">
-                        <a href="{{ route('group.index') }}">Dashboard</a>
+                        <a href="{{ route('group.index') }}">Bosh sahifa</a>
                       </li>
-                      <li class="breadcrumb-item"><a href="{{ route('worker.index') }}">Workers</a></li>
+                      <li class="breadcrumb-item"><a href="{{ route('worker.index') }}">Hodimlar</a></li>
                       <li class="breadcrumb-item active" aria-current="page">
-                        Create
+                        Yaratish
                       </li>
                     </ol>
                   </nav>
@@ -40,45 +40,45 @@
                   @csrf
                   <div class="card-style mb-30">
                     <div class="input-style-3" style="display: flex; justify-content: right">
-                      <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Create</button>
+                      <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Saqlash</button>
                     </div>
                     <div class="input-style-1">
-                      <label>Name</label>
-                      <input type="text" name="name"  placeholder="Name" />
+                      <label>Nomi</label>
+                      <input type="text" name="name"  placeholder="Nomi" />
                       @error('name')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
-                      <label>Surname</label>
-                      <input type="text" name="surname"  placeholder="Surname" />
+                      <label>Familya</label>
+                      <input type="text" name="surname"  placeholder="Familya" />
                       @error('surname')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
-                      <label>User Name</label>
+                      <label>Foydalanuvchi Nomi</label>
                       <input type="text" name="username"  placeholder="Usernamel" />
                       @error('username')
                       <div class="alert alert-danger">{{ $message }}</div>
                   @enderror
                     </div>
                     <div class="input-style-1">
-                      <label>Phone </label>
+                      <label>Telefon Raqami </label>
                       <input type="text" name="phone"  placeholder="+998907823396" />
                       @error('phone')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
-                      <label>Photo</label>
+                      <label>Rasim</label>
                       <input type="file" name="image" />
                       @error('image')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="select-style-1">
-                      <label>Cities</label>
+                      <label>Shahar</label>
                       <div class="select-position">
                         <select name="city_id">
                           @foreach ($cities as $city)
@@ -88,21 +88,21 @@
                       </div>
                     </div>
                     <div class="input-style-1">
-                      <label>Address</label>
+                      <label>Manzil</label>
                       <input type="text" name="address"  placeholder="Address " />
                       @error('address')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
-                      <label>Password</label>
+                      <label>Parol</label>
                       <input type="password" name="password"  placeholder="password " />
                       @error('password')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
-                      <label>Confirmation Password</label>
+                      <label>Parolni aytadan kiriting</label>
                       <input type="password" name="confirm_password"  placeholder="Confirmation password" />
                       @error('confirm_password')
                           <div class="alert alert-danger">{{ $message }}</div>

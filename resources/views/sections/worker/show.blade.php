@@ -6,7 +6,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="titlemb-30">
-                  <h2>Profile</h2>
+                  <h2>Hodimni O'zgartirish</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -15,11 +15,11 @@
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item">
-                        <a href="{{ route('group.index') }}">Dashboard</a>
+                        <a href="{{ route('group.index') }}">Bosh sahifa</a>
                       </li>
-                      <li class="breadcrumb-item"><a href="{{ route('worker.index') }}">Workers</a></li>
+                      <li class="breadcrumb-item"><a href="{{ route('worker.index') }}">Hodimlar</a></li>
                       <li class="breadcrumb-item active" aria-current="page">
-                        Profile
+                        O'zgartirish
                       </li>
                     </ol>
                   </nav>
@@ -43,7 +43,7 @@
                     align-items-center
                   "
                 >
-                  <h6> Profile</h6>
+                  <h6> Hodim</h6>
 
                 </div>
                 <div class="profile-info">
@@ -68,7 +68,7 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="input-style-1">
-                                    <label>Name*</label>
+                                    <label>Nomi*</label>
                                     <input
                                     name="name"
                                     type="text"
@@ -76,7 +76,7 @@
                                     />
                                 </div>
                                 <div class="input-style-1">
-                                    <label>Surname*</label>
+                                    <label>Familya*</label>
                                     <input
                                     name="surname"
                                     type="text"
@@ -84,7 +84,7 @@
                                     />
                                 </div>                                
                                 <div class="input-style-1">
-                                    <label>Username*</label>
+                                    <label>Foydalanuvchi nomi*</label>
                                     <input
                                     name="username"
                                     type="text"
@@ -92,10 +92,10 @@
                                     />
                                 </div>                                
                                 <div class="select-style-1">  
-                                  <label>Group</label>
+                                  <label>Guruhlar</label>
                                   <div class="select-position">
                                     <select name="group_id" class="light-bg">
-                                      <option value=""> Empty </option>
+                                      <option value=""> Bosh </option>
                                       @foreach ($groups as $group)
 
                                       <option {{ $group->id == $worker->group_id?'selected':'' }} value="{{ $group->id }}">{{ $group->title }}</option>
@@ -105,7 +105,7 @@
                                   </div>
                                 </div>           
                                 <div class="input-style-1">
-                                    <label>Password</label>
+                                    <label>Parol</label>
                                     <input 
                                     name="password"
                                     type="password" />
@@ -127,7 +127,7 @@
                                 </div>  
                     
                                 <div class="input-style-1">
-                                    <label>Address*</label>
+                                    <label>Manzili*</label>
                                     <input
                                     name="address"
                                     type="text"
@@ -135,29 +135,29 @@
                                     />
                                 </div>           
                                 <div class="select-style-1">
-                                  <label>Status*</label>
+                                  <label>Holati*</label>
                                   <div class="select-position">
                                     <select name="status" class="light-bg">
-                                      <option value=1>Active</option>
+                                      <option value=1>Tekshirilgan</option>
 
-                                      <option {{ 0 == $worker->status?'selected':'' }} value="0">Not Active</option>
+                                      <option {{ 0 == $worker->status?'selected':'' }} value="0">Tekshirilmagan</option>
                                           
                                     </select>
                                   </div>
                                 </div>
                                 <div class="select-style-1">
-                                  <label>Job Title*</label>
+                                  <label>Lavozimi*</label>
                                   <div class="select-position">
                                     <select name="job_title" class="light-bg">
-                                      <option value=1>Leader</option>
+                                      <option value=1>Sardor</option>
 
-                                      <option {{ 0 == $worker->job_title?'selected':'' }} value=0>Worker</option>
+                                      <option {{ 0 == $worker->job_title?'selected':'' }} value=0>Hodim</option>
                                           
                                     </select>
                                   </div>
                                 </div>
                                 <div class="input-style-1" style="display: flex; justify-content: right; margin-top: 70px ">
-                                    <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Save Change</button>
+                                    <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">O'zgarishlarni Saqlash</button>
                                 </div>
                             </div>
                         </div>

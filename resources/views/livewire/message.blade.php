@@ -10,7 +10,7 @@
     
             <div class="card">
               <div class="card-body">
-                <h5 class="font-weight-bold mb-3 text-center text-lg-start">Members</h5>
+                <h5 class="font-weight-bold mb-3 text-center text-lg-start">Hodimlar</h5>
 
                 <ul class="list-unstyled mb-0" style="height: 540px; overflow-y:auto">
                   {{-- <li class="p-2 border-bottom" style="background-color: #eee;">

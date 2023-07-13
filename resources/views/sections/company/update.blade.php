@@ -6,7 +6,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Update company</h2>
+                  <h2>Tashkilotni O'zgartirish</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -15,11 +15,11 @@
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item">
-                        <a href="{{ route('group.index') }}">Dashboard</a>
+                        <a href="{{ route('group.index') }}">Bosh sahifa</a>
                       </li>
-                      <li class="breadcrumb-item"><a href="{{ route('company.index') }}">Cities</a></li>
+                      <li class="breadcrumb-item"><a href="{{ route('company.index') }}">Tashkilotlar</a></li>
                       <li class="breadcrumb-item active" aria-current="page">
-                        Update
+                        O'zgartirish
                       </li>
                     </ol>
                   </nav>
@@ -42,24 +42,24 @@
                   @method('PUT')
        
                     <div class="input-style-3" style="display: flex; justify-content: right">
-                      <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Update</button>
+                      <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">O'zgartirish</button>
                     </div>
                     <div class="input-style-1">
-                      <label>Name  </label>
+                      <label>Nomi  </label>
                       <input type="text" value="{{ $company->title }}" name="title" placeholder="Name company" />
                       @error('title')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
-                      <label>Address  </label>
+                      <label>Manzil  </label>
                       <input type="text" value="{{ $company->address }}" name="address" placeholder="Fergana ..." />
                       @error('address')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
-                      <label>Images </label>
+                      <label>Rasmlar </label>
                       <input type="file" name="images[]" multiple  />
                     </div>
                   <!-- end col -->

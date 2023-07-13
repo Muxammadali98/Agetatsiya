@@ -6,7 +6,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Create Group</h2>
+                  <h2>Guruh Qo'shish</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -15,11 +15,11 @@
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item">
-                        <a href="{{ route('group.index') }}">Dashboard</a>
+                        <a href="{{ route('group.index') }}">Bosh sahifa</a>
                       </li>
-                      <li class="breadcrumb-item"><a href="{{ route('group.index') }}">Groups</a></li>
+                      <li class="breadcrumb-item"><a href="{{ route('group.index') }}">Guruhlar</a></li>
                       <li class="breadcrumb-item active" aria-current="page">
-                        Create
+                        Yaratish
                       </li>
                     </ol>
                   </nav>
@@ -40,11 +40,11 @@
                   @csrf
                   <div class="card-style mb-30">
                     <div class="input-style-3" style="display: flex; justify-content: right">
-                      <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Create</button>
+                      <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Saqlash</button>
                     </div>
                     <div class="input-style-1">
-                      <label>Title Group</label>
-                      <input type="text" name="title"  placeholder="Title Group" />
+                      <label>Guruh Nomi</label>
+                      <input type="text" name="title"  placeholder="Guruh Nomi" />
                       @error('title')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
@@ -52,9 +52,9 @@
          
                     <div class="card-style mb-30">
                       @if (!empty($workers->all()))
-                          <h6 class="mb-10">Select Workers</h6>
+                          <h6 class="mb-10">Hodimlarni tanlang</h6>
                       @else
-                      <h4 class="mb-10"><a href="{{ route('worker.create') }}">Create Workers </a> </h4>
+                      <h4 class="mb-10"><a href="{{ route('worker.create') }}">Hodim yaratish </a> </h4>
                       @endif
                       
              
@@ -64,10 +64,10 @@
                           <thead>
                             <tr>
                               <th></th>
-                              <th><h6>Name</h6></th>
-                              <th><h6>Surname</h6></th>
-                              <th><h6>City</h6></th>
-                              <th><h6>Address</h6></th>
+                              <th><h6>Nomi</h6></th>
+                              <th><h6>Familya</h6></th>
+                              <th><h6>Shahar</h6></th>
+                              <th><h6>Manzil</h6></th>
                             </tr>
                             <!-- end table row-->
                           </thead>
@@ -113,7 +113,7 @@
                 
                         <div class="input-style-3" style="display: flex; justify-content: center">
                           <h2>
-                            Not Workers
+                            Hodim Topilmadi
                           </h2>
                         </div>
                         @endif

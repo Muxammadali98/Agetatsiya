@@ -6,7 +6,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Update Task</h2>
+                  <h2>Topshiriqni O'zgartirish</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -15,11 +15,11 @@
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item">
-                        <a href="{{ route('group.index') }}">Dashboard</a>
+                        <a href="{{ route('group.index') }}">Bosh sahifa</a>
                       </li>
-                      <li class="breadcrumb-item"><a href="{{ route('task.index') }}">Tasks</a></li>
+                      <li class="breadcrumb-item"><a href="{{ route('task.index') }}">Topshiriqlar</a></li>
                       <li class="breadcrumb-item active" aria-current="page">
-                        Update
+                        O'zgartirish
                       </li>
                     </ol>
                   </nav>
@@ -46,7 +46,7 @@
                     <div class="row">
                       <div class="col-xxl-4">
                         <div class="select-style-1">
-                          <label>Group</label>
+                          <label>Guruh</label>
                           <div class="select-position">
                             <select name="group_id">
                               @foreach ($groups as $group)
@@ -58,7 +58,7 @@
                       </div>
                       <div class="col-xxl-4">
                         <div class="select-style-1">
-                          <label>Compony</label>
+                          <label>Tashkilot</label>
                           <div class="select-position">
                             <select name="company_id">
                               @foreach ($companies as $compony)
@@ -70,7 +70,7 @@
                       </div>
                       <div class="col-xxl-4">
                         <div class="input-style-1">
-                          <label>Date</label>
+                          <label>Sana</label>
                           <input type="date" value="{{ $task->date }}" name="date" placeholder="City" />
                           @error('date')
                               <div class="alert alert-danger">{{ $message }}</div>
@@ -82,7 +82,7 @@
                     <div class="row">
                       <div >
 
-                        <label for="">Close Task</label>
+                        <label for="">Bajarilgan </label>
                         <input {{ $task->status == 1?'checked':'' }} value="1" type="checkbox" name="status">
                       </div>
                     </div>
@@ -97,7 +97,7 @@
                 </form>
                 <!-- end card -->
 
-                <h6>Clients</h6>
+                <h6>Mijozlar</h6>
                 <div class="card-style mb-30">
                   <div class="table-wrapper table-responsive">
                     @if(!empty($task->clients->all()))
@@ -105,10 +105,10 @@
                       <thead>
                         <tr>
                           <th></th>
-                          <th><h6>Title</h6></th>
-                          <th><h6>Status</h6></th>
-                          <th><h6>Phone</h6></th>
-                          <th><h6>Comment</h6></th>
+                          <th><h6>Nomi</h6></th>
+                          <th><h6>Holat</h6></th>
+                          <th><h6>Tel Raqami</h6></th>
+                          <th><h6>Izoh</h6></th>
                         </tr>
                         <!-- end table row-->
                       </thead>
@@ -156,7 +156,7 @@
             
                     <div class="input-style-3" style="display: flex; justify-content: center">
                       <h2>
-                        Not Clients
+                        Mijozlar Mavjud emas
                       </h2>
                     </div>
                     @endif
