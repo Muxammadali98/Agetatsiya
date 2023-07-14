@@ -52,7 +52,7 @@
                         @method('PUT')
                         <div class="d-flex align-items-center mb-30">
                             <div class="profile-image">
-                            <img height="75px" width="75px" src="{{ '/images/'.$worker->image}}" alt="" />
+                            <img style="height: 75px; width: 75px" src="{{ '/images/'.$worker->image}}" alt="" />
                             <div class="update-image">
                                 <input name="image" type="file" id="image"/>
                                 <label for="image"

@@ -41,6 +41,4 @@ class NotifiAdminEvent implements ShouldBroadcast
         ];
     }
 
-
-
 }

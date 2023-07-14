@@ -24,8 +24,8 @@ return new class extends Migration
             $table->string('password');
             $table->unsignedBigInteger('group_id')->nullable();
             $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');
-            $table->boolean('status')->nullable()->default(false);
-            $table->boolean('job_title')->nullable()->default(false);
+            $table->integer('status')->nullable()->default(0);
+            $table->integer('job_title')->nullable()->default(0);
             $table->softDeletes();
             $table->timestamps();
         });
