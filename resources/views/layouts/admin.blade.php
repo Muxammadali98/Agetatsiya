@@ -38,19 +38,17 @@
         <ul>
           <li class="nav-item">
             <a href="{{ route('group.index') }}">
-        
               <span class="text">Guruhlar</span>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{ route('city.index') }}">
-        
               <span class="text">Shaharlar</span>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{ route('worker.index') }}">
-              <span class="text">Ishchilar</span>
+              <span class="text">Hodimlar</span>
             </a>
           </li>
           <li class="nav-item">

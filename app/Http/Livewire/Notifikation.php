@@ -24,7 +24,7 @@ class Notifikation extends Component
     // }
 
     public function mount(){
-        $this->chats = Chat::whereNotNull('message')->orWhere('user_id',auth()->id())->whereNull('user_id')->orderBy('updated_at','DESC')->get();
+        $this->chats = Chat::whereNotNull('message')->where('user_id',auth()->id())->whereNull('user_id')->orderBy('updated_at','DESC')->get();
 
         $this->count = array_sum(array_column($this->chats->toArray(),'message'));   
         

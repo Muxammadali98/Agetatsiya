@@ -134,19 +134,17 @@
                               <p>{{ $task->date }}</p>
                             </td>
                             <td>
-                              <p>{{ $task->status? 'Finished':'Un Finished' }}</p>
+                              <p>{{ $task->status? 'Tugatilgan':'Tugatilmagan' }}</p>
                             </td>
-
                             <td>
                               <div class="action">
-                             
                                 <a href="{{ route('task.edit', $task->id) }}" class="text-warning fs-5  ">
                                     <i class="lni lni-eye"></i>
                                 </a>
                               </div>
-                              </td>
-                              <td>
-                                <div class="action">
+                            </td>
+                            <td>
+                              <div class="action">
                                 <form action="{{ route('task.destroy', $task->id) }}" method="POST">
                                   @csrf
                                   @method('DELETE')
