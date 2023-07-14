@@ -14,7 +14,6 @@
         <link rel="stylesheet" href="/build/manifest.json">
 
         <!-- Scripts -->
-        {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
@@ -34,6 +33,6 @@
                 {{ $slot }}
             </main>
         </div>
-        <script src="/build/assets/app-9cb9ba1b.js"></script>
     </body>
+    <script src="/build/assets/app-9cb9ba1b.js"></script>
 </html>
