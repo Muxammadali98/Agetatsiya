@@ -43,26 +43,20 @@ class TaskImageController extends Controller
             Log::info(count($request->images));
 
             foreach($request->images as $base64Image){
+                // $base64Image = "data:image/png;base64,".$base64Image; 
+                // list($type, $base64Data) = explode(';', $base64Image);
+                // list(, $base64Data) = explode(',', $base64Data);
+                // $imageData = base64_decode($base64Data);
+                // $filename = uniqid() . '.png';
+                // file_put_contents(public_path('images'). '/'. $filename, $imageData);
 
 
-                Log::info( gettype($base64Image));
-               
-
-
-                $base64Image = "data:image/png;base64,".$base64Image; 
-          
-                list($type, $base64Data) = explode(';', $base64Image);
-                list(, $base64Data) = explode(',', $base64Data);
-
-                
-
-                $imageData = base64_decode($base64Data);
-                $filename = uniqid() . '.png';
-
-                file_put_contents(public_path('images'). '/'. $filename, $imageData);
+                $imageName = time().'.'.$base64Image->getClientOriginalName();
+                $base64Image->move(public_path('images'), $imageName);
+                $data['image'] = $imageName;
 
                 
-                $data['image']=$filename;
+                $data['image']=$imageName;
                 TaskImage::create($data);
             }
     

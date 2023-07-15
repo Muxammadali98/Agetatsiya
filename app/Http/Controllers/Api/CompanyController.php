@@ -44,17 +44,18 @@ class CompanyController extends Controller
 
             foreach($request->images as $base64Image){
         
-                $base64Image = "data:image/png;base64,".$base64Image; 
-          
-                list($type, $base64Data) = explode(';', $base64Image);
-                list(, $base64Data) = explode(',', $base64Data);
+                // $base64Image = "data:image/png;base64,".$base64Image; 
+                // list($type, $base64Data) = explode(';', $base64Image);
+                // list(, $base64Data) = explode(',', $base64Data);
+                // $imageData = base64_decode($base64Data);
+                // $filename = uniqid() . '.png';
+                // file_put_contents(public_path('images'). '/'. $filename, $imageData);
 
-                $imageData = base64_decode($base64Data);
-                $filename = uniqid() . '.png';
+                $imageName = time().'.'.$base64Image->getClientOriginalName();
+                $base64Image->move(public_path('images'), $imageName);
+                $data['image'] = $imageName;
 
-                file_put_contents(public_path('images'). '/'. $filename, $imageData);
-
-                Image::create(['image'=>$filename, 'company_id'=>$company->id]);
+                Image::create(['image'=>$imageName, 'company_id'=>$company->id]);
             }
     
         }
