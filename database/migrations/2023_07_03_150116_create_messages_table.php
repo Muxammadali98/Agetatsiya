@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->boolean('is_admin');
+            $table->boolean('is_admin')->nullable();
             $table->string('text');
             $table->string('chat_id');
             $table->softDeletes();
