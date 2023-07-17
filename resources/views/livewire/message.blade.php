@@ -47,7 +47,7 @@
                       <li class="p-2 border-bottom">
                         <a href="#" wire:click="getMessage({{ $chat->id }})" class="d-flex justify-content-between">
                           <div class="d-flex flex-row">
-                            <img style="height:60px; width:60px"  src="{{ !empty($message->chat->worker)?'/images/'. $chat->worker->image : '/assets/images/profile/image.png' }}" alt="avatar"
+                            <img style="height:60px; width:60px"  src="{{ !empty($message->chat->worker)?'/images/'. $chat->worker->image : '/assets/images/profile/man.png' }}" alt="avatar"
                               class="rounded-circle d-flex align-self-center me-3 shadow-1-strong" width="60">
                             <div class="pt-1">
                               <div style="display: flex">
@@ -108,7 +108,7 @@
                       <li  id="{{ $message->id }}" class="d-flex justify-content-start mb-4">
                   
     
-                        <img style="height:60px; width:60px" src="{{  !empty($message->chat->worker)?'/images/'.$message->chat->worker->image : '/assets/images/profile/man.png' }}" alt="avatar"
+                        <img style="height:60px; width:60px" src="{{  !empty($message->chat->worker->image)?'/images/'.$message->chat->worker->image : '/assets/images/profile/man.png' }}" alt="avatar"
                           class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" height="60px" width="60">
                         <div class="card w-100">
                           <div class="card-header d-flex justify-content-between p-3">
