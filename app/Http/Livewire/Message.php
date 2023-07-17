@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Events\MessageEvent;
+use App\Events\NotifiAdminEvent;
 use App\Models\Chat;
 use App\Models\Message as ModelsMessage;
 use Livewire\Component;
@@ -31,13 +32,14 @@ class Message extends Component
       
         $this->chatId = $id;
         $chat = $this->chats->where('id',$id)->first();
-        if($chat->message){
+        if(isset($chat->message)){
             $chat->message = null;
             $chat->timestamps = false;
             $chat->save();
         } 
         $this->messages = ModelsMessage::where('chat_id', $id)->orderBy('id', 'DESC')->get();
         $this->emit('eventChat');
+         event(new NotifiAdminEvent());
     }
 
 
@@ -52,6 +54,7 @@ class Message extends Component
         
         $this->chats = Chat::whereNull('user_id')->orWhere('user_id',auth()->id())->orderBy('updated_at', 'DESC')->get(); 
         if (isset($_GET['id'])) {
+
             $this->getMessage($_GET['id']);
         }
     }
@@ -70,6 +73,7 @@ class Message extends Component
             $this->chats = Chat::whereNull('user_id')->orWhere('user_id',auth()->id())->orderBy('updated_at', 'DESC')->get(); 
 
             $this->messages = ModelsMessage::where('chat_id', $this->chatId)->with('chat')->orderBy('id', 'DESC')->get();
+              
             $this->changeChat();
 
         }else{

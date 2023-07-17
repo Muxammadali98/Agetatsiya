@@ -13,14 +13,14 @@ use Illuminate\Queue\SerializesModels;
 class NotifiAdminEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-    public $data;
+    // public $data;
 
     /**
      * Create a new event instance.
      */
-    public function __construct($data)
+    public function __construct()
     {
-        $this->data = $data;
+       //
     }
 
     /**
@@ -28,17 +28,15 @@ class NotifiAdminEvent implements ShouldBroadcast
      *
      * @return array<int, \Illuminate\Broadcasting\Channel>
      */
-    public function broadcastOn(): array
+    public function broadcastOn()
     {
-        return [
-            new Channel('eventChat'),
-        ];
+        return new Channel('eventChat');
     }
-    public function broadcastWith()
-    {
-        return [
-            'data' => $this->data,
-        ];
-    }
+    // public function broadcastWith()
+    // {
+    //     return [
+    //         'data' => $this->data,
+    //     ];
+    // }
 
 }

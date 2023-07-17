@@ -25,11 +25,11 @@
                         >
 
 
-                        @foreach ($chats as $chat)
+                        @foreach ($notifi as $chat)
                             
                       
                           <li>
-                            <a  href="/chat?id={{ $chat->id }}">
+                            <a wire:clik="$refresh"  href="/chat?id={{ $chat->id }}">
                               <div class="image">
                                 <img src="{{!empty($chat->worker->image)?'/images/'. $chat->worker->image : '/assets/images/profile/man.png' }}" alt="" />
                               </div>

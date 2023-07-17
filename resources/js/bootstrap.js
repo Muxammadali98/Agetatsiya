@@ -63,9 +63,9 @@ channel.bind('App\\Events\\MyEvent', function(data) {
     Livewire.emit('eventCreated', data);
     Livewire.emit('eventChat', data);
 });
-// const chat = pusher.subscribe('eventChat');
+const chat = pusher.subscribe('eventChat');
 
 
-// chat.bind('App\\Events\\NotifiAdminEvent', function(data) {
-//     Livewire.emit('notifiNull',( data));
-// });
+chat.bind('App\\Events\\NotifiAdminEvent', function() {
+    Livewire.emit('notifiNull');
+});
