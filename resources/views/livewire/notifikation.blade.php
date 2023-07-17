@@ -31,7 +31,7 @@
                           <li>
                             <a  href="/chat?id={{ $chat->id }}">
                               <div class="image">
-                                <img src="{{ $chat->worker->image?'/images/'. $chat->worker->image : '/assets/images/profile/man.png' }}" alt="" />
+                                <img src="{{!empty($chat->worker->image)?'/images/'. $chat->worker->image : '/assets/images/profile/man.png' }}" alt="" />
                               </div>
                               <div class="content">
                                 <h6>{{ $chat->worker->name }}</h6>
