@@ -26,41 +26,13 @@ class Notifikation extends Component
 
     public function mount(){
         
-        $chat = Chat::query();
-        
-         $chat = $chat->whereNotNull('message');
-        
-        $chat = $chat->orWhere([
-            ['user_id', '=', null],
-            ['user_id', '=', auth()->id()],
-            ]);
-            
-        // $chat = $chat->whereNull('user_id')->orWhere('user_id',auth()->id());
-  
-      
-        $this->notifi = $chat->orderBy('updated_at','DESC')->get();
-        
-
-        
-        
-
+        $this->notifi = Chat::whereNull('user_id')->orWhere('user_id',auth()->id())->whereNotNull('message')->orderBy('updated_at', 'DESC')->get();
         $this->count = array_sum(array_column($this->notifi->toArray(),'message'));   
         
     }
     public function changeNotification(){
         
-        
-        $chat = Chat::query();
-        
-        $chat = $chat->whereNotNull('message');
-        $chat = $chat->orWhere([
-            ['user_id', '=', null],
-            ['user_id', '=', auth()->id()],
-            ]);
- 
-      
-        $this->notifi = $chat->orderBy('updated_at','DESC')->get();
-
+        $this->notifi = Chat::whereNull('user_id')->orWhere('user_id',auth()->id())->whereNotNull('message')->orderBy('updated_at', 'DESC')->get();
         $this->count = array_sum(array_column($this->notifi->toArray(),'message'));   
         
     }
