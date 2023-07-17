@@ -24,14 +24,14 @@ class Notifikation extends Component
     // }
 
     public function mount(){
-        $this->chats = Chat::whereNotNull('message')->orWhere('user_id',auth()->id())->whereNull('user_id')->orderBy('updated_at','DESC')->get();
+        $this->chats = Chat::orWhere('message',0)->orWhere('user_id',auth()->id())->whereNull('user_id')->orderBy('updated_at','DESC')->get();
 
         $this->count = array_sum(array_column($this->chats->toArray(),'message'));   
         
     }
     public function changeNotification(){
       
-        $this->chats = Chat::whereNotNull('message')->orWhere('user_id',auth()->id())->whereNull('user_id')->orderBy('updated_at','DESC')->get();
+        $this->chats = Chat::woWhwerw('message',0)->orWhere('user_id',auth()->id())->whereNull('user_id')->orderBy('updated_at','DESC')->get();
 
         $this->count = array_sum(array_column($this->chats->toArray(),'message'));   
         
