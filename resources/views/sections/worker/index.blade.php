@@ -63,7 +63,7 @@
                             <div class="lead">
                               <div class="lead-image">
                                 <img
-                                  src="{{ 'images/'.$worker->image }}"
+                                  src="{{ $worker->image?'/images/'. $worker->image : '/assets/images/profile/man.png' }}"
                                   alt=""
                                 />
                               </div>
