@@ -140,7 +140,7 @@
                     Send
                   </button>
                 </form>
-                <a href="#{{ $messages[0]->id }}" id="ok"></a>
+                <a href="#{{ $messages->first()->id }}" id="ok"></a>
             </div>
           @else
             <div class="col-md-6 col-lg-7 col-xl-8 " style="display: flex; justify-content: center; align-items: center; border:2px solid rgb(199, 191, 191); border-radius: 10px">

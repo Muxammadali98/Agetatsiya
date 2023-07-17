@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->boolean('is_admin')->nullable();
             $table->string('text');
-            $table->string('chat_id');
+            $table->integer('chat_id');
             $table->softDeletes();
             $table->timestamps();
         });

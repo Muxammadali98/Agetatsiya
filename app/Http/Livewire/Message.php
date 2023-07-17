@@ -70,7 +70,7 @@ class Message extends Component
             $this->chats = Chat::whereNull('user_id')->orWhere('user_id',auth()->id())->orderBy('updated_at', 'DESC')->get(); 
 
             $this->messages = ModelsMessage::where('chat_id', $this->chatId)->with('chat')->orderBy('id', 'DESC')->get();
-            $this->emit('eventChat');
+            $this->changeChat();
 
         }else{
 
@@ -95,7 +95,7 @@ class Message extends Component
 
         Chat::where('id',$this->chatId)->update(['user_id'=>auth()->id()]);
         event(new MessageEvent($message));
-        $this->emit('eventChat');
+        $this->changeChat();
         $this->text = '';
     }
 
