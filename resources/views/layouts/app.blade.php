@@ -34,5 +34,6 @@
             </main>
         </div>
     </body>
-    <script src="/build/assets/app-9cb9ba1b.js"></script>
+    <script src="/build/assets/app-a1256489.js"></script>
+
 </html>

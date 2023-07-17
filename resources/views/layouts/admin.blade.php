@@ -290,7 +290,7 @@
     <script src="/assets/js/main.js"></script>
     <script src="/livewire/livewire.js"></script>
 
-    <script src="/build/assets/app-9cb9ba1b.js"></script>
+    <script src="/build/assets/app-a1256489.js"></script>
 
 
 
