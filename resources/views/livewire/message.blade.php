@@ -99,7 +99,7 @@
                             </p>
                           </div>
                         </div>
-                        <img style="height:60px; width:60px" src="{{ $message->user->image??'/images/'.$message->user->image : '/assets/images/profile/man.png' }}" alt="avatar"
+                        <img style="height:60px; width:60px" src="{{ $message->user->image?'/images/'.$message->user->image : '/assets/images/profile/man.png' }}" alt="avatar"
                           class="rounded-circle d-flex align-self-start ms-3 shadow-1-strong" width="60">
                       </li>
     
