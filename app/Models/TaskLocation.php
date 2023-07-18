@@ -20,7 +20,7 @@ class TaskLocation extends Model
     ];
 
     function worker() {
-        return $this->belongsTo(Worker::class);
+        return $this->belongsTo(Worker::class)->withTrashed();
     }
 
 }

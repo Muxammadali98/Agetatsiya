@@ -17,7 +17,7 @@ class Chat extends Model
 
 
     function worker() {
-        return $this->belongsTo(Worker::class);
+        return $this->belongsTo(Worker::class)->withTrashed();
     }
 
 
@@ -26,6 +26,6 @@ class Chat extends Model
     }
 
     function user() {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withTrashed();
     }
 }

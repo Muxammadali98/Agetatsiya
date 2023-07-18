@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Create city
+    Bildirishnoma Yaratish
 @endsection
 
 @section('content')

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Create Group
+    Mijoz Qo'shish
 @endsection
 
 @section('content')

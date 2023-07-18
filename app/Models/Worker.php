@@ -34,14 +34,18 @@ class Worker extends  Authenticatable
     ];
 
     function group() {
-        return $this->belongsTo(Group::class)->with(['tasks', 'workers']);
+        return $this->belongsTo(Group::class)->with(['tasks', 'workers'])->withTrashed();
     }
     
     function city() {
-        return $this->belongsTo(City::class);
+        return $this->belongsTo(City::class)->withTrashed();
     }
 
     function chat() {
         return $this->hasOne(Chat::class)->with('messages');
+    }
+
+    function images(){
+        return $this->hasMany(TaskImage::class);
     }
 }

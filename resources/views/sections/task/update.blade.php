@@ -6,7 +6,13 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Topshiriqni O'zgartirish</h2>
+                  <a  href="{{ route('task.index') }}" class="btn btn-primary" style="    display: flex; width: 100px;justify-content: space-between;align-items: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"></path>
+                      <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"></path>
+                    </svg>
+                    Ortga
+                  </a>
                 </div>
               </div>
               <!-- end col -->
@@ -40,7 +46,8 @@
                   @csrf
                   @method('PUT')
                   <div class="card-style mb-30">
-                    <div class="input-style-3" style="display: flex;   justify-content: right">
+                    <div class="input-style-3" style="display: flex;   justify-content: space-between">
+                      <h2>Topshiriqni O'zgartirish</h2>
                       <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Update</button>
                     </div>
                     <div class="row">
@@ -82,7 +89,7 @@
                     <div class="row">
                       <div >
 
-                        <label for="">Bajarilgan </label>
+                        <label for="">Tugatilgan </label>
                         <input {{ $task->status == 1?'checked':'' }} value="1" type="checkbox" name="status">
                       </div>
                     </div>
@@ -96,6 +103,82 @@
 
                 </form>
                 <!-- end card -->
+
+                <h6>Bajarganlar</h6>
+                <div class="card-style mb-30">
+                  <div class="table-wrapper table-responsive">
+                    @if(!empty($task->locations->all()))
+                    <table class="table striped-table">
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th><h6>Hodim</h6></th>
+                          <th><h6>Kelgan Manzil</h6></th>
+                          <th><h6>Suratlar</h6></th>
+
+
+                        </tr>
+                        <!-- end table row-->
+                      </thead>
+                      <tbody>
+                        @foreach ($task->locations as $client)
+              
+                          <tr>
+                            <td>
+                              {{-- <div class="check-input-primary">
+                                <input name="clients[]"
+                                value="{{ $client->id }}"
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  checked
+                                  id="checkbox-1"
+                                />
+                              </div> --}}
+                            </td>
+                            <td>
+                              <p>{{ $client->worker->name }}</p>
+                            </td>
+                            <td>
+                              <p>{{ $client->address }}</p>
+                            </td>
+
+                            <td>
+                              <div class="product">
+                                <div class="image m-1">
+                                  @foreach ($client->worker->images as $image)
+                                    <img style="height:50px; margin:5px" src="{{ '/images/'.$image->image }}" height="50px" alt="">
+                                  @endforeach
+                                </div>
+                              </div>
+                            </td>
+               
+                    
+                            {{-- <td>
+                              <div class="action">
+                                <button class="text-danger">
+                                  <i class="lni lni-trash-can"></i>
+                                </button>
+                              </div>
+                            </td> --}}
+                          </tr>
+          
+                        @endforeach
+              
+                      </tbody>
+                    </table>
+                    @else
+            
+                    <div class="input-style-3" style="display: flex; justify-content: center">
+                      <h2>
+                        Bajarganlar Mavjud emas
+                      </h2>
+                    </div>
+                    @endif
+                    <!-- end table -->
+                  </div>
+                </div>
+
+
 
                 <h6>Mijozlar</h6>
                 <div class="card-style mb-30">

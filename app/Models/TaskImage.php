@@ -15,4 +15,8 @@ class TaskImage extends Model
         'task_id',
         'worker_id'
     ];
+
+    public function worker() {
+        return $this->belongsTo(Worker::class)->withTrashed();
+    }
 }

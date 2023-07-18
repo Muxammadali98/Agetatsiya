@@ -57,14 +57,14 @@ class ClientController extends Controller
         $client = Client::find($id);
         $status = Status::all();
         $workers = Worker::all();
-        return view('admin.client.show',compact('status','client', 'worker'));
+        return view('admin.client.show',compact('status','client', 'workers'));
     }
 
     function update(Request $request, $id) {
         $this->validate($request,[
             'title'=>'required',
             'phone'=>'required',
-            'status_id'=>'required| int | exists:satuses,id',
+            'status_id'=>'required| int | exists:statuses,id',
             'comment'=>'required',
             'worker_id'=>'required| int | exists:workers,id'
         ]);

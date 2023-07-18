@@ -51,6 +51,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/notification',NotificationController::class);
     Route::get('/notifigroup',[NotificationController::class, 'createGroup'])->name('createGroup');
     Route::post('/notifigroup',[NotificationController::class, 'storeGroup'])->name('storeGroup');
+    Route::get('/moderation',[WorkerController::class, 'moderation']);
 });
 
 

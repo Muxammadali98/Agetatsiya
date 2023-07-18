@@ -71,8 +71,14 @@ class TaskController extends Controller
 
         $task = Task::find($id);
 
+        $data = $request->all();
+
+        if(empty($request->status)){
+            $data['status'] = false;
+        }
+
       
-        $task->update($request->all());
+        $task->update($data);
   
         return redirect()->route('task.index');
 

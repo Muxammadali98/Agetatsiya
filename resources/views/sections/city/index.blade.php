@@ -76,7 +76,7 @@
                               <div class="action">
                              
                                 <a href="{{ route('city.edit', $group->id) }}" class="text-warning fs-5  ">
-                                    <i class="lni lni-eye"></i>
+                                  <span class="badge rounded-pill bg-success"style="font-size: 14px">O'zgartirish</span>
                                 </a>
                               </div>
                               </td>
@@ -86,7 +86,7 @@
                                   @csrf
                                   @method('DELETE')
                                   <button class="text-danger fs-5">
-                                    <i class="lni lni-trash-can"></i>
+                                    <span class="badge rounded-pill bg-danger" style="font-size: 15px">O'chirish</span>
                                   </button>
                                 </form>
                               </div>

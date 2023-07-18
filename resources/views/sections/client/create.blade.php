@@ -6,7 +6,13 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Mijoz Q'shish</h2>
+                  <a  href="{{ route('client.index') }}" class="btn btn-primary" style="    display: flex; width: 100px;justify-content: space-between;align-items: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"></path>
+                      <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"></path>
+                    </svg>
+                    Ortga
+                  </a>
                 </div>
               </div>
               <!-- end col -->
@@ -39,8 +45,9 @@
                 <form action="{{ route('client.store') }}" method="POST">
                   @csrf
                   <div class="card-style mb-30">
-                    <div class="input-style-3" style="display: flex; justify-content: right">
-                      <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Saqlash</button>
+                    
+                    <div class="input-style-1">
+                      <h2>Mijoz Qo'shish</h2>
                     </div>
                     <div class="input-style-1">
                       <label>F.I.O.</label>
@@ -57,7 +64,7 @@
                       @enderror
                     </div>
                     <div class="select-style-1">
-                      <label>Status</label>
+                      <label>Holat (Status)</label>
                       <div class="select-position">
                         <select name="status_id">
                           @foreach ($statuses as $item)
@@ -70,7 +77,7 @@
                       </div>
                     </div>
                     <div class="select-style-1">
-                      <label>Tasks</label>
+                      <label>Topshiriq</label>
                       <div class="select-position">
                         <select name="task_id">
                           @foreach ($tasks as $item)
@@ -83,7 +90,7 @@
                       </div>
                     </div>
                     <div class="select-style-1">
-                      <label>Ishchi</label>
+                      <label>Hodim</label>
                       <div class="select-position">
                         <select name="worker_id">
                           @foreach ($workers as $item)
@@ -96,13 +103,15 @@
                       </div>
                     </div>
                     <div class="input-style-1">
-                      <label>Comment</label>
+                      <label>Izoh</label>
                       <textarea name="comment" id="" cols="25" rows="10"></textarea>
                       @error('comment')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
-         
+                    <div class="input-style-3" style="display: flex; justify-content: left">
+                      <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Saqlash</button>
+                    </div>
 
                   </div>
                   <!-- end col -->

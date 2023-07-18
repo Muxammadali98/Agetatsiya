@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="/build/assets/app-9273b9a5.css">
     <link rel="stylesheet" href="/build/manifest.json">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     @livewireStyles()
   </head>
   <body>
@@ -36,47 +37,52 @@
       </div>
       <nav class="sidebar-nav">
         <ul>
-          <li class="nav-item">
-            <a href="{{ route('group.index') }}">
+          <li class="nav-item {{ request()->is('group')? 'active' : '' }}">
+            <a href="{{ route('group.index') }}" >
               <span class="text">Guruhlar</span>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item {{ request()->is('moderation')? 'active' : '' }}">
+            <a href="/moderation">
+              <span class="text">Moderatsiya</span>
+            </a>
+          </li>
+          <li class="nav-item {{ request()->is('city')? 'active' : '' }}">
             <a href="{{ route('city.index') }}">
               <span class="text">Shaharlar</span>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item {{ request()->is('worker')? 'active' : '' }}">
             <a href="{{ route('worker.index') }}">
               <span class="text">Hodimlar</span>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item {{ request()->is('task')? 'active' : '' }}">
             <a href="{{ route('task.index') }}">
               <span class="text">Topshiriqlar</span>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item {{ request()->is('client')? 'active' : '' }}">
             <a href="{{ route('client.index') }}">
               <span class="text">Mijozlar</span>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item {{ request()->is('status')? 'active' : '' }}">
             <a href="{{ route('status.index') }}">
               <span class="text">Holatlar(Status)</span>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item {{ request()->is('company')? 'active' : '' }}">
             <a href="{{ route('company.index') }}">
-              <span class="text">Companyalar</span>
+              <span class="text">Tashkilotlar</span>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item {{ request()->is('chat')? 'active' : '' }}">
             <a href="{{ route('chat') }}">
               <span class="text">Yozishmalar</span>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item {{ request()->is('notification')? 'active' : '' }}">
             <a href="{{ route('notification.index') }}">
               <span class="text">Bildirishnoma</span>
             </a>
@@ -291,7 +297,6 @@
     <script src="/livewire/livewire.js"></script>
 
     <script src="/build/assets/app-a1256489.js"></script>
-
 
 
 

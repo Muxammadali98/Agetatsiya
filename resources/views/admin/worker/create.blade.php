@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Create worker
+    Hodim Yaratish
 @endsection
 
 @section('content')

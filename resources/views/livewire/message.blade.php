@@ -45,7 +45,7 @@
     
                   @foreach ($chats as $chat)
                       <li class="p-2 border-bottom">
-                        <a href="#" wire:click="getMessage({{ $chat->id }})" class="d-flex justify-content-between">
+                        <a href="#"   wire:click="getMessage({{ $chat->id }})" class="d-flex justify-content-between">
                           <div class="d-flex flex-row">
                             <img style="height:60px; width:60px"  src="{{ !empty($message->chat->worker)?'/images/'. $chat->worker->image : '/assets/images/profile/man.png' }}" alt="avatar"
                               class="rounded-circle d-flex align-self-center me-3 shadow-1-strong" width="60">
@@ -135,12 +135,12 @@
                       <div class="alert alert-danger">{{ $message }}</div>
                   @enderror
 
-                  <button onclick={up()} id="form"  class="btn btn-info btn-rounded float-end m-2 ">
-              
+                  <button id="form" onclick={up()} class="btn btn-info btn-rounded float-end m-2 ">
+               
                     Send
                   </button>
                 </form>
-                <a href="#{{ $messages->first()->id }}" id="ok"></a>
+                <a href="#{{ $messages->first()->id}}" id="ok"></a>
             </div>
           @else
             <div class="col-md-6 col-lg-7 col-xl-8 " style="display: flex; justify-content: center; align-items: center; border:2px solid rgb(199, 191, 191); border-radius: 10px">
@@ -150,10 +150,12 @@
     
         </div>
     </section>
+  
+
     <script>
       function up(){
-        let up = document.getElementById('ok');
-        up.click()
+        let o = document.getElementById('ok');
+          o.click()
       }
     </script>
 </div>

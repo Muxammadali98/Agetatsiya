@@ -39,10 +39,7 @@
               <div class="col-lg-12">
                 <div class="card-style mb-30">
                   <h6 class="mb-10">Tashkilotlar Jadvali</h6>
-                  <a href="{{ route('company.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover"
-                  >Tashkilot Qo'shish</a
-                >
-
+                  <a href="{{ route('company.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover">Tashkilot Qo'shish</a>
                 @if (!empty($companies->all()))
                          <div class="table-wrapper table-responsive">
                     <table class="table striped-table">
@@ -91,7 +88,7 @@
                               <div class="action">
                              
                                 <a href="{{ route('company.edit', $company->id) }}" class="text-warning fs-5  ">
-                                    <i class="lni lni-eye"></i>
+                                  <span class="badge rounded-pill bg-success"style="font-size: 14px">O'zgartirish</span>
                                 </a>
                               </div>
                               </td>
@@ -101,7 +98,7 @@
                                   @csrf
                                   @method('DELETE')
                                   <button class="text-danger fs-5">
-                                    <i class="lni lni-trash-can"></i>
+                                    <span class="badge rounded-pill bg-danger" style="font-size: 15px">O'chirish</span>
                                   </button>
                                 </form>
                               </div>

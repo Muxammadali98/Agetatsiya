@@ -51,7 +51,6 @@ class Message extends Component
 
     public function mount()
     {
-        
         $this->chats = Chat::whereNull('user_id')->orWhere('user_id',auth()->id())->orderBy('updated_at', 'DESC')->get(); 
         if (isset($_GET['id'])) {
 

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Create city
+    Topshiriq Yaratish
 @endsection
 
 @section('content')

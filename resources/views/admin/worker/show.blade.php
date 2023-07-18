@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    index
+    Hodimni O'zgartirish
 @endsection
 
 @section('content')

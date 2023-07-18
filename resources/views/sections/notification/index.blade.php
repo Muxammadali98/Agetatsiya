@@ -98,7 +98,7 @@
                                   @csrf
                                   @method('DELETE')
                                   <button class="text-danger fs-5">
-                                    <i class="lni lni-trash-can"></i>
+                                    <span class="badge rounded-pill bg-danger" style="font-size: 15px">O'chirish</span>
                                   </button>
                                 </form>
                               </div>

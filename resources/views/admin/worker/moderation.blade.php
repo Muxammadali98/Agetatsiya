@@ -1,9 +1,9 @@
 @extends('layouts.admin')
 
 @section('title')
-   Shahar Yaratish
+    Moderatsiya
 @endsection
 
 @section('content')
-    @include('sections.city.create')
+    @include('sections.worker.moderation')
 @endsection

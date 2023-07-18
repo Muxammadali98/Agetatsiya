@@ -7,7 +7,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Hodimlar</h2>
+                  <h2>Moderatsiya</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -19,7 +19,7 @@
                         <a href="#0">Bosh sahifa</a>
                       </li>
                       <li class="breadcrumb-item active" aria-current="page">
-                        Hodimlar
+                        Moderatsiya
                       </li>
                     </ol>
                   </nav>
@@ -38,8 +38,8 @@
               <!-- end col -->
               <div class="col-lg-12">
                 <div class="card-style mb-30">
-                  <h6 class="mb-10">Hodimlar Jadvali</h6>
-                  <a href="{{ route('worker.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover">Hodim Qo'shish</a>
+                  <h6 class="mb-10">Moderatsiya Jadvali</h6>
+                  {{-- <a href="{{ route('worker.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover">Hodi m Qo'shish</a> --}}
                 @if (!empty($workers->all()))
                   <div class="table-wrapper table-responsive">
                     <table class="table striped-table">

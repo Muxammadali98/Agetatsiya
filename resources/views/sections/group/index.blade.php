@@ -7,7 +7,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <h2>Guruhlar</h2>
+                    <h2>Groups</h2>
                 </div>
               </div>
               <!-- end col -->
@@ -80,7 +80,7 @@
                               <div class="action">
                              
                                 <a href="{{ route('group.edit', $group->id) }}" class="text-warning fs-5  ">
-                                    <i class="lni lni-eye"></i>
+                                  <span class="badge rounded-pill bg-success"style="font-size: 14px">O'zgartirish</span>
                                 </a>
                               </div>
                               </td>
@@ -90,7 +90,7 @@
                                   @csrf
                                   @method('DELETE')
                                   <button class="text-danger fs-5">
-                                    <i class="lni lni-trash-can"></i>
+                                    <span class="badge rounded-pill bg-success"style="font-size: 14px">O'zgartirish</span><span class="badge rounded-pill bg-success"style="font-size: 14px">O'zgartirish</span>
                                   </button>
                                 </form>
                               </div>

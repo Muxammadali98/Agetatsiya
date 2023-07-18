@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Create city
+    Holat Yaratish
 @endsection
 
 @section('content')

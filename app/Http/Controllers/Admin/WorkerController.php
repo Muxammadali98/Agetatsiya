@@ -12,8 +12,12 @@ use Illuminate\Support\Facades\Hash;
 class WorkerController extends Controller
 {
     function index(){
-        $workers = Worker::all();
+        $workers = Worker::where('status','!=' ,0)->get();
         return view('admin.worker.index',compact('workers'));
+    }
+    function moderation(){
+        $workers = Worker::where('status', 0)->get();
+        return view('admin.worker.moderation',compact('workers'));
     }
 
     function create() {

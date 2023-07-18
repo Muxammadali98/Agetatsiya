@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    index
+    Tashkilotni O'zgartirish
 @endsection
 
 @section('content')

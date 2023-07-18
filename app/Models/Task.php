@@ -23,7 +23,7 @@ class Task extends Model
         return $this->belongsTo(Company::class)->withTrashed();
     }
     function images() {
-        return $this->hasMany(TaskImage::class);
+        return $this->hasMany(TaskImage::class)->with('worker');
     }
 
     function locations() {
