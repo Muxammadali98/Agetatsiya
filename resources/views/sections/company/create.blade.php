@@ -60,21 +60,21 @@
                     </div>
                     <div class="input-style-1">
                       <label>Manzil </label>
-                      <input type="text" name="address"  id="addressInput" disabled  placeholder="Fergana ... " />
+                      <input type="text" name="address"  id="addressInput" readonly  placeholder="Fergana ... " />
                       @error('address')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
                       <label>Longitude</label>
-                      <input type="text" id="longitudeInput" disabled name="longitude"  placeholder=" " />
+                      <input type="text" id="longitudeInput"  name="longitude" readonly placeholder=" " />
                       @error('longitude')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
                       <label>Latitude </label>
-                      <input type="text" id="latitudeInput" disabled name="latitude"  placeholder="" />
+                      <input type="text" id="latitudeInput"  name="latitude" readonly placeholder="" />
                       @error('latitude')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
