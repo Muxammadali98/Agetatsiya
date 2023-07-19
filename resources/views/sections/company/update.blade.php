@@ -100,8 +100,8 @@
                         
                     @endforeach
                   </div>
-                  <div style="height: 600px;" id="map"></div>
                 </div>
+                <div style="height: 600px;" id="mapp"></div>
             </div>
             <!-- end row -->
           </div>
@@ -111,48 +111,48 @@
         <script>
 
           ymaps.ready(function () {
-              var map = new ymaps.Map('map', {
+              var map = new ymaps.Map('mapp', {
                   center: [41.2995, 69.2401], // Ishlatilayotgan boshlang'ich markaziy koordinatalar
                   zoom: 10 // Ishlatilayotgan boshlang'ich zoom darajasi
               });
-      
-              // Foydalanuvchi turish joyini aniqlash
-              ymaps.geolocation.get().then(function (res) {
-                  var userLocation = res.geoObjects.get(0).geometry.getCoordinates();
-                  map.setCenter(userLocation);
-      
-                  // Foydalanuvchi turish joyiga marker qo'shish
-                  var userPlacemark = new ymaps.Placemark(userLocation, {}, { preset: 'islands#blueCircleDotIcon' });
-                  map.geoObjects.add(userPlacemark);
-              });
-                  
-      
-              var placemark;
-              map.events.add('click', function (e) {
-                  var coords = e.get('coords');
-      
-                  // Kursor yordamida belgilangan joyga qizil belgi qo'yish
-                  if (placemark) {
-                      map.geoObjects.remove(placemark);
-                  }
-                  placemark = new ymaps.Placemark(coords, {}, { preset: 'islands#redIcon' });
-                  map.geoObjects.add(placemark);
-      
-                  // Kordinatalarni input elementlarga joylash
-                  var latitudeInput = document.getElementById('latitudeInput');
-                  var longitudeInput = document.getElementById('longitudeInput');
-                  latitudeInput.value = coords[0].toPrecision(6);
-                  longitudeInput.value = coords[1].toPrecision(6);
-      
-                  // Manzilni input elementga joylash
-                  ymaps.geocode(coords).then(function (res) {
-                      var address = res.geoObjects.get(0) ? res.geoObjects.get(0).getAddressLine() : '';
-                      var addressInput = document.getElementById('addressInput');
-                      addressInput.value = address;
-                  });
+  
+          // Foydalanuvchi turish joyini aniqlash
+          ymaps.geolocation.get().then(function (res) {
+              var userLocation = res.geoObjects.get(0).geometry.getCoordinates();
+              map.setCenter(userLocation);
+  
+              // Foydalanuvchi turish joyiga marker qo'shish
+              var userPlacemark = new ymaps.Placemark(userLocation, {}, { preset: 'islands#blueCircleDotIcon' });
+              map.geoObjects.add(userPlacemark);
+          });
+              
+  
+          var placemark;
+          map.events.add('click', function (e) {
+              var coords = e.get('coords');
+  
+              // Kursor yordamida belgilangan joyga qizil belgi qo'yish
+              if (placemark) {
+                  map.geoObjects.remove(placemark);
+              }
+              placemark = new ymaps.Placemark(coords, {}, { preset: 'islands#redIcon' });
+              map.geoObjects.add(placemark);
+  
+              // Kordinatalarni input elementlarga joylash
+              var latitudeInput = document.getElementById('latitudeInput');
+              var longitudeInput = document.getElementById('longitudeInput');
+              latitudeInput.value = coords[0].toPrecision(6);
+              longitudeInput.value = coords[1].toPrecision(6);
+  
+              // Manzilni input elementga joylash
+              ymaps.geocode(coords).then(function (res) {
+                  var address = res.geoObjects.get(0) ? res.geoObjects.get(0).getAddressLine() : '';
+                  var addressInput = document.getElementById('addressInput');
+                  addressInput.value = address;
               });
           });
-      
+            });
+        
         </script>
       </section>
       <!-- ========== tab components end ========== -->

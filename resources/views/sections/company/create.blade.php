@@ -87,7 +87,7 @@
                   <!-- end col -->
                 </form>
                 <!-- end card -->
-                <div style="height: 600px;" id="map"></div>
+                <div style="height: 600px;" id="mapp"></div>
 
             </div>
             <!-- end row -->
@@ -97,11 +97,11 @@
         <!-- end container -->
         <script>
 
-          ymaps.ready(function () {
-              var map = new ymaps.Map('map', {
-                  center: [41.2995, 69.2401], // Ishlatilayotgan boshlang'ich markaziy koordinatalar
-                  zoom: 10 // Ishlatilayotgan boshlang'ich zoom darajasi
-              });
+              ymaps.ready(function () {
+                  var map = new ymaps.Map('mapp', {
+                      center: [41.2995, 69.2401], // Ishlatilayotgan boshlang'ich markaziy koordinatalar
+                      zoom: 10 // Ishlatilayotgan boshlang'ich zoom darajasi
+                  });
       
               // Foydalanuvchi turish joyini aniqlash
               ymaps.geolocation.get().then(function (res) {
@@ -140,6 +140,6 @@
               });
           });
       
-        </script>
+      </script>
       </section>
       <!-- ========== tab components end ========== -->
