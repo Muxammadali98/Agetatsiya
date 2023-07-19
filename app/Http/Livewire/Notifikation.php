@@ -27,14 +27,14 @@ class Notifikation extends Component
     public function mount(){
         
         $this->notifi = Chat::whereNull('user_id')->orWhere('user_id',auth()->id())->orderBy('updated_at', 'DESC')->get();
-        $this->notifi =  $this->notifi->where('message','>',1);
+        $this->notifi =  $this->notifi->where('message','>=',1);
         $this->count = array_sum(array_column($this->notifi->toArray(),'message'));   
         
     }
     public function changeNotification(){
         
         $this->notifi = Chat::whereNull('user_id')->orWhere('user_id',auth()->id())->orderBy('updated_at', 'DESC')->get();
-        $this->notifi = $this->notifi->where('message','>',1);
+        $this->notifi = $this->notifi->where('message','>=',1);
         $this->count = array_sum(array_column($this->notifi->toArray(),'message'));   
         
     }

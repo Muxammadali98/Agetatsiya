@@ -23,6 +23,7 @@ class Message extends Component
     protected $listeners = [
         'eventCreated' => 'handleMessage',
         'eventChat' => 'changeChat',
+        'notifiNull' => 'changeChat',
     ];
 
 
@@ -37,7 +38,7 @@ class Message extends Component
             $chat->timestamps = false;
             $chat->save();
         } 
-        $this->messages = ModelsMessage::where('chat_id', $id)->orderBy('id', 'DESC')->get();
+        $this->messages = ModelsMessage::where('chat_id', $id)->get();
         $this->emit('eventChat');
          event(new NotifiAdminEvent());
     }
@@ -71,10 +72,9 @@ class Message extends Component
             
             $this->chats = Chat::whereNull('user_id')->orWhere('user_id',auth()->id())->orderBy('updated_at', 'DESC')->get(); 
 
-            $this->messages = ModelsMessage::where('chat_id', $this->chatId)->with('chat')->orderBy('id', 'DESC')->get();
+            $this->messages = ModelsMessage::where('chat_id', $this->chatId)->with('chat')->get();
               
-            $this->changeChat();
-
+            $this->emit('eventChat');
         }else{
 
             $this->chats = Chat::whereNull('user_id')->orWhere('user_id',auth()->id())->orderBy('updated_at', 'DESC')->get(); 
@@ -94,11 +94,11 @@ class Message extends Component
             'chat_id' => $this->chatId,
         ]);
 
-        $this->messages = ModelsMessage::where('chat_id', $this->chatId)->with('chat')->orderBy('id', 'DESC')->get();
+        $this->messages = ModelsMessage::where('chat_id', $this->chatId)->with('chat')->get();
 
         Chat::where('id',$this->chatId)->update(['user_id'=>auth()->id()]);
         event(new MessageEvent($message));
-        $this->changeChat();
+        $this->emit('eventChat');
         $this->text = '';
     }
 

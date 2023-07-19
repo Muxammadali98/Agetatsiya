@@ -135,12 +135,12 @@
                       <div class="alert alert-danger">{{ $message }}</div>
                   @enderror
 
-                  <button id="form" onclick={up()} class="btn btn-info btn-rounded float-end m-2 ">
+                  <button id="form" class="btn btn-info btn-rounded float-end m-2 ">
                
                     Send
                   </button>
                 </form>
-                <a href="#{{ $messages->first()->id}}" id="ok"></a>
+                <a href="#{{ $messages->last()->id}}" id="ok"></a>
             </div>
           @else
             <div class="col-md-6 col-lg-7 col-xl-8 " style="display: flex; justify-content: center; align-items: center; border:2px solid rgb(199, 191, 191); border-radius: 10px">
@@ -153,9 +153,17 @@
   
 
     <script>
-      function up(){
-        let o = document.getElementById('ok');
-          o.click()
-      }
+
+      document.addEventListener('livewire:load', function () {
+          Livewire.on('eventChat', function () {
+            let o = document.getElementById('ok');
+            o.click()
+          });
+      });
+
+      // function up(){
+      //   let o = document.getElementById('ok');
+      //     o.click()
+      // }
     </script>
 </div>
