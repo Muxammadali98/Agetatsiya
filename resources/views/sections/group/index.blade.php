@@ -90,7 +90,7 @@
                                   @csrf
                                   @method('DELETE')
                                   <button class="text-danger fs-5">
-                                    <span class="badge rounded-pill bg-success"style="font-size: 14px">O'zgartirish</span>
+                                    <span class="badge rounded-pill bg-danger" style="font-size: 15px">O'chirish</span>
                                   </button>
                                 </form>
                               </div>
