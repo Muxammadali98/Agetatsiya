@@ -1,6 +1,6 @@
       <!-- ========== tab components start ========== -->
       <section class="tab-components">
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8NHCF-5fMix0w2363RhC3V4vcyw8SHSM&callback=initMap" async defer></script>
+        <script src="https://api-maps.yandex.ru/2.1/?apikey=4ee30b78-bb09-45b8-a270-fb4efb6d8880&lang=uz_UZ" type="text/javascript"></script>
 
         <div class="container-fluid">
           <!-- ========== title-wrapper start ========== -->
@@ -60,21 +60,21 @@
                     </div>
                     <div class="input-style-1">
                       <label>Manzil </label>
-                      <input type="text" name="address"  placeholder="Fergana ... " />
+                      <input type="text" name="address"  id="addressInput" disabled  placeholder="Fergana ... " />
                       @error('address')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
                       <label>Longitude</label>
-                      <input type="text" id="longitudeInput" name="longitude"  placeholder=" " />
+                      <input type="text" id="longitudeInput" disabled name="longitude"  placeholder=" " />
                       @error('longitude')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
                       <label>Latitude </label>
-                      <input type="text" id="latitudeInput" name="latitude"  placeholder="" />
+                      <input type="text" id="latitudeInput" disabled name="latitude"  placeholder="" />
                       @error('latitude')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
@@ -96,47 +96,49 @@
         </div>
         <!-- end container -->
         <script>
-          // JavaScript
-          // function initMap() {
-          //     var map = new google.maps.Map(document.getElementById('map'), {
-          //         center: { lat: 40.374912941735026, lng: 71.7851208729229 }, // Ishlatilayotgan boshlang'ich markaziy koordinatalar 40.374912941735026, 71.7851208729229
-          //         zoom: 16 // Ishlatilayotgan boshlang'ich zoom darajasi
-          //     });
-      
-              // Kerakli boshqa funktsiyalarni yozing...
-          // }
-      
-      
-          var map;
-          var marker;
-          var latitudeInput = document.getElementById('latitudeInput');
-          var longitudeInput = document.getElementById('longitudeInput');
-      
-          function initMap() {
-              var defaultLocation = { lat: 40.374912941735026, lng: 71.7851208729229 };
-              map = new google.maps.Map(document.getElementById('map'), {
-                  center: defaultLocation,
-                  zoom: 8
+
+          ymaps.ready(function () {
+              var map = new ymaps.Map('map', {
+                  center: [41.2995, 69.2401], // Ishlatilayotgan boshlang'ich markaziy koordinatalar
+                  zoom: 10 // Ishlatilayotgan boshlang'ich zoom darajasi
               });
       
-              map.addListener('click', function(event) {
-                  var latitude = event.latLng.lat();
-                  var longitude = event.latLng.lng();
+              // Foydalanuvchi turish joyini aniqlash
+              ymaps.geolocation.get().then(function (res) {
+                  var userLocation = res.geoObjects.get(0).geometry.getCoordinates();
+                  map.setCenter(userLocation);
       
-                  latitudeInput.value = latitude;
-                  longitudeInput.value = longitude;
+                  // Foydalanuvchi turish joyiga marker qo'shish
+                  var userPlacemark = new ymaps.Placemark(userLocation, {}, { preset: 'islands#blueCircleDotIcon' });
+                  map.geoObjects.add(userPlacemark);
+              });
+                  
       
-                  if (marker) {
-                      marker.setMap(null); // Eski marker ni o'chirish
+              var placemark;
+              map.events.add('click', function (e) {
+                  var coords = e.get('coords');
+      
+                  // Kursor yordamida belgilangan joyga qizil belgi qo'yish
+                  if (placemark) {
+                      map.geoObjects.remove(placemark);
                   }
+                  placemark = new ymaps.Placemark(coords, {}, { preset: 'islands#redIcon' });
+                  map.geoObjects.add(placemark);
       
-                  marker = new google.maps.Marker({
-                      position: event.latLng,
-                      map: map,
-                      draggable: true
+                  // Kordinatalarni input elementlarga joylash
+                  var latitudeInput = document.getElementById('latitudeInput');
+                  var longitudeInput = document.getElementById('longitudeInput');
+                  latitudeInput.value = coords[0].toPrecision(6);
+                  longitudeInput.value = coords[1].toPrecision(6);
+      
+                  // Manzilni input elementga joylash
+                  ymaps.geocode(coords).then(function (res) {
+                      var address = res.geoObjects.get(0) ? res.geoObjects.get(0).getAddressLine() : '';
+                      var addressInput = document.getElementById('addressInput');
+                      addressInput.value = address;
                   });
               });
-          }
+          });
       
         </script>
       </section>
