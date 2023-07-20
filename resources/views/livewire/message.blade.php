@@ -143,9 +143,10 @@
                 <a href="#{{ $messages->last()->id}}" id="ok"></a>
             </div>
           @else
-            <div class="col-md-6 col-lg-7 col-xl-8 " style="display: flex; justify-content: center; align-items: center; border:2px solid rgb(199, 191, 191); border-radius: 10px">
-              <h1>Chatni Tanlang</h1>
-            </div>
+            <div class="col-md-6 col-lg-7 col-xl-8 " style="display: flex; justify-content: center; align-items: center; flex-direction: column; border:2px solid rgb(199, 191, 191); border-radius: 10px">
+              <img src="/assets/images/logo/chat.svg" alt="">
+              <h1> Hozircha Xabarlar mavjud emas,  Iltimos chatni Tanlang</h1>
+            </div> 
           @endif
     
         </div>

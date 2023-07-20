@@ -7,7 +7,7 @@
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title mb-30">
-                  <a  href="{{ route('company.index') }}" class="btn btn-primary" style="    display: flex; width: 100px;justify-content: space-between;align-items: center;">
+                  <a  href="{{ route('company.index') }}" class="btn btn-primary" style=" border-color: #fd621e ; background-color: #fd621e ;  display: flex; width: 100px;justify-content: space-between;align-items: center;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"></path>
                       <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"></path>
@@ -50,7 +50,6 @@
        
                     <div class="input-style-3" style="display: flex; justify-content: space-between">
                       <h2>Tashkilotni O'zgartirish</h2>
-                      <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">O'zgartirish</button>
                     </div>
                     <div class="input-style-1">
                       <label>Nomi  </label>
@@ -84,10 +83,16 @@
                       <label>Rasmlar </label>
                       <input type="file" name="images[]" multiple  />
                     </div>
+                    <div class="image m-1 d-flex align-items-end"  style="display:  flex; justify-content: space-between ">
+                    <div class="input-style-3" style="display: flex; justify-content: space-between">
+                      <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">O'zgartirish</button>
+                    </div>
                   <!-- end col -->
                 </form>
                 <!-- end card -->
-                  <div class="image m-1 d-flex align-items-end"  style="display: flex; flex-wrap: wrap ; width: 70%; justify-content: center">
+                  <div style=" display: flex ; flex-wrap: wrap ; width: 70%; justify-content: right;">
+
+                  
                     @foreach ($company->images as $image)
                         <img style="height:70px; margin:5px" onclick = "test(`{{ '/images/'.$image->image }}`)" type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" src="{{ '/images/'.$image->image }}" height="100px" alt="">
                         <form action="{{ route('company.show', $image->id) }}" style="justify-content: end" method="GET">
@@ -99,6 +104,7 @@
               
                         
                     @endforeach
+                  </div>
                   </div>
                 </div>
                 <div style="height: 600px;" id="mapp"></div>

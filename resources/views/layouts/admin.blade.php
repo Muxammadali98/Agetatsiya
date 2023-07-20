@@ -42,52 +42,52 @@
         <ul>
           <li class="nav-item {{ request()->is('group')? 'active' : '' }}">
             <a href="{{ route('group.index') }}" >
-              <span class="text">Guruhlar</span>
+              <span style="{{ request()->is('group')? 'color: #4a6cf7;' : '' }}" class="text">Guruhlar</span>
             </a>
           </li>
-          <li class="nav-item {{ request()->is('moderation')? 'active' : '' }}">
-            <a href="/moderation">
-              <span class="text">Moderatsiya</span>
+          <li class="nav-item {{ request()->is('moderation')? 'active' : '' }}" >
+            <a href="/moderation" >
+              <span style="{{ request()->is('moderation')? 'color: #4a6cf7;' : '' }}" class="text">Moderatsiya</span>
             </a>
           </li>
           <li class="nav-item {{ request()->is('city')? 'active' : '' }}">
             <a href="{{ route('city.index') }}">
-              <span class="text">Shaharlar</span>
+              <span style="{{ request()->is('city')? 'color: #4a6cf7;' : '' }}" class="text">Shaharlar</span>
             </a>
           </li>
           <li class="nav-item {{ request()->is('worker')? 'active' : '' }}">
             <a href="{{ route('worker.index') }}">
-              <span class="text">Hodimlar</span>
+              <span style="{{ request()->is('worker')? 'color: #4a6cf7;' : '' }}" class="text">Hodimlar</span>
             </a>
           </li>
           <li class="nav-item {{ request()->is('task')? 'active' : '' }}">
             <a href="{{ route('task.index') }}">
-              <span class="text">Topshiriqlar</span>
+              <span style="{{ request()->is('task')? 'color: #4a6cf7;' : '' }}" class="text">Topshiriqlar</span>
             </a>
           </li>
           <li class="nav-item {{ request()->is('client')? 'active' : '' }}">
             <a href="{{ route('client.index') }}">
-              <span class="text">Mijozlar</span>
+              <span style="{{ request()->is('client')? 'color: #4a6cf7;' : '' }}" class="text">Mijozlar</span>
             </a>
           </li>
           <li class="nav-item {{ request()->is('status')? 'active' : '' }}">
             <a href="{{ route('status.index') }}">
-              <span class="text">Holatlar(Status)</span>
+              <span style="{{ request()->is('status')? 'color: #4a6cf7;' : '' }}" class="text">Holatlar(Status)</span>
             </a>
           </li>
           <li class="nav-item {{ request()->is('company')? 'active' : '' }}">
             <a href="{{ route('company.index') }}">
-              <span class="text">Tashkilotlar</span>
+              <span style="{{ request()->is('company')? 'color: #4a6cf7;' : '' }}" class="text">Tashkilotlar</span>
             </a>
           </li>
           <li class="nav-item {{ request()->is('chat')? 'active' : '' }}">
             <a href="{{ route('chat') }}">
-              <span class="text">Yozishmalar</span>
+              <span style="{{ request()->is('chat')? 'color: #4a6cf7;' : '' }}" class="text">Yozishmalar</span>
             </a>
           </li>
           <li class="nav-item {{ request()->is('notification')? 'active' : '' }}">
             <a href="{{ route('notification.index') }}">
-              <span class="text">Bildirishnoma</span>
+              <span style="{{ request()->is('notification')? 'color: #4a6cf7;' : '' }}" class="text">Bildirishnoma</span>
             </a>
           </li>
         </ul>
