@@ -17,15 +17,11 @@ class TaskController extends Controller
         $tasks = Task::all();
         $companies = Company::all();
         $groups = Group::all();
-
-
-        
-        
         return view('admin.task.index',compact('tasks','companies', 'groups'));
     }
 
     function create() {
-        $companies = Company::all();
+        $companies = Company::orderBy('come', 'DESC')->get();
         $groups = Group::all();
         return view('admin.task.create', compact('groups','companies'));
     }
@@ -56,9 +52,6 @@ class TaskController extends Controller
         $task = Task::find($id);
         $companies = Company::all();
         $groups = Group::all();
-
-        
-
         return view('admin.task.show',compact('task','companies','groups'));
     }
 
@@ -70,26 +63,22 @@ class TaskController extends Controller
         ]);
 
         $task = Task::find($id);
-
         $data = $request->all();
 
+
         if(empty($request->status)){
+            $task->timestamps = false;
             $data['status'] = false;
+        }else{
+          Company::find($request->company_id)->update(['come'=>time()]);
+          
         }
-
-      
         $task->update($data);
-  
         return redirect()->route('task.index');
-
     }
 
     function destroy($id) {
         Task::destroy($id);
-
         return redirect()->route('task.index');
     }
-
-    
-
 }

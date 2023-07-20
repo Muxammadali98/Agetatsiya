@@ -144,9 +144,9 @@
 
                             <td>
                               <div class="product">
-                                <div class="image m-1">
+                                <div class="image m-1" style="display: flex; flex-wrap: wrap ; width: 70%; justify-content: center">
                                   @foreach ($client->worker->images as $image)
-                                    <img style="height:50px; margin:5px" src="{{ '/images/'.$image->image }}" height="50px" alt="">
+                                    <img style="height:50px; margin:5px" onclick = "test(`{{ '/images/'.$image->image }}`)"  data-bs-toggle="modal" data-bs-target="#exampleModal" src="{{ '/images/'.$image->image }}" height="50px" alt="">
                                   @endforeach
                                 </div>
                               </div>
@@ -253,5 +253,23 @@
           <!-- ========== form-elements-wrapper end ========== -->
         </div>
         <!-- end container -->
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg"> <!-- modal-dialog-centered - ekran o'rtasiga joylash -->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">{{ $group->title }}</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="display: flex; justify-content: center; align-items: center">
+                  <img id="imageModal" style=" object-fit: cover margin:5px" src="" alt="">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
       </section>
       <!-- ========== tab components end ========== -->

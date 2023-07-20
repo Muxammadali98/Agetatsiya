@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
+    <link rel="shortcut icon"
       href="/assets/images/favicon.svg"
       type="image/x-icon"
     />
@@ -25,6 +24,10 @@
     <link rel="stylesheet" href="/build/manifest.json">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- Add Bootstrap CSS and JavaScript to the head of your HTML file -->
+    {{-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"> --}}
+
+    
     @livewireStyles()
   </head>
   <body>
@@ -297,8 +300,10 @@
     <script src="/livewire/livewire.js"></script>
 
     <script src="/build/assets/app-a1256489.js"></script>
-
-
+    <!-- modal -->
+    {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> --}}
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script> --}}
+    {{-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> --}}
 
 
     <script>
@@ -801,6 +806,16 @@
         },
       });
       // =========== chart four end
+    </script>
+
+
+    <script>
+
+      function test(url){
+
+        let modalImage = document.getElementById('imageModal');
+        modalImage.src = url;
+      }
     </script>
      @livewireScripts
   </body>

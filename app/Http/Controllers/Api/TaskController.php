@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Helpers\Traits\ApiResponcer;
 use App\Http\Controllers\Controller;
+use App\Models\Company;
 use App\Models\Task;
 
 class TaskController extends Controller
@@ -23,7 +24,7 @@ class TaskController extends Controller
         $task = Task::find($id);
         $task->status = true;
         $task->save();
-
+        Company::find($task->company_id)->update(['come'=>time ()]);
         $user = auth()->guard('api')->user();
 
         return $this->success($user->group,'test');

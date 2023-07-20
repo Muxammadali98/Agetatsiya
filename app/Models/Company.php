@@ -14,6 +14,7 @@ class Company extends Model
         'longitude',
         'latitude',
         'address',
+        'come',
     ];
 
     function images() {

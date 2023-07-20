@@ -58,6 +58,7 @@ class CompanyController extends Controller
         ]);
 
         $company = Company::find($id);
+        $company->timestamps = false;
         $company->update($request->all());
 
         if(isset($request->images)){
