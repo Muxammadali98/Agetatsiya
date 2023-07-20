@@ -142,7 +142,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body" style="display: flex; justify-content: center; align-items: center">
-                <img id="imageModal" style=" object-fit: cover margin:5px" src="{{ '/images/'.$image->image }}" alt="">
+                <img id="imageModal" style=" object-fit: cover margin:5px" src="" alt="">
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
