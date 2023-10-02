@@ -32,7 +32,7 @@ class ClientController extends Controller
     function store(Request $request) {
         $this->validate($request,[
             'title'=>'required',
-            'phone'=>'required',
+            'phone'=>'required|digits:12|numeric',
             'status_id'=>'required | int | exists:statuses,id',
             'comment'=>'required',
             'worker_id'=>'required | int | exists:workers,id'
@@ -52,7 +52,7 @@ class ClientController extends Controller
         $client = Client::find($id);
         return view('admin.client.show',compact('client'));
     }
-    
+
     function edit($id) {
         $client = Client::find($id);
         $status = Status::all();
@@ -63,7 +63,7 @@ class ClientController extends Controller
     function update(Request $request, $id) {
         $this->validate($request,[
             'title'=>'required',
-            'phone'=>'required',
+            'phone'=>'required|digits:12|numeric',
             'status_id'=>'required| int | exists:statuses,id',
             'comment'=>'required',
             'worker_id'=>'required| int | exists:workers,id'

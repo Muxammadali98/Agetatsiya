@@ -31,7 +31,7 @@ class WorkerController extends Controller
             'name'=>'required',
             'username'=>'required | unique:workers,username',
             'surname'=>'required',
-            'phone'=>"unique:workers,phone",
+            'phone'=>"unique:workers,phone|digits:12|numeric",
             'address'=>'required',
             'password' => 'required|same:confirm_password',
             'confirm_password' => 'required',
@@ -44,7 +44,7 @@ class WorkerController extends Controller
             $imageName = time().'.'.$request->image->getClientOriginalName();
             $request->image->move(public_path('images'), $imageName);
             $data['image'] = $imageName;
-    
+
         }
 
         $data['password'] = Hash::make($request->password);
@@ -59,7 +59,7 @@ class WorkerController extends Controller
         $cities = City::all();
         return view('admin.worker.show',compact('worker', 'groups', 'cities'));
     }
-    
+
     function edit($id) {
         $worker = Worker::find($id);
         return view('admin.worker.edit',compact('worker'));
@@ -71,6 +71,7 @@ class WorkerController extends Controller
             'username'=>'required | unique:workers,username,'.$id,
             'surname'=>'required',
             'address'=>'required',
+            'phone'=>'required|digits:12|numeric',
             'city_id'=>'required| int | exists:cities,id',
         ]);
         $worker = Worker::find($id);
@@ -81,7 +82,7 @@ class WorkerController extends Controller
             $imageName = time().'.'.$request->image->getClientOriginalName();
             $request->image->move(public_path('images'), $imageName);
             $data['image'] = $imageName;
-    
+
         }else{
             $data['image'] = $worker->image;
         }

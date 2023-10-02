@@ -72,8 +72,8 @@
                               </div>
                             </div>
                           </td>
-                   
-            
+
+
                           <td>
                             <p>{{ $worker->surname }}</p>
                           </td>
@@ -85,7 +85,7 @@
                           </td>
                           <td>
                             <p>{{ is_null($worker->city_id)? 'Not city' : $worker->city->name }}</p>
-                          </td>              
+                          </td>
                           <td>
                             <p>{{ $worker->address }}</p>
                           </td>
@@ -106,9 +106,9 @@
                                 </button>
                               </form>
                             </div>
-                          </td> 
+                          </td>
                         </tr>
-        
+
                       @endforeach
                         <!-- end table row -->
                       </tbody>
@@ -118,11 +118,11 @@
                 @else
                   <div class="input-style-3" style="display: flex; justify-content: center">
                     <h2>
-                      Not Worker
+                      Hodim Mavjut Emas
                     </h2>
                   </div>
                 @endif
-             
+
                 </div>
                 <!-- end card -->
               </div>

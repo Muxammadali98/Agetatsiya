@@ -19,7 +19,7 @@ class CityController extends Controller
 
     function store(Request $request) {
         $this->validate($request,[
-            'name'=>'required'
+            'name'=>'required|unique:cities,name'
         ]);
 
         $city = City::create($request->all());
@@ -31,7 +31,7 @@ class CityController extends Controller
         $city = City::find($id);
         return view('admin.city.show',compact('city'));
     }
-    
+
     function edit($id) {
         $city = City::find($id);
         return view('admin.city.show',compact('city'));
@@ -44,7 +44,7 @@ class CityController extends Controller
 
         $city = City::find($id);
         $city->update($request->all());
-  
+
         return redirect()->route('city.index');
 
     }

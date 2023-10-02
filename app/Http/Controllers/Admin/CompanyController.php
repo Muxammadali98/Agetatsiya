@@ -21,21 +21,25 @@ class CompanyController extends Controller
     function store(Request $request) {
         $this->validate($request,[
             'title'=>'required',
-     
+            'address'=>'required',
+            'longitude'=>'required',
+            'latitude'=>'required',
+            'images[]'=>'array',
+
         ]);
         $company = Company::create($request->all());
         if(isset($request->images)){
 
             foreach($request->images as $image){
-        
+
                 $imageName = time().'.'.$image->getClientOriginalName();
                 $image->move(public_path('images'), $imageName);
                 Image::create(['image'=>$imageName, 'company_id'=>$company->id]);
             }
-    
+
         }
 
- 
+
 
 
         return redirect()->route('company.index');
@@ -45,7 +49,7 @@ class CompanyController extends Controller
         Image::where('id',$id)->delete();
         return back();
     }
-    
+
     function edit($id) {
         $company = Company::find($id);
         return view('admin.company.show',compact('company'));
@@ -54,7 +58,7 @@ class CompanyController extends Controller
     function update(Request $request, $id) {
         $this->validate($request,[
             'title'=>'required',
-  
+
         ]);
 
         $company = Company::find($id);
@@ -64,14 +68,14 @@ class CompanyController extends Controller
         if(isset($request->images)){
 
             foreach($request->images as $image){
-        
+
                 $imageName = time().'.'.$image->getClientOriginalName();
                 $image->move(public_path('images'), $imageName);
                 Image::create(['image'=>$imageName, 'company_id'=>$company->id]);
             }
-    
+
         }
-  
+
         return redirect()->route('company.index');
 
     }

@@ -88,7 +88,7 @@
                   <div style="height: 600px;" id="mapp"></div>
 
                   <div class="input-style-3" style=" margin-top: 10px;  display: flex; justify-content: space-between">
-                    
+
                     <a  href="{{ route('company.index') }}" class="btn btn-primary" style=" border-color: #fd621e ; background-color: #fd621e ;  display: flex; width: 100px;justify-content: space-between;align-items: center;">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"></path>
@@ -115,35 +115,35 @@
                       center: [41.2995, 69.2401], // Ishlatilayotgan boshlang'ich markaziy koordinatalar
                       zoom: 10 // Ishlatilayotgan boshlang'ich zoom darajasi
                   });
-      
+
               // Foydalanuvchi turish joyini aniqlash
               ymaps.geolocation.get().then(function (res) {
                   var userLocation = res.geoObjects.get(0).geometry.getCoordinates();
                   map.setCenter(userLocation);
-      
+
                   // Foydalanuvchi turish joyiga marker qo'shish
                   var userPlacemark = new ymaps.Placemark(userLocation, {}, { preset: 'islands#blueCircleDotIcon' });
                   map.geoObjects.add(userPlacemark);
               });
-                  
-      
+
+
               var placemark;
               map.events.add('click', function (e) {
                   var coords = e.get('coords');
-      
+
                   // Kursor yordamida belgilangan joyga qizil belgi qo'yish
                   if (placemark) {
                       map.geoObjects.remove(placemark);
                   }
                   placemark = new ymaps.Placemark(coords, {}, { preset: 'islands#redIcon' });
                   map.geoObjects.add(placemark);
-      
+
                   // Kordinatalarni input elementlarga joylash
                   var latitudeInput = document.getElementById('latitudeInput');
                   var longitudeInput = document.getElementById('longitudeInput');
                   latitudeInput.value = coords[0].toPrecision(6);
                   longitudeInput.value = coords[1].toPrecision(6);
-      
+
                   // Manzilni input elementga joylash
                   ymaps.geocode(coords).then(function (res) {
                       var address = res.geoObjects.get(0) ? res.geoObjects.get(0).getAddressLine() : '';
@@ -152,7 +152,7 @@
                   });
               });
           });
-      
+
       </script>
       {{-- <div style="margin-top: 15px"> --}}
         {{-- <a  href="{{ route('company.index') }}" class="btn btn-primary" style=" border-color: #fd621e ; background-color: #fd621e ;  display: flex; width: 100px;justify-content: space-between;align-items: center;">
