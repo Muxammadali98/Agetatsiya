@@ -51,18 +51,18 @@
                     </div>
                     <div class="input-style-1">
                       <label>Shahar nomi</label>
-                      <input type="text" name="name"  placeholder="Fergana" />
+                      <input type="text" name="name" value="{{old('name')}}" placeholder="Farg'ona" />
                       @error('name')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
 
-                 
+
                   </div>
                   <!-- end col -->
 
 
-         
+
 
                 </form>
                 <!-- end card -->

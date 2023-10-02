@@ -51,20 +51,20 @@
                     </div>
                     <div class="input-style-1">
                       <label>Guruh Nomi</label>
-                      <input type="text" name="title"  placeholder="Guruh Nomi" />
+                      <input type="text" name="title" value="{{old('title')}}"  placeholder="Guruh Nomi" />
                       @error('title')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
-         
+
                     <div class="card-style mb-30">
                       @if (!empty($workers->all()))
                           <h6 class="mb-10">Hodimlarni tanlang</h6>
                       @else
                       <h4 class="mb-10"><a href="{{ route('worker.create') }}">Hodim yaratish </a> </h4>
                       @endif
-                      
-             
+
+
                       <div class="table-wrapper table-responsive">
                         @if(!empty($workers->all()))
                         <table class="table striped-table" style="padding: 5px" >
@@ -80,7 +80,7 @@
                           </thead>
                           <tbody>
                             @foreach ($workers as $worker)
-                  
+
                               <tr>
                                 <td>
                                   <div class="check-input-primary">
@@ -112,12 +112,12 @@
                                   </div>
                                 </td> --}}
                               </tr>
-              
+
                             @endforeach
                           </tbody>
                         </table>
                         @else
-                
+
                         <div class="input-style-3" style="display: flex; justify-content: center">
                           <h2>
                             Hodim Topilmadi
@@ -128,12 +128,12 @@
                       </div>
                     </div>
                     <!-- end card -->
-                 
+
                   </div>
                   <!-- end col -->
 
 
-         
+
 
                 </form>
                 <!-- end card -->

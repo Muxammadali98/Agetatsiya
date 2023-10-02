@@ -70,7 +70,7 @@
                             <h5 class="text-bold text-dark mb-10">{{ $worker->name }}</h5>
                             </div>
                         </div>
-                    
+
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="input-style-1">
@@ -88,7 +88,7 @@
                                     type="text"
                                     value="{{ $worker->surname }}"
                                     />
-                                </div>                                
+                                </div>
                                 <div class="input-style-1">
                                     <label>Foydalanuvchi nomi*</label>
                                     <input
@@ -96,8 +96,8 @@
                                     type="text"
                                     value="{{ $worker->username }}"
                                     />
-                                </div>                                
-                                <div class="select-style-1">  
+                                </div>
+                                <div class="select-style-1">
                                   <label>Guruhlar</label>
                                   <div class="select-position">
                                     <select name="group_id" class="light-bg">
@@ -105,33 +105,33 @@
                                       @foreach ($groups as $group)
 
                                       <option {{ $group->id == $worker->group_id?'selected':'' }} value="{{ $group->id }}">{{ $group->title }}</option>
-                                          
+
                                       @endforeach
                                     </select>
                                   </div>
-                                </div>           
+                                </div>
                                 <div class="input-style-1">
                                     <label>Parol</label>
-                                    <input 
+                                    <input
                                     name="password"
                                     type="password" />
                                 </div>
 
-                            </div>
+                            </div>F
                             <div class="col-lg-6">
                                 <div class="select-style-1">
-                                  <label>City</label>
+                                  <label>Shaxar</label>
                                   <div class="select-position">
                                     <select name="city_id" class="light-bg">
                                       @foreach ($cities as $city)
 
                                       <option {{ $city->id == $worker->city_id?'selected':'' }} value="{{ $city->id }}">{{ $city->name }}</option>
-                                          
+
                                       @endforeach
                                     </select>
                                   </div>
-                                </div>  
-                    
+                                </div>
+
                                 <div class="input-style-1">
                                     <label>Manzili*</label>
                                     <input
@@ -139,7 +139,7 @@
                                     type="text"
                                     value="{{ $worker->address }}"
                                     />
-                                </div>           
+                                </div>
                                 <div class="select-style-1">
                                   <label>Holati*</label>
                                   <div class="select-position">
@@ -147,7 +147,7 @@
                                       <option value=1>Tekshirilgan</option>
 
                                       <option {{ 0 == $worker->status?'selected':'' }} value="0">Tekshirilmagan</option>
-                                          
+
                                     </select>
                                   </div>
                                 </div>
@@ -158,7 +158,7 @@
                                       <option value=1>Sardor</option>
 
                                       <option {{ 0 == $worker->job_title?'selected':'' }} value=0>Hodim</option>
-                                          
+
                                     </select>
                                   </div>
                                 </div>
@@ -173,7 +173,7 @@
               <!-- end card -->
             </div>
             <!-- end col -->
-            {{-- 
+            {{--
             <div class="col-lg-6">
               <div class="card-style settings-card-2 mb-30">
                 <div class="title mb-30">

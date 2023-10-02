@@ -50,9 +50,9 @@
                           <th>#</th>
                           <th><h6>Bildirishnoma matni</h6></th>
                           <th><h6>Bildirishnoma Turi</h6></th>
-                  
+
                           {{-- <th><h6>Update </h6></th> --}}
-                            
+
                           <th><h6> O'chirish</h6></th>
                         </tr>
                         <!-- end table row-->
@@ -94,15 +94,11 @@
                               </td> --}}
                               <td>
                                 <div class="action">
-                                <form action="{{ route('status.destroy', $status->id) }}" method="POST">
-                                  @csrf
-                                  @method('DELETE')
-                                  <button class="text-danger fs-5">
-                                    <span class="badge rounded-pill bg-danger" style="font-size: 15px">O'chirish</span>
-                                  </button>
-                                </form>
+                                    <button onclick = "ochirish(`{{ route('notification.destroy', $status->id) }}`)" data-bs-toggle="modal" data-bs-target="#deleteModal" class="text-danger fs-5">
+                                        <span class="badge rounded-pill bg-danger" style="font-size: 15px">O'chirish</span>
+                                    </button>
                               </div>
-                            </td> 
+                            </td>
                           </tr>
                         @endforeach
                         <!-- end table row -->
@@ -117,7 +113,7 @@
                   </h2>
                 </div>
                 @endif
-             
+
                 </div>
                 <!-- end card -->
               </div>

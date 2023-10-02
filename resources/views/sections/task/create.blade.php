@@ -77,26 +77,26 @@
                       <div class="col-xxl-4">
                         <div class="input-style-1">
                           <label>Sana</label>
-                          <input type="date" name="date" placeholder="City" />
+                          <input type="date" name="date" min="{{date('Y-m-d')}}" value="{{old('date')}}" />
                           @error('date')
                               <div class="alert alert-danger">{{ $message }}</div>
                           @enderror
                         </div>
                       </div>
-  
+
                     </div>
-                    
-                 
+
+
                   </div>
                   <!-- end col -->
 
 
-         
+
 
                 </form>
 
 
-        
+
                 <!-- end card -->
 
             </div>

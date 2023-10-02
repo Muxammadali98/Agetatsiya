@@ -47,7 +47,7 @@
                 <form action="{{ route('company.update',$company->id) }}" method="POST" enctype="multipart/form-data">
                   @csrf
                   @method('PUT')
-       
+
                     <div class="input-style-3" style="display: flex; justify-content: space-between">
                       <h2>Tashkilotni O'zgartirish</h2>
                     </div>
@@ -60,21 +60,21 @@
                     </div>
                     <div class="input-style-1">
                       <label>Manzil  </label>
-                      <input type="text" id="addressInput" value="{{ $company->address }}" readonly name="address" placeholder="Fergana ..." />
+                      <input type="text" id="addressInput" value="{{ $company->address }}" readonly name="address" placeholder="Xaritadan belgilang " />
                       @error('address')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
-                      <label>Longitude</label>
-                      <input type="text" id="longitudeInput" name="longitude"  readonly placeholder=" " />
+                      <label>Uzunlik</label>
+                      <input type="text" id="longitudeInput" name="longitude"  readonly placeholder="Xaritadan belgilang " />
                       @error('longitude')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
-                      <label>Latitude </label>
-                      <input type="text" id="latitudeInput" name="latitude"  readonly placeholder="" />
+                      <label>Kenglik </label>
+                      <input type="text" id="latitudeInput" name="latitude"  readonly placeholder="Xaritadan belgilang " />
                       @error('latitude')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
@@ -92,7 +92,7 @@
                 <!-- end card -->
                   <div style=" display: flex ; flex-wrap: wrap ; width: 70%; justify-content: right;">
 
-                  
+
                     @foreach ($company->images as $image)
                         <img style="height:70px; margin:5px" onclick = "test(`{{ '/images/'.$image->image }}`)" type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" src="{{ '/images/'.$image->image }}" height="100px" alt="">
                         <form action="{{ route('company.show', $image->id) }}" style="justify-content: end" method="GET">
@@ -101,8 +101,8 @@
                             <i class="lni lni-trash-can"></i>
                           </button>
                         </form>
-              
-                        
+
+
                     @endforeach
                   </div>
                   </div>
@@ -139,35 +139,35 @@
                   center: [41.2995, 69.2401], // Ishlatilayotgan boshlang'ich markaziy koordinatalar
                   zoom: 10 // Ishlatilayotgan boshlang'ich zoom darajasi
               });
-  
+
           // Foydalanuvchi turish joyini aniqlash
           ymaps.geolocation.get().then(function (res) {
               var userLocation = res.geoObjects.get(0).geometry.getCoordinates();
               map.setCenter(userLocation);
-  
+
               // Foydalanuvchi turish joyiga marker qo'shish
               var userPlacemark = new ymaps.Placemark(userLocation, {}, { preset: 'islands#blueCircleDotIcon' });
               map.geoObjects.add(userPlacemark);
           });
-              
-  
+
+
           var placemark;
           map.events.add('click', function (e) {
               var coords = e.get('coords');
-  
+
               // Kursor yordamida belgilangan joyga qizil belgi qo'yish
               if (placemark) {
                   map.geoObjects.remove(placemark);
               }
               placemark = new ymaps.Placemark(coords, {}, { preset: 'islands#redIcon' });
               map.geoObjects.add(placemark);
-  
+
               // Kordinatalarni input elementlarga joylash
               var latitudeInput = document.getElementById('latitudeInput');
               var longitudeInput = document.getElementById('longitudeInput');
               latitudeInput.value = coords[0].toPrecision(6);
               longitudeInput.value = coords[1].toPrecision(6);
-  
+
               // Manzilni input elementga joylash
               ymaps.geocode(coords).then(function (res) {
                   var address = res.geoObjects.get(0) ? res.geoObjects.get(0).getAddressLine() : '';
@@ -176,7 +176,7 @@
               });
           });
             });
-        
+
         </script>
       </section>
       <!-- ========== tab components end ========== -->

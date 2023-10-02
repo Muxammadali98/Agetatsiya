@@ -23,7 +23,7 @@ class GroupController extends Controller
 
     function store(Request $request) {
         $this->validate($request,[
-            'title'=>'required',
+            'title'=>'required|unique:groups,title',
             'workers'=>'array'
         ]);
 
@@ -40,7 +40,7 @@ class GroupController extends Controller
         $group = Group::find($id);
         return view('admin.group.show',compact('group'));
     }
-    
+
     function edit($id) {
         $group = Group::with('workers')->find($id);
         $workers = Worker::where('group_id', null)->get();
@@ -66,7 +66,7 @@ class GroupController extends Controller
 
     function destroy($id) {
         Worker::where('group_id',$id)->update(['group_id'=>null]);
-        Task::where('group_id', $id)->delete(); 
+        Task::where('group_id', $id)->delete();
         Group::destroy($id);
 
         return redirect()->route('group.index');

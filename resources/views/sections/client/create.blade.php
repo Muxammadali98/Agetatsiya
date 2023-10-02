@@ -45,20 +45,20 @@
                 <form action="{{ route('client.store') }}" method="POST">
                   @csrf
                   <div class="card-style mb-30">
-                    
+
                     <div class="input-style-1">
                       <h2>Mijoz Qo'shish</h2>
                     </div>
                     <div class="input-style-1">
                       <label>F.I.O.</label>
-                      <input type="text" name="title"  placeholder="F.I.O." />
+                      <input type="text" name="title" value="{{old('title')}}" placeholder="F.I.O." />
                       @error('title')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
-                      <label>Phone</label>
-                      <input type="text" name="phone"  placeholder="+998 90 123 45 67" />
+                      <label>Telefon Raqami</label>
+                      <input type="text" name="phone"  value="{{old('phone')}}" placeholder="+998" />
                       @error('phone')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
@@ -117,7 +117,7 @@
                   <!-- end col -->
 
 
-         
+
 
                 </form>
                 <!-- end card -->

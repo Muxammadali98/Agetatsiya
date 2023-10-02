@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -27,7 +27,7 @@
     <!-- Add Bootstrap CSS and JavaScript to the head of your HTML file -->
     {{-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"> --}}
 
-    
+
     @livewireStyles()
   </head>
   <body>
@@ -92,7 +92,7 @@
           </li>
         </ul>
       </nav>
- 
+
     </aside>
     <div class="overlay"></div>
     <!-- ======== sidebar-nav end =========== -->
@@ -208,6 +208,7 @@
                         <h6>{{ auth()->user()->name }}</h6>
                         <div class="image">
                           <img
+                              style="width: 42px; height: 42px"
                             src="{{ auth()->user()->image?'/images/'. auth()->user()->image : '/assets/images/profile/image.png' }}"
                             alt=""
                           />
@@ -226,15 +227,12 @@
                         <i class="lni lni-user"></i> Shaxsiy ma'lumotlar
                       </a>
                     </li>
-                    
+
                     <li>
-                      <form action="/logout" method="POST">
-                        @csrf
-                   
-                        <button style="display: block; width: 100%; background: none; border: none " >
+
+                        <button style="display: block; width: 100%; background: none; border: none "  data-bs-toggle="modal" data-bs-target="#logoutModal">
                           <a> <i class="lni lni-exit"></i> Chiqish </a>
                         </button>
-                      </form>
                     </li>
                   </ul>
                 </div>
@@ -261,7 +259,7 @@
                     rel="nofollow"
                     target="_blank"
                   >
-                      
+
                   </a>
                 </p>
               </div>
@@ -282,6 +280,53 @@
           <!-- end row -->
         </div>
         <!-- end container -->
+
+          <!-- Modal -->
+          <div class="modal fade " id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg"> <!-- modal-dialog-centered - ekran o'rtasiga joylash -->
+                  <div class="modal-content" style="width: 300px; margin: 0 auto">
+                      <div class="modal-header">
+                          <h5 class="modal-title " id="exampleModalLabel">{{ "Ma'lumotni o'chirilsinmi?" }}</h5>
+{{--                          <button type="button"  class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--}}
+                      </div>
+                      <div  class="action d-flex justify-content-end ">
+                          <button data-bs-dismiss="modal" class="text-danger fs-5 m-2 ">
+                              <span class="badge rounded-pill bg-gray-500" style="font-size: 15px">Yopish</span>
+                          </button>
+                          <form action="" id="deleteItem" method="POST" class=" m-2">
+                              @csrf
+                              @method('DELETE')
+                              <button class="text-danger fs-5">
+                                  <span class="badge rounded-pill bg-danger " style="font-size: 15px">O'chirish</span>
+                              </button>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+
+          <div class="modal fade " id="logoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg"> <!-- modal-dialog-centered - ekran o'rtasiga joylash -->
+                  <div class="modal-content" style="width: 300px; margin: 0 auto">
+                      <div class="modal-header">
+                          <h5 class="modal-title " id="exampleModalLabel">{{ "Xisobdan chiqmoqchimisiz?" }}</h5>
+{{--                          <button type="button"  class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--}}
+                      </div>
+                      <div  class="action d-flex justify-content-end ">
+                          <button data-bs-dismiss="modal" class="text-danger fs-5 m-2 ">
+                              <span class="badge rounded-pill bg-gray-500" style="font-size: 15px">Yopish</span>
+                          </button>
+                          <form action="{{route('logout')}}" id="deleteItem" method="POST" class=" m-2">
+                              @csrf
+                              <button class="text-danger fs-5">
+                                  <span class="badge rounded-pill bg-danger " style="font-size: 15px">Chiqish</span>
+                              </button>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </footer>
       <!-- ========== footer end =========== -->
     </main>
@@ -816,6 +861,14 @@
         let modalImage = document.getElementById('imageModal');
         modalImage.src = url;
       }
+      function ochirish(data){
+
+        let deleteItem = document.getElementById('deleteItem');
+          deleteItem.action = data;
+      }
+
+      console.log('test delate')
+
     </script>
      @livewireScripts
   </body>

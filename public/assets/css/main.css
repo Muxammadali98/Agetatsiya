@@ -1129,7 +1129,9 @@ h6,
 .table th h6 {
   font-weight: 500;
   color: #262d3f;
+  min-width: 125px;
   font-size: 14px;
+  margin: 10px;
 }
 .table td.min-width {
   padding: 5px;

@@ -53,28 +53,28 @@
                     </div>
                     <div class="input-style-1">
                       <label>Nomi </label>
-                      <input type="text" name="title"  placeholder="Nomi " />
+                      <input type="text" name="title" value="{{old('title')}}"  placeholder="Nomi " />
                       @error('title')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
                       <label>Manzil </label>
-                      <input type="text" name="address"  id="addressInput" readonly  placeholder="Fergana ... " />
+                      <input type="text" name="address" value="{{old('address')}}"  id="addressInput" readonly  placeholder="Xaritadan belgilang " />
                       @error('address')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
-                      <label>Longitude</label>
-                      <input type="text" id="longitudeInput"  name="longitude" readonly placeholder=" " />
+                      <label>Uzunlik</label>
+                      <input type="text" id="longitudeInput"  name="longitude" value="{{old('longitude')}}" readonly placeholder="Xaritadan belgilang " />
                       @error('longitude')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
-                      <label>Latitude </label>
-                      <input type="text" id="latitudeInput"  name="latitude" readonly placeholder="" />
+                      <label>Kenglik </label>
+                      <input type="text" id="latitudeInput"  value="{{old('latitude')}}" name="latitude" readonly placeholder="Xaritadan belgilang " />
                       @error('latitude')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror

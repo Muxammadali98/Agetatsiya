@@ -78,13 +78,13 @@
                       <div class="col-xxl-4">
                         <div class="input-style-1">
                           <label>Sana</label>
-                          <input type="date" value="{{ $task->date }}" name="date" placeholder="City" />
+                          <input type="date" value="{{ $task->date }}" name="date"  />
                           @error('date')
                               <div class="alert alert-danger">{{ $message }}</div>
                           @enderror
                         </div>
                       </div>
-  
+
                     </div>
                     <div class="row">
                       <div >
@@ -93,13 +93,13 @@
                         <input {{ $task->status == 1?'checked':'' }} value="1" type="checkbox" name="status">
                       </div>
                     </div>
-                    
-                 
+
+
                   </div>
                   <!-- end col -->
 
 
-         
+
 
                 </form>
                 <!-- end card -->
@@ -122,7 +122,7 @@
                       </thead>
                       <tbody>
                         @foreach ($task->locations as $client)
-              
+
                           <tr>
                             <td>
                               {{-- <div class="check-input-primary">
@@ -151,8 +151,8 @@
                                 </div>
                               </div>
                             </td>
-               
-                    
+
+
                             {{-- <td>
                               <div class="action">
                                 <button class="text-danger">
@@ -161,13 +161,13 @@
                               </div>
                             </td> --}}
                           </tr>
-          
+
                         @endforeach
-              
+
                       </tbody>
                     </table>
                     @else
-            
+
                     <div class="input-style-3" style="display: flex; justify-content: center">
                       <h2>
                         Bajarganlar Mavjud emas
@@ -197,7 +197,7 @@
                       </thead>
                       <tbody>
                         @foreach ($task->clients as $client)
-              
+
                           <tr>
                             <td>
                               {{-- <div class="check-input-primary">
@@ -230,13 +230,13 @@
                               </div>
                             </td> --}}
                           </tr>
-          
+
                         @endforeach
-              
+
                       </tbody>
                     </table>
                     @else
-            
+
                     <div class="input-style-3" style="display: flex; justify-content: center">
                       <h2>
                         Mijozlar Mavjud emas

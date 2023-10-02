@@ -58,7 +58,7 @@
               </div>
               <div class="input-style-1">
                 <label>Tel Raqami</label>
-                <input type="text" name="phone"  value="{{ $client->phone }}" placeholder="+998 90 123 45 67" />
+                <input type="text" name="phone"  value="{{ $client->phone }}" placeholder="+998" />
                 @error('phone')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
@@ -90,13 +90,13 @@
               <div class="input-style-3" style="display: flex; justify-content: right">
                 <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">O'zgartirish</button>
               </div>
-    
+
 
             </div>
             <!-- end col -->
 
 
-    
+
 
           </form>
           <!-- end card -->
@@ -108,4 +108,3 @@
   </div>
   <!-- end container -->
 </section>
-                      

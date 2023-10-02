@@ -49,10 +49,10 @@
                           <th><h6>Tashkilot Nomi</h6></th>
                           <th><h6>Manzil</h6></th>
                           <th><h6>Rasmlar</h6></th>
-                
-                  
+
+
                           <th><h6>O'zgartirish</h6></th>
-                            
+
                           <th><h6>O'chirish</h6></th>
                         </tr>
                         <!-- end table row-->
@@ -80,7 +80,7 @@
                                   @foreach ($company->images as $image)
                                   <button onclick = "test(`{{ '/images/'.$image->image }}`)" type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal">
 
-                                   
+
                                     <img style="height: 70px; margin:5px"    src="{{ '/images/'.$image->image }}" alt="">
                                   </button>
                                   @endforeach
@@ -90,7 +90,7 @@
 
                             <td>
                               <div class="action">
-                             
+
                                 <a href="{{ route('company.edit', $company->id) }}" class="text-warning fs-5  ">
                                   <span class="badge rounded-pill bg-success"style="font-size: 14px">O'zgartirish</span>
                                 </a>
@@ -98,15 +98,15 @@
                               </td>
                               <td>
                                 <div class="action">
-                                <form action="{{ route('company.destroy', $company->id) }}" method="POST">
-                                  @csrf
-                                  @method('DELETE')
-                                  <button class="text-danger fs-5">
+{{--                                <form action="{{ route('company.destroy', $company->id) }}" method="POST">--}}
+{{--                                  @csrf--}}
+{{--                                  @method('DELETE')--}}
+                                  <button onclick = "ochirish(`{{ route('company.destroy', $company->id) }}`)" data-bs-toggle="modal" data-bs-target="#deleteModal" class="text-danger fs-5">
                                     <span class="badge rounded-pill bg-danger" style="font-size: 15px">O'chirish</span>
                                   </button>
-                                </form>
+{{--                                </form>--}}
                               </div>
-                            </td> 
+                            </td>
                           </tr>
                         @endforeach
                         <!-- end table row -->
@@ -121,7 +121,7 @@
                   </h2>
                 </div>
                 @endif
-             
+
                 </div>
                 <!-- end card -->
               </div>
@@ -138,11 +138,11 @@
           <div class="modal-dialog modal-dialog-centered modal-lg"> <!-- modal-dialog-centered - ekran o'rtasiga joylash -->
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{ isset($company->title)? $company->title : ''; }}</h5>
+                <h5 class="modal-title" id="exampleModalLabel">{{ isset($company->title)? $company->title : '' }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body" style="display: flex; justify-content: center; align-items: center">
-                <img id="imageModal" style=" object-fit: cover margin:5px" src="" alt="">
+                <img id="imageModal" style=" object-fit: cover; margin:5px" src="" alt="">
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

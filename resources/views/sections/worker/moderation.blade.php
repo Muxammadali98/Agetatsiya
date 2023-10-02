@@ -98,13 +98,9 @@
                           </td>
                           <td>
                             <div class="action">
-                            <form action="{{ route('worker.destroy', $worker->id) }}" method="POST">
-                              @csrf
-                              @method('DELETE')
-                                <button class="text-danger fs-5">
-                                  <span class="badge rounded-pill bg-danger" style="font-size: 15px">O'chirish</span>
+                                <button onclick = "ochirish(`{{ route('worker.destroy', $worker->id) }}`)" data-bs-toggle="modal" data-bs-target="#deleteModal" class="text-danger fs-5">
+                                    <span class="badge rounded-pill bg-danger" style="font-size: 15px">O'chirish</span>
                                 </button>
-                              </form>
                             </div>
                           </td>
                         </tr>
@@ -118,7 +114,7 @@
                 @else
                   <div class="input-style-3" style="display: flex; justify-content: center">
                     <h2>
-                      Hodim Mavjut Emas
+                      Hodim mavjud emas
                     </h2>
                   </div>
                 @endif

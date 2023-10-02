@@ -43,7 +43,7 @@
                       <h6 class="mb-10">Mijozlar Jadvali</h6>
                       <a href="{{ route('client.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover">Mijoz Qo'shish</a>
                     </div>
-                    
+
                     <form class="col-6"  action="{{ route('filterClient') }}" method="GET" style="display: flex; justify-content: flex-end; flex-direction: column;">
                       @csrf
                       <div class="row col-lg-12">
@@ -81,15 +81,15 @@
                                 <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"></path>
                               </svg>
                             </a>
-                            <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Saralash</button>
+                            <button style="padding: 10px 10px" class="main-btn primary-btn btn-hover">Saralash</button>
                           </div>
-                  
+
                         </div>
 
                     </form>
 
                   </div>
-      
+
 
                   @if (!empty($clients->all()))
                           <div class="table-wrapper table-responsive">
@@ -104,7 +104,7 @@
                             <th><h6>Guruh nomi</h6></th>
                             <th><h6>Izoh</h6></th>
                             <th><h6>O'zgatirish </h6></th>
-                              
+
                             <th><h6> O'chirish</h6></th>
                           </tr>
                           <!-- end table row-->
@@ -118,7 +118,7 @@
                           @endphp
                             <tr>
                               <td>
-                                <h6 class="text-sm">#{{ $i }}</h6>
+                                <h6 class="text-sm">{{ $i }}</h6>
                               </td>
                               <td>
                                 <p>{{ $client->title }}</p>
@@ -140,7 +140,7 @@
                               </td>
                               <td>
                                 <div class="action">
-                              
+
                                   <a href="{{ route('client.edit', $client->id) }}" class="text-warning fs-5  ">
                                     <span class="badge rounded-pill bg-success"style="font-size: 14px">O'zgartirish</span>
                                   </a>
@@ -148,15 +148,11 @@
                                 </td>
                                 <td>
                                   <div class="action">
-                                  <form action="{{ route('client.destroy', $client->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="text-danger fs-5">
-                                      <span class="badge rounded-pill bg-danger" style="font-size: 15px">O'chirish</span>
-                                    </button>
-                                  </form>
+                                      <button onclick = "ochirish(`{{ route('client.destroy', $client->id) }}`)" data-bs-toggle="modal" data-bs-target="#deleteModal" class="text-danger fs-5">
+                                          <span class="badge rounded-pill bg-danger" style="font-size: 15px">O'chirish</span>
+                                      </button>
                                 </div>
-                              </td> 
+                              </td>
                             </tr>
                           @endforeach
                           <!-- end table row -->
@@ -171,7 +167,7 @@
                   </h2>
                 </div>
                 @endif
-             
+
                 </div>
                 <!-- end card -->
               </div>

@@ -50,9 +50,9 @@
                         <tr>
                           <th>#</th>
                           <th><h6>Shahar Nomi</h6></th>
-                  
+
                           <th><h6>O'zgartirish </h6></th>
-                            
+
                           <th><h6>O'chirish</h6></th>
                         </tr>
                         <!-- end table row-->
@@ -74,7 +74,7 @@
 
                             <td>
                               <div class="action">
-                             
+
                                 <a href="{{ route('city.edit', $group->id) }}" class="text-warning fs-5  ">
                                   <span class="badge rounded-pill bg-success"style="font-size: 14px">O'zgartirish</span>
                                 </a>
@@ -82,15 +82,11 @@
                               </td>
                               <td>
                                 <div class="action">
-                                <form action="{{ route('city.destroy', $group->id) }}" method="POST">
-                                  @csrf
-                                  @method('DELETE')
-                                  <button class="text-danger fs-5">
-                                    <span class="badge rounded-pill bg-danger" style="font-size: 15px">O'chirish</span>
-                                  </button>
-                                </form>
+                                    <button onclick = "ochirish(`{{ route('city.destroy', $group->id) }}`)" data-bs-toggle="modal" data-bs-target="#deleteModal" class="text-danger fs-5">
+                                        <span class="badge rounded-pill bg-danger" style="font-size: 15px">O'chirish</span>
+                                    </button>
                               </div>
-                            </td> 
+                            </td>
                           </tr>
                         @endforeach
                         <!-- end table row -->
@@ -101,11 +97,11 @@
                 @else
                 <div class="input-style-3" style="display: flex; justify-content: center">
                   <h2>
-                    Shahar mavj emas
+                    Shaharlar mavjud emas
                   </h2>
                 </div>
                 @endif
-             
+
                 </div>
                 <!-- end card -->
               </div>

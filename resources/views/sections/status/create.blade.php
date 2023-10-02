@@ -47,22 +47,22 @@
                   <div class="card-style mb-30">
                     <div class="input-style-3" style="display: flex; justify-content: space-between">
                       <h2>Holat(Status) Qo'shish</h2>
-                      <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Create</button>
+                      <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Yaratish</button>
                     </div>
                     <div class="input-style-1">
                       <label>Nomi </label>
-                      <input type="text" name="title"  placeholder="Nomi" />
+                      <input type="text" name="title" value="{{old('title')}}"  placeholder="Nomi" />
                       @error('title')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
 
-                 
+
                   </div>
                   <!-- end col -->
 
 
-         
+
 
                 </form>
                 <!-- end card -->

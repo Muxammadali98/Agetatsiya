@@ -49,36 +49,36 @@
                       <h2>Hodim Qo'shish</h2>
                     </div>
                     <div class="input-style-1">
-                      <label>Nomi</label>
-                      <input type="text" name="name"  placeholder="Nomi" />
+                      <label>Ism</label>
+                      <input type="text" name="name"  value="{{old('name')}}" placeholder="Ism" />
                       @error('name')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
                       <label>Familya</label>
-                      <input type="text" name="surname"  placeholder="Familya" />
+                      <input type="text" name="surname" value="{{old('surname')}}"  placeholder="Familya" />
                       @error('surname')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
                       <label>Foydalanuvchi Nomi</label>
-                      <input type="text" name="username"  placeholder="Usernamel" />
+                      <input type="text" name="username" value="{{old('username')}}"  placeholder="Foydalanuvchi ismi" />
                       @error('username')
                       <div class="alert alert-danger">{{ $message }}</div>
                   @enderror
                     </div>
                     <div class="input-style-1">
                       <label>Telefon Raqami </label>
-                      <input type="text" name="phone"  placeholder="+998907823396" />
+                      <input type="text" name="phone"  value="{{old('phone')}}" placeholder="+998" />
                       @error('phone')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
                       <label>Rasim</label>
-                      <input type="file" name="image" />
+                      <input type="file"  name="image" />
                       @error('image')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
@@ -95,21 +95,21 @@
                     </div>
                     <div class="input-style-1">
                       <label>Manzil</label>
-                      <input type="text" name="address"  placeholder="Address " />
+                      <input type="text" name="address" value="{{old('address')}}" placeholder="Manzil " />
                       @error('address')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
                       <label>Parol</label>
-                      <input type="password" name="password"  placeholder="password " />
+                      <input type="password" name="password"  placeholder="Parol " />
                       @error('password')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
                       <label>Parolni aytadan kiriting</label>
-                      <input type="password" name="confirm_password"  placeholder="Confirmation password" />
+                      <input type="password" name="confirm_password"  placeholder="Parolni qayta kiriting" />
                       @error('confirm_password')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror

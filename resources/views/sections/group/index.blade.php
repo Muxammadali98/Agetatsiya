@@ -78,7 +78,7 @@
                             </td>
                             <td>
                               <div class="action">
-                             
+
                                 <a href="{{ route('group.edit', $group->id) }}" class="text-warning fs-5  ">
                                   <span class="badge rounded-pill bg-success"style="font-size: 14px">O'zgartirish</span>
                                 </a>
@@ -86,15 +86,11 @@
                               </td>
                               <td>
                                 <div class="action">
-                                <form action="{{ route('group.destroy', $group->id) }}" method="POST">
-                                  @csrf
-                                  @method('DELETE')
-                                  <button class="text-danger fs-5">
-                                    <span class="badge rounded-pill bg-danger" style="font-size: 15px">O'chirish</span>
-                                  </button>
-                                </form>
+                                    <button onclick = "ochirish(`{{ route('group.destroy', $group->id) }}`)" data-bs-toggle="modal" data-bs-target="#deleteModal" class="text-danger fs-5">
+                                        <span class="badge rounded-pill bg-danger" style="font-size: 15px">O'chirish</span>
+                                    </button>
                               </div>
-                            </td> 
+                            </td>
                           </tr>
                         @endforeach
                         <!-- end table row -->
@@ -109,7 +105,7 @@
                   </h2>
                 </div>
                 @endif
-             
+
                 </div>
                 <!-- end card -->
               </div>

@@ -65,7 +65,7 @@
                   </div>
                     <div class="input-style-1 ">
                       <label>Bildirishnoma</label>
-                      <input type="text" name="text"  placeholder="Matin" />
+                      <input type="text" name="text" value="{{old('text')}}" placeholder="Matin" />
                       @error('text')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
@@ -75,7 +75,7 @@
                   <!-- end col -->
 
 
-         
+
 
                 </form>
                 <!-- end card -->

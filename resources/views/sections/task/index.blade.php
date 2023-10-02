@@ -45,12 +45,12 @@
                     </div>
 
                     <form class="col-6"  action="{{ route('filterTask') }}" method="GET" style="display: flex; justify-content: flex-end; flex-direction: column;">
-     
+
                       @csrf
-                      
+
 
                       <div class="row col-lg-12">
-             
+
                           <div class="col-xxl-3">
                             <div class="select-style-1">
                               <label> Guruhlar  </label>
@@ -91,8 +91,8 @@
                               </div>
                             </div>
                           </div>
-             
-            
+
+
                           <div class="col-xxl-3" style="display: flex; align-items: center" >
                             <a href="/task" class="btn btn-secondary"  style="background-color: #4a6cf7; padding: 15px 15px; margin: 5px ">
                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
@@ -102,8 +102,8 @@
                             </a>
                             <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Saralash</button>
                           </div>
-        
-                  
+
+
                         </div>
 
                     </form>
@@ -120,9 +120,9 @@
                           <th><h6> Tashkilotlar</h6></th>
                           <th><h6> Sana</h6></th>
                           <th><h6> Status</h6></th>
-                  
+
                           <th><h6>O'zgartirish </h6></th>
-                            
+
                           <th><h6> O'chirish</h6></th>
                         </tr>
                         <!-- end table row-->
@@ -163,15 +163,11 @@
                             </td>
                             <td>
                               <div class="action">
-                                <form action="{{ route('task.destroy', $task->id) }}" method="POST">
-                                  @csrf
-                                  @method('DELETE')
-                                  <button class="text-danger fs-5">
-                                    <span class="badge rounded-pill bg-danger" style="font-size: 15px">O'chirish</span>
-                                  </button>
-                                </form>
+                                    <button onclick = "ochirish(`{{ route('task.destroy', $task->id) }}`)" data-bs-toggle="modal" data-bs-target="#deleteModal" class="text-danger fs-5">
+                                        <span class="badge rounded-pill bg-danger" style="font-size: 15px">O'chirish</span>
+                                    </button>
                               </div>
-                            </td> 
+                            </td>
                           </tr>
                         @endforeach
                         <!-- end table row -->
@@ -186,7 +182,7 @@
                   </h2>
                 </div>
                 @endif
-             
+
                 </div>
                 <!-- end card -->
               </div>
