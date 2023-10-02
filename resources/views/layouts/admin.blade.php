@@ -209,7 +209,7 @@
                         <div class="image">
                           <img
                               style="width: 42px; height: 42px"
-                            src="{{ auth()->user()->image?'/images/'. auth()->user()->image : '/assets/images/profile/image.png' }}"
+                            src="{{ auth()->user()->image?'/images/'. auth()->user()->image : '/images/profile-icon.png' }}"
                             alt=""
                           />
                           <span class="status"></span>
