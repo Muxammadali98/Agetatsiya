@@ -163,7 +163,7 @@
                   @else
                 <div class="input-style-3" style="display: flex; justify-content: center">
                   <h2>
-                    Mijozlar mavjud emas
+                    Mijozlar topilmadi
                   </h2>
                 </div>
                 @endif

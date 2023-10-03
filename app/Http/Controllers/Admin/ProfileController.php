@@ -32,16 +32,17 @@ class ProfileController extends Controller
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
-        
+
         if(isset($request->image)){
             $imageName = time().'.'.$request->image->getClientOriginalName();
             $request->image->move(public_path('images'), $imageName);
+            $request->user()->image = $imageName;
         }
 
-        
 
 
-        $request->user()->image = $imageName;
+
+
         $request->user()->save();
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');

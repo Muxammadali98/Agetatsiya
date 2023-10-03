@@ -36,6 +36,19 @@ class WorkerController extends Controller
             'password' => 'required|same:confirm_password',
             'confirm_password' => 'required',
             'city_id'=>'required| int | exists:cities,id',
+        ],[
+            'name.required'=>"Ism mayronini to'ldirish majburiy",
+            'username.required'=>"Foydalanuvchi ismi maydonini to'ldirish majburiy",
+            'username.unique'=>"Foydalanuvchi ismi allaqachon yaratilgan",
+            'surname.required'=>"Faminya maydonini to'ldirish majburiy",
+            'phone.unique'=>"Telefon raqam maydonini to'ldirish majburiy",
+            'phone.digits:12'=>"Telefon raqam maydoniniga 12 ta belgi kiritish kerak",
+            'phone.numeric'=>"Telefon raqam maydoni raqamlardam tashkil topishi kerak",
+            'address.required'=>"Manzil maydonini to'ldirish majburiy",
+            'password.required'=>"Parol maydonini to'ldirish majburiy",
+            'confirm_password.required'=>"Prolni tasdilqsh maydonini to'ldirish majburiy",
+            'confirm_password.confirm_password'=>"Parol tasdiqlanmadi iltimos tekshirib ko'ring",
+            'city_id.required'=>"Shaharni tanlash majburiy",
         ]);
 
         $data = $request->all();
@@ -73,6 +86,17 @@ class WorkerController extends Controller
             'address'=>'required',
             'phone'=>'required|digits:12|numeric',
             'city_id'=>'required| int | exists:cities,id',
+        ],
+        [
+            'name.required'=>"Ism mayronini to'ldirish majburiy",
+            'username.required'=>"Foydalanuvchi ismi maydonini to'ldirish majburiy",
+            'username.unique'=>"Foydalanuvchi ismi allaqachon yaratilgan",
+            'surname.required'=>"Faminya maydonini to'ldirish majburiy",
+            'phone.unique'=>"Telefon raqam maydonini to'ldirish majburiy",
+            'phone.digits:12'=>"Telefon raqam maydoniniga 12 ta belgi kiritish kerak",
+            'phone.numeric'=>"Telefon raqam maydoni raqamlardam tashkil topishi kerak",
+            'address.required'=>"Manzil maydonini to'ldirish majburiy",
+            'city_id.required'=>"Shaharni tanlash majburiy",
         ]);
         $worker = Worker::find($id);
 

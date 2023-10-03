@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->unsignedBigInteger('city_id');
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
-            $table->string('address');
+            $table->text('address');
             $table->string('password');
             $table->unsignedBigInteger('group_id')->nullable();
             $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');

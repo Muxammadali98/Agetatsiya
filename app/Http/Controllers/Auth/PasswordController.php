@@ -19,6 +19,14 @@ class PasswordController extends Controller
             'current_password' => ['required', 'current_password'],
             'password' => ['required', Password::defaults(), 'confirmed'],
             'password_confirmation' => ['required',  'confirmed'],
+        ],
+        [
+            'current_password.required'=>"Joriy parol maydonini to'ldirish majburiy",
+            'password.required'=>"Ushbu parol maydonini to'ldirish majburiy",
+            'password.confirmed'=>"Ushbu parol maydonini tasdiqlanmadi",
+            'password_confirmation.required'=>"Ushbu parolni tasdiqlash maydonini to'ldirish majburiy",
+            'password_confirmation.confirmed'=>"Ushbu parolni tasdiqlash maydonini noto'g'ri kiritilgan",
+            'current_password.current_password'=>"Joriy parol maydonini noto'g'ri"
         ]);
 
         $request->user()->update([

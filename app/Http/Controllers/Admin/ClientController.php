@@ -36,6 +36,13 @@ class ClientController extends Controller
             'status_id'=>'required | int | exists:statuses,id',
             'comment'=>'required',
             'worker_id'=>'required | int | exists:workers,id'
+        ],
+        [
+            'title.required'=>"Mijoz nomini kiritish majburiy",
+            'comment.required'=>"Mijozga izoh qoldirish majburiy",
+            'status.required'=>"Holatni tanlash majburiy",
+            'phone.required'=>"Telefon raqam kiritish majburiy",
+            'phone.digits'=>"Telefon raqam 12 ta belgidan iborat bolishi majburiy",
         ]);
 
         $user = Worker::find($request->worker_id);

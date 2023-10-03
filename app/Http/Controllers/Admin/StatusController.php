@@ -20,6 +20,8 @@ class StatusController extends Controller
     function store(Request $request) {
         $this->validate($request,[
             'title'=>'required'
+        ],[
+            'title.required'=>'Status nomini kiritish majbuiy'
         ]);
 
         $status = Status::create($request->all());
@@ -32,7 +34,7 @@ class StatusController extends Controller
         $status = Status::find($id);
         return view('admin.status.show',compact('status'));
     }
-    
+
     function edit($id) {
         $status = Status::find($id);
         return view('admin.status.show',compact('status'));
@@ -45,7 +47,7 @@ class StatusController extends Controller
 
         $status = Status::find($id);
         $status->update($request->all());
-  
+
         return redirect()->route('status.index');
 
     }

@@ -31,6 +31,8 @@ class TaskController extends Controller
             'company_id'=>'required| int | exists:companies,id',
             'group_id'=>'required| int | exists:groups,id',
             'date'=>'required'
+        ],[
+            "date.required"=>"Sana kiristish majburiy"
         ]);
 
         $task = Task::create($request->all());
@@ -47,7 +49,7 @@ class TaskController extends Controller
         $task = Task::find($id);
         return view('admin.task.show',compact('task'));
     }
-    
+
     function edit($id) {
         $task = Task::find($id);
         $companies = Company::all();
@@ -71,7 +73,7 @@ class TaskController extends Controller
             $data['status'] = false;
         }else{
           Company::find($request->company_id)->update(['come'=>time()]);
-          
+
         }
         $task->update($data);
         return redirect()->route('task.index');

@@ -53,29 +53,29 @@
                     </div>
                     <div class="input-style-1">
                       <label>Nomi  </label>
-                      <input type="text" value="{{ $company->title }}" name="title" placeholder="Name company" />
-                      @error('title')
+                      <input type="text" value="{{ $company->nom }}" name="nom" placeholder="Name company" />
+                      @error('nom')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
                       <label>Manzil  </label>
-                      <input type="text" id="addressInput" value="{{ $company->address }}" readonly name="address" placeholder="Xaritadan belgilang " />
-                      @error('address')
+                      <input type="text" id="addressInput" value="{{ $company->manzil }}" readonly name="manzil" placeholder="Xaritadan belgilang " />
+                      @error('manzil')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
                       <label>Uzunlik</label>
-                      <input type="text" id="longitudeInput" name="longitude"  readonly placeholder="Xaritadan belgilang " />
-                      @error('longitude')
+                      <input type="text" id="longitudeInput" name="uzunlik" value="{{ $company->longitude }}"  readonly placeholder="Xaritadan belgilang " />
+                      @error('uzunlik')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
                       <label>Kenglik </label>
-                      <input type="text" id="latitudeInput" name="latitude"  readonly placeholder="Xaritadan belgilang " />
-                      @error('latitude')
+                      <input type="text" id="latitudeInput" name="kenglik" value="{{ $company->latitude }}"  readonly placeholder="Xaritadan belgilang " />
+                      @error('kenglik')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>

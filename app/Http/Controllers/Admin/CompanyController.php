@@ -20,14 +20,20 @@ class CompanyController extends Controller
 
     function store(Request $request) {
         $this->validate($request,[
-            'title'=>'required',
-            'address'=>'required',
-            'longitude'=>'required',
-            'latitude'=>'required',
+            'nom'=>'required',
+            'manzil'=>'required',
+            'uzunlik'=>'required',
+            'kenglik'=>'required',
             'images[]'=>'array',
 
         ]);
-        $company = Company::create($request->all());
+        $company = Company::create([
+            'title'=>'nom',
+            'address'=>'manzil',
+            'longitude'=>'uzunlik',
+            'latitude'=>'kenglik',
+
+        ]);
         if(isset($request->images)){
 
             foreach($request->images as $image){
@@ -57,13 +63,21 @@ class CompanyController extends Controller
 
     function update(Request $request, $id) {
         $this->validate($request,[
-            'title'=>'required',
-
+            'nom'=>'required',
+            'manzil'=>'required',
+            'uzunlik'=>'required',
+            'kenglik'=>'required',
+            'images[]'=>'array',
         ]);
 
         $company = Company::find($id);
         $company->timestamps = false;
-        $company->update($request->all());
+        $company->update([
+            'title'=>'nom',
+            'address'=>'manzil',
+            'longitude'=>'uzunlik',
+            'latitude'=>'kenglik',
+        ]);
 
         if(isset($request->images)){
 

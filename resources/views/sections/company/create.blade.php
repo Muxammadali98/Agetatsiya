@@ -53,29 +53,29 @@
                     </div>
                     <div class="input-style-1">
                       <label>Nomi </label>
-                      <input type="text" name="title" value="{{old('title')}}"  placeholder="Nomi " />
-                      @error('title')
+                      <input type="text" name="nom" value="{{old('nom')}}"  placeholder="Nomi " />
+                      @error('nom')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
                       <label>Manzil </label>
-                      <input type="text" name="address" value="{{old('address')}}"  id="addressInput" readonly  placeholder="Xaritadan belgilang " />
-                      @error('address')
+                      <input type="text" name="manzil" value="{{old('manzil')}}"  id="addressInput" readonly  placeholder="Xaritadan belgilang " />
+                      @error('manzil')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
                       <label>Uzunlik</label>
-                      <input type="text" id="longitudeInput"  name="longitude" value="{{old('longitude')}}" readonly placeholder="Xaritadan belgilang " />
-                      @error('longitude')
+                      <input type="text" id="longitudeInput"  name="uzunlik" value="{{old('uzunlik')}}" readonly placeholder="Xaritadan belgilang " />
+                      @error('uzunlik')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>
                     <div class="input-style-1">
                       <label>Kenglik </label>
-                      <input type="text" id="latitudeInput"  value="{{old('latitude')}}" name="latitude" readonly placeholder="Xaritadan belgilang " />
-                      @error('latitude')
+                      <input type="text" id="latitudeInput"  value="{{old('kenglik')}}" name="kenglik" readonly placeholder="Xaritadan belgilang " />
+                      @error('kenglik')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
                     </div>

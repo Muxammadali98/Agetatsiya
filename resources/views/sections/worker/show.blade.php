@@ -74,7 +74,7 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="input-style-1">
-                                    <label>Nomi*</label>
+                                    <label>Ism*</label>
                                     <input
                                     name="name"
                                     type="text"
@@ -90,7 +90,7 @@
                                     />
                                 </div>
                                 <div class="input-style-1">
-                                    <label>Foydalanuvchi nomi*</label>
+                                    <label>Foydalanuvchi ismi*</label>
                                     <input
                                     name="username"
                                     type="text"

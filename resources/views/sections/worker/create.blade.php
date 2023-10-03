@@ -63,7 +63,7 @@
                       @enderror
                     </div>
                     <div class="input-style-1">
-                      <label>Foydalanuvchi Nomi</label>
+                      <label>Foydalanuvchi Ismi</label>
                       <input type="text" name="username" value="{{old('username')}}"  placeholder="Foydalanuvchi ismi" />
                       @error('username')
                       <div class="alert alert-danger">{{ $message }}</div>
@@ -77,7 +77,7 @@
                       @enderror
                     </div>
                     <div class="input-style-1">
-                      <label>Rasim</label>
+                      <label>Rasm</label>
                       <input type="file"  name="image" />
                       @error('image')
                           <div class="alert alert-danger">{{ $message }}</div>
@@ -108,7 +108,7 @@
                       @enderror
                     </div>
                     <div class="input-style-1">
-                      <label>Parolni aytadan kiriting</label>
+                      <label>Parolni qayta kiriting</label>
                       <input type="password" name="confirm_password"  placeholder="Parolni qayta kiriting" />
                       @error('confirm_password')
                           <div class="alert alert-danger">{{ $message }}</div>

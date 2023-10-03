@@ -114,7 +114,7 @@
                 @else
                   <div class="input-style-3" style="display: flex; justify-content: center">
                     <h2>
-                      Hodim Mavjut Emas
+                      Hodim Topilmadi
                     </h2>
                   </div>
                 @endif

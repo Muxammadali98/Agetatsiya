@@ -40,7 +40,7 @@
                         @endforeach
                         @else
                             <li>
-                                <p>Habar mavjut emas</p>
+                                <p>Habar Mavjud Emas!</p>
                             </li>
                         @endif
                         </ul>

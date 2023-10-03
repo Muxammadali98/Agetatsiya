@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('status_id');
             $table->foreign('status_id')->references('id')->on('statuses')->onDelete('cascade');
             $table->string('phone');
-            $table->string('comment');
+            $table->text('comment');
             $table->unsignedBigInteger('worker_id');
             $table->foreign('worker_id')->references('id')->on('workers')->onDelete('cascade');
             $table->unsignedBigInteger('group_id');

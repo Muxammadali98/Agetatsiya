@@ -25,6 +25,10 @@ class GroupController extends Controller
         $this->validate($request,[
             'title'=>'required|unique:groups,title',
             'workers'=>'array'
+        ],
+        [
+            'title.required'=>"Guruh nomimini kiritish majburiy",
+            'title.unique'=>"Ushbu guruh nomimi allaqachon yaratilgan",
         ]);
 
         $group = Group::create($request->all());
