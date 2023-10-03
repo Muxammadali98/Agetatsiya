@@ -27,8 +27,8 @@ class GroupController extends Controller
             'workers'=>'array'
         ],
         [
-            'title.required'=>"Guruh nomimini kiritish majburiy",
-            'title.unique'=>"Ushbu guruh nomimi allaqachon yaratilgan",
+            'title.required'=>"Guruh nomini kiritish majburiy",
+            'title.unique'=>"Ushbu guruh nomi allaqachon yaratilgan",
         ]);
 
         $group = Group::create($request->all());
@@ -53,10 +53,13 @@ class GroupController extends Controller
 
     function update(Request $request, $id) {
         $this->validate($request,[
-            'title'=>'required',
+            'title'=>'required|unique:groups,title',
             'workers'=>'array'
-
-        ]);
+        ],
+            [
+                'title.required'=>"Guruh nomini kiritish majburiy",
+                'title.unique'=>"Ushbu guruh nomi allaqachon yaratilgan",
+            ]);
 
         $group = Group::find($id);
         $group->update($request->all());

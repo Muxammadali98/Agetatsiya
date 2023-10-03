@@ -51,7 +51,7 @@
                     </div>
                     <div class="input-style-1">
                       <label>Shahar nomi</label>
-                      <input type="text" name="shahar" value="{{old('name')}}" placeholder="Shahar nomi" />
+                      <input type="text" name="name" value="{{old('name')}}" placeholder="Shahar nomi" />
                       @error('name')
                           <div class="alert alert-danger">{{ $message }}</div>
                       @enderror

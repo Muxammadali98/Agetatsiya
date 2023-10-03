@@ -19,11 +19,13 @@ class CityController extends Controller
 
     function store(Request $request) {
         $this->validate($request,[
-            'shahar'=>'required|unique:cities,shahar'
+            'name'=>'required|unique:cities,name'
+        ],[
+            'name.required'=>"Shahar nomini kiritish majburiy ",
+            'name.unique'=>"Shahar nomi allaqachon kiritilgan "
         ]);
-        $data = $request->all();
-        $data['name'] = $request->shahar;
-        $city = City::create($data);
+
+        $city = City::create($request->all());
 
         return redirect()->route('city.index');
     }
@@ -40,13 +42,14 @@ class CityController extends Controller
 
     function update(Request $request, $id) {
         $this->validate($request,[
-            'shahar'=>'required|unique:cities,shahar'
+            'name'=>'required|unique:cities,name',
+        ],[
+            'name.required'=>"Shahar nomini kiritish majburiy ",
+            'name.unique'=>"Shahar nomi allaqachon kiritilgan "
         ]);
-        $data = $request->all();
-        $data['name'] = $request->shahar;
 
         $city = City::find($id);
-        $city->update($data);
+        $city->update($request->all());
 
         return redirect()->route('city.index');
 
