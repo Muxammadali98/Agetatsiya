@@ -20,20 +20,18 @@ class CompanyController extends Controller
 
     function store(Request $request) {
         $this->validate($request,[
-            'nom'=>'required',
-            'manzil'=>'required',
-            'uzunlik'=>'required',
-            'kenglik'=>'required',
+            'title'=>'required',
+            'address'=>'required',
+            'longitude'=>'required',
+            'latitude'=>'required',
             'images[]'=>'array',
-
+        ],[
+            'title.required'=>'Tashkilot nomini kiritish majburiy',
+            'address.required'=>"Manzil kiritish majburiy",
+            'longitude.required'=>"Uzunlik kiritish majburiy",
+            'latitude.required'=>"Kenglik kiritish majburiy",
         ]);
-        $company = Company::create([
-            'title'=>'nom',
-            'address'=>'manzil',
-            'longitude'=>'uzunlik',
-            'latitude'=>'kenglik',
-
-        ]);
+        $company = Company::create($request->all());
         if(isset($request->images)){
 
             foreach($request->images as $image){
@@ -63,21 +61,21 @@ class CompanyController extends Controller
 
     function update(Request $request, $id) {
         $this->validate($request,[
-            'nom'=>'required',
-            'manzil'=>'required',
-            'uzunlik'=>'required',
-            'kenglik'=>'required',
+            'title'=>'required',
+            'address'=>'required',
+            'longitude'=>'required',
+            'latitude'=>'required',
             'images[]'=>'array',
+        ],[
+            'title.required'=>'Tashkilot nomini kiritish majburiy',
+            'address.required'=>"Manzil kiritish majburiy",
+            'longitude.required'=>"Uzunlik kiritish majburiy",
+            'latitude.required'=>"Kenglik kiritish majburiy",
         ]);
 
         $company = Company::find($id);
         $company->timestamps = false;
-        $company->update([
-            'title'=>'nom',
-            'address'=>'manzil',
-            'longitude'=>'uzunlik',
-            'latitude'=>'kenglik',
-        ]);
+        $company->update($request->all());
 
         if(isset($request->images)){
 
