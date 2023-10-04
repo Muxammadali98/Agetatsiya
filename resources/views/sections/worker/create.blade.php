@@ -85,11 +85,16 @@
                     </div>
                     <div class="select-style-1">
                       <label>Shahar</label>
+                        @empty($cities->all())
+                            <a href="{{ route('city.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover m-3">Shahar Qo'shish</a>
+                        @endempty
                       <div class="select-position">
                         <select name="city_id">
-                          @foreach ($cities as $city)
+                          @forelse ($cities as $city)
                           <option value="{{ $city->id }}">{{ $city->name }}</option>
-                          @endforeach
+                            @empty
+                          <option >{{ "Iltimos Shahar Qo'shing" }}</option>
+                          @endforelse
                         </select>
                       </div>
                     </div>

@@ -53,25 +53,37 @@
                       <div class="col-xxl-4">
                         <div class="select-style-1">
                           <label>Guruh</label>
+
                           <div class="select-position">
                             <select name="group_id">
-                              @foreach ($groups as $group)
+                              @forelse ($groups as $group)
                               <option value="{{ $group->id }}">{{ $group->title }}</option>
-                              @endforeach
+                                @empty
+                                    <option >{{ "Iltimos Guruh Qo'shing" }}</option>
+                              @endforelse
                             </select>
                           </div>
+                            @empty($groups->all())
+                                <a href="{{ route('group.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover m-3">Guruh Qo'shish</a>
+                            @endempty
                         </div>
                       </div>
                       <div class="col-xxl-4">
                         <div class="select-style-1">
                           <label>Tashkilot </label>
+
                           <div class="select-position">
                             <select name="company_id">
-                              @foreach ($companies as $compony)
+                              @forelse($companies as $compony)
                               <option value="{{ $compony->id }}">{{ $compony->title }}</option>
-                              @endforeach
+                              @empty
+                                  <option >{{ "Iltimos Tashkilot Qo'shing" }}</option>
+                              @endforelse
                             </select>
                           </div>
+                            @empty($companies->all())
+                                <a href="{{ route('company.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover m-3">Tashkilot Qo'shish</a>
+                            @endempty
                         </div>
                       </div>
                       <div class="col-xxl-4">

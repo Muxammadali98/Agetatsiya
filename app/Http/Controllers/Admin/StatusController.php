@@ -19,9 +19,10 @@ class StatusController extends Controller
 
     function store(Request $request) {
         $this->validate($request,[
-            'title'=>'required'
+            'title'=>'required|unique:statuses,title'
         ],[
-            'title.required'=>'Status nomini kiritish majbuiy'
+            'title.required'=>'Status nomini kiritish majbuiy',
+            'title.unique'=>'ushbu status nomi allaqachon yaratilgan'
         ]);
 
         $status = Status::create($request->all());
@@ -42,7 +43,10 @@ class StatusController extends Controller
 
     function update(Request $request, $id) {
         $this->validate($request,[
-            'title'=>'required',
+            'title'=>'required|unique:statuses,title'
+        ],[
+            'title.required'=>'Status nomini kiritish majbuiy',
+            'title.unique'=>'ushbu status nomi allaqachon yaratilgan'
         ]);
 
         $status = Status::find($id);

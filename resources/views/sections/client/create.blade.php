@@ -65,27 +65,36 @@
                     </div>
                     <div class="select-style-1">
                       <label>Holat (Status)</label>
+                        @empty($statuses->all())
+                            <a href="{{ route('status.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover m-3">Holat Qo'shish</a>
+                        @endempty
                       <div class="select-position">
-                          @forelse ($statuses as $item)
                         <select name="status_id">
+                          @forelse ($statuses as $item)
                           <option value="{{ $item->id }}">{{ $item->title }}</option>
-                        </select>
                             @empty
-                              <a href="{{ route('status.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover">Holat Qo'shish</a
+                                <option >{{ "Iltimos Holat Qo'shing"  }}</option>
                           @endforelse
+                        </select>
                         @error('status_id')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
+
                       </div>
                     </div>
                     <div class="select-style-1">
                       <label>Topshiriq</label>
+                        @empty($tasks->all())
+                            <a href="{{ route('task.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover m-3">Topshiriq Qo'shish</a>
+                        @endempty
                       <div class="select-position">
                         <select name="task_id">
-                          @foreach ($tasks as $item)
+                          @forelse($tasks as $item)
                           <option value="{{ $item->id }}">{{ $item->company->title }}</option>
-                          @endforeach
-                          @error('task_id')
+                            @empty
+                                <option>{{ "Iltimos Topshiriq Qo'shing" }}</option>
+                            @endforelse
+                            @error('task_id')
                               <div class="alert alert-danger">{{ $message }}</div>
                           @enderror
                         </select>
@@ -93,11 +102,16 @@
                     </div>
                     <div class="select-style-1">
                       <label>Hodim</label>
+                        @empty($workers->where('group_id','!=',null))
+                            <a href="{{ route('worker.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover m-3">Hodim Qo'shish</a>
+                        @endempty
                       <div class="select-position">
                         <select name="worker_id">
-                          @foreach ($workers as $item)
+                          @forelse ($workers->where('group_id','!=',null) as $item)
                           <option value="{{ $item->id }}">{{ $item->name }}</option>
-                          @endforeach
+                            @empty
+                                <option >{{ "Iltimos hodim qo'shing va guruhga biriktring" }}</option>
+                          @endforelse
                         </select>
                         @error('worker_id')
                           <div class="alert alert-danger">{{ $message }}</div>

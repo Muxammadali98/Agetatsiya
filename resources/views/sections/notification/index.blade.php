@@ -75,11 +75,11 @@
                               <p>
                                 @php
                                     if ($status->type == 'l') {
-                                      echo 'For Leaders' ;
+                                      echo 'Sardorlar uchun' ;
                                     }elseif ($status->type == 'w') {
-                                      echo 'For All Workers' ;
+                                      echo 'Barcha uchun' ;
                                     }else{
-                                      echo "For  Group ". $status->group->title ;
+                                      echo $status->group->title."guruh uchun" ;
                                     }
                                 @endphp
                               </p>
