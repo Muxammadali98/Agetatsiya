@@ -61,19 +61,7 @@ class CompanyController extends Controller
     }
 
     function update(Request $request, $id) {
-        $this->validate($request,[
-            'title'=>'required',
-            'address'=>'required',
-            'longitude'=>'required',
-            'latitude'=>'required',
-            'images[]'=>'array',
-        ],[
-            'title.required'=>'Tashkilot nomini kiritish majburiy',
 
-            'address.required'=>"Manzil kiritish majburiy",
-            'longitude.required'=>"Uzunlik kiritish majburiy",
-            'latitude.required'=>"Kenglik kiritish majburiy",
-        ]);
 
         $company = Company::find($id);
         $company->timestamps = false;
