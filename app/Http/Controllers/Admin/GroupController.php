@@ -52,14 +52,7 @@ class GroupController extends Controller
     }
 
     function update(Request $request, $id) {
-        $this->validate($request,[
-            'title'=>'required|unique:groups,title',
-            'workers'=>'array'
-        ],
-            [
-                'title.required'=>"Guruh nomini kiritish majburiy",
-                'title.unique'=>"Ushbu guruh nomi allaqachon yaratilgan",
-            ]);
+
 
         $group = Group::find($id);
         $group->update($request->all());

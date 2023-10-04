@@ -41,12 +41,7 @@ class CityController extends Controller
     }
 
     function update(Request $request, $id) {
-        $this->validate($request,[
-            'name'=>'required|unique:cities,name',
-        ],[
-            'name.required'=>"Shahar nomini kiritish majburiy ",
-            'name.unique'=>"Shahar nomi allaqachon kiritilgan "
-        ]);
+
 
         $city = City::find($id);
         $city->update($request->all());

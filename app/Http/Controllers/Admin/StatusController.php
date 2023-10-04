@@ -42,12 +42,7 @@ class StatusController extends Controller
     }
 
     function update(Request $request, $id) {
-        $this->validate($request,[
-            'title'=>'required|unique:statuses,title'
-        ],[
-            'title.required'=>'Status nomini kiritish majbuiy',
-            'title.unique'=>'ushbu status nomi allaqachon yaratilgan'
-        ]);
+
 
         $status = Status::find($id);
         $status->update($request->all());

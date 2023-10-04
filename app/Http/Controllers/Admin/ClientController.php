@@ -71,21 +71,7 @@ class ClientController extends Controller
     }
 
     function update(Request $request, $id) {
-        $this->validate($request,[
-            'title'=>'required',
-            'phone'=>'required|digits:12|numeric',
-            'status_id'=>'required | int | exists:statuses,id',
-            'comment'=>'required',
-            'worker_id'=>'required | int | exists:workers,id'
-        ],
-            [
-                'title.required'=>"Mijoz nomini kiritish majburiy",
-                'comment.required'=>"Mijozga izoh qoldirish majburiy",
-                'status.required'=>"Holatni tanlash majburiy",
-                'phone.required'=>"Telefon raqam kiritish majburiy",
-                'worker.required'=>"Hodimni kiritish majburiy",
-                'phone.digits'=>"Telefon raqam 12 ta belgidan iborat bolishi majburiy",
-            ]);
+
 
         $client = Client::find($id);
         $data = $request->all();
