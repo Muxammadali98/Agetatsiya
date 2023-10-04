@@ -66,11 +66,13 @@
                     <div class="select-style-1">
                       <label>Holat (Status)</label>
                       <div class="select-position">
+                          @forelse ($statuses as $item)
                         <select name="status_id">
-                          @foreach ($statuses as $item)
                           <option value="{{ $item->id }}">{{ $item->title }}</option>
-                          @endforeach
                         </select>
+                            @empty
+                              <a href="{{ route('status.create') }}" style="padding: 5px" class="main-btn primary-btn btn-hover">Holat Qo'shish</a
+                          @endforelse
                         @error('status_id')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror

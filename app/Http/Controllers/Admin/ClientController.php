@@ -35,13 +35,16 @@ class ClientController extends Controller
             'phone'=>'required|digits:12|numeric',
             'status_id'=>'required | int | exists:statuses,id',
             'comment'=>'required',
-            'worker_id'=>'required | int | exists:workers,id'
+            'worker_id'=>'required | int | exists:workers,id',
+            'task_id'=>'required | int | exists:tasks,id'
         ],
         [
             'title.required'=>"Mijoz nomini kiritish majburiy",
             'comment.required'=>"Mijozga izoh qoldirish majburiy",
             'status.required'=>"Holatni tanlash majburiy",
             'phone.required'=>"Telefon raqam kiritish majburiy",
+            'worker_id.required'=>"Hodimni kiritish majburiy",
+            'ttask_id.required'=>"Topshiriq kiritish majburiy",
             'phone.digits'=>"Telefon raqam 12 ta belgidan iborat bolishi majburiy",
         ]);
 
@@ -71,10 +74,18 @@ class ClientController extends Controller
         $this->validate($request,[
             'title'=>'required',
             'phone'=>'required|digits:12|numeric',
-            'status_id'=>'required| int | exists:statuses,id',
+            'status_id'=>'required | int | exists:statuses,id',
             'comment'=>'required',
-            'worker_id'=>'required| int | exists:workers,id'
-        ]);
+            'worker_id'=>'required | int | exists:workers,id'
+        ],
+            [
+                'title.required'=>"Mijoz nomini kiritish majburiy",
+                'comment.required'=>"Mijozga izoh qoldirish majburiy",
+                'status.required'=>"Holatni tanlash majburiy",
+                'phone.required'=>"Telefon raqam kiritish majburiy",
+                'worker.required'=>"Hodimni kiritish majburiy",
+                'phone.digits'=>"Telefon raqam 12 ta belgidan iborat bolishi majburiy",
+            ]);
 
         $client = Client::find($id);
         $data = $request->all();

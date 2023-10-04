@@ -47,13 +47,13 @@
                       <li class="p-2 border-bottom">
                         <a href="#"   wire:click="getMessage({{ $chat->id }})" class="d-flex justify-content-between">
                           <div class="d-flex flex-row">
-                            <img style="height:60px; width:60px"  src="{{ !empty($chat->worker)?'/images/'. $chat->worker->image : '/assets/images/profile/man.png' }}" alt="avatar"
+                            <img style="height:60px; width:60px"  src="{{ !empty($chat->worker)?'/images/'. $chat->worker->image : '/assets/images/profile/profile-icon.png' }}" alt="avatar"
                               class="rounded-circle d-flex align-self-center me-3 shadow-1-strong" width="60">
                             <div class="pt-1">
                               <div style="display: flex">
 
                                 <p style="margin-right: 15px" class="fw-bold mb-0">{{ $chat->worker->name }}</p>
-                                <p style="font-size: 10 px; color: rgb(150, 150, 135)">{{ $chat->messages->last()->created_at->format('d M') }}</p>
+                                <p style="font-size: 10px; color: rgb(150, 150, 135)">{{ $chat->messages->last()->created_at->format('d M') }}</p>
                               </div>
                               <p class="small text-muted">{{ substr($chat->messages->last()->text, 0,30 ) }}</p>
                             </div>

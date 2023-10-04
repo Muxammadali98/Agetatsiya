@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
-            $table->string('text');
+            $table->text('text');
             $table->integer('chat_id');
             $table->softDeletes();
             $table->timestamps();

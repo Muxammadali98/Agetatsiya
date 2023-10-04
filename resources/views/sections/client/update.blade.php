@@ -72,16 +72,22 @@
                     @endforeach
                   </select>
                 </div>
+                  @error('status_id')
+                  <div class="alert alert-danger">{{ $message }}</div>
+                  @enderror
               </div>
               <div class="select-style-1">
                 <label>Hodim</label>
                 <div class="select-position">
                   <select name="worker_id">
                     @foreach ($workers as $item)
-                    <option {{ $client->worker_id == $item->id? 'selected': '' ; }} value="{{ $item->id }}">{{ $item->name }}</option>
+                    <option {{ $client->worker_id == $item->id? 'selected': '' }} value="{{ $item->id }}">{{ $item->name }}</option>
                     @endforeach
                   </select>
                 </div>
+                  @error('worker_id')
+                  <div class="alert alert-danger">{{ $message }}</div>
+                  @enderror
               </div>
               <div class="input-style-1">
                 <label>Comment</label>
