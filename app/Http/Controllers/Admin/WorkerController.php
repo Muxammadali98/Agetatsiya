@@ -84,7 +84,7 @@ class WorkerController extends Controller
             'username'=>'required | unique:workers,username,'.$id,
             'surname'=>'required',
             'address'=>'required',
-            'phone'=>'required|digits:12|numeric',
+            'phone'=>'digits:12|numeric',
             'city_id'=>'required| int | exists:cities,id',
         ],
         [

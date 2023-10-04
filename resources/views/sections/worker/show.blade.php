@@ -81,6 +81,9 @@
                                     value="{{ $worker->name }}"
                                     />
                                 </div>
+                                @error('name')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                 <div class="input-style-1">
                                     <label>Familya*</label>
                                     <input
@@ -89,6 +92,9 @@
                                     value="{{ $worker->surname }}"
                                     />
                                 </div>
+                                @error('surname')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                 <div class="input-style-1">
                                     <label>Foydalanuvchi ismi*</label>
                                     <input
@@ -97,6 +103,9 @@
                                     value="{{ $worker->username }}"
                                     />
                                 </div>
+                                @error('username')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                 <div class="select-style-1">
                                   <label>Guruhlar</label>
                                   <div class="select-position">
@@ -109,6 +118,9 @@
                                       @endforeach
                                     </select>
                                   </div>
+                                    @error('group_id')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="input-style-1">
                                     <label>Parol</label>
@@ -116,8 +128,10 @@
                                     name="password"
                                     type="password" />
                                 </div>
-
-                            </div>F
+                                @error('password')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
                             <div class="col-lg-6">
                                 <div class="select-style-1">
                                   <label>Shaxar</label>
@@ -131,7 +145,9 @@
                                     </select>
                                   </div>
                                 </div>
-
+                                @error('city_id')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                 <div class="input-style-1">
                                     <label>Manzili*</label>
                                     <input
@@ -140,6 +156,9 @@
                                     value="{{ $worker->address }}"
                                     />
                                 </div>
+                                @error('address')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                 <div class="select-style-1">
                                   <label>Holati*</label>
                                   <div class="select-position">
@@ -151,6 +170,9 @@
                                     </select>
                                   </div>
                                 </div>
+                                @error('status')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                 <div class="select-style-1">
                                   <label>Lavozimi*</label>
                                   <div class="select-position">
@@ -162,6 +184,9 @@
                                     </select>
                                   </div>
                                 </div>
+                                @error('job_title')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                 <div class="input-style-1" style="display: flex; justify-content: right; margin-top: 70px ">
                                     <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">O'zgarishlarni Saqlash</button>
                                 </div>
