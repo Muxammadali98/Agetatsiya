@@ -62,14 +62,14 @@ class CompanyController extends Controller
 
     function update(Request $request, $id) {
         $this->validate($request,[
-            'title'=>'required|unique:companies,title',
+            'title'=>'required',
             'address'=>'required',
             'longitude'=>'required',
             'latitude'=>'required',
             'images[]'=>'array',
         ],[
             'title.required'=>'Tashkilot nomini kiritish majburiy',
-            'title.unique'=>'Ushbu tashkilot nomini allaqachon yaratilgan',
+
             'address.required'=>"Manzil kiritish majburiy",
             'longitude.required'=>"Uzunlik kiritish majburiy",
             'latitude.required'=>"Kenglik kiritish majburiy",
