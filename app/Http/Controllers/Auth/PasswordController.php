@@ -18,14 +18,14 @@ class PasswordController extends Controller
         $validated = $request->validateWithBag('updatePassword', [
             'current_password' => ['required', 'current_password'],
             'password' => ['required', Password::defaults(), 'confirmed'],
-            'password_confirmation' => ['required'],
+            'password_confirmation' => ['required','same:password'],
         ],
         [
             'current_password.required'=>"Joriy parol maydonini to'ldirish majburiy",
             'password.required'=>"Ushbu parol maydonini to'ldirish majburiy",
             'password.confirmed'=>"Ushbu parol maydoni tasdiqlanmadi",
             'password_confirmation.required'=>"Ushbu parolni tasdiqlash maydonini to'ldirish majburiy",
-            'password_confirmation.confirmed'=>"Ushbu parolni tasdiqlash maydoni noto'g'ri kiritilgan",
+            'password_confirmation.same'=>"Ushbu parolni tasdiqlash maydoni noto'g'ri kiritilgan",
             'current_password.current_password'=>"Joriy parol maydoni noto'g'ri"
         ]);
 
