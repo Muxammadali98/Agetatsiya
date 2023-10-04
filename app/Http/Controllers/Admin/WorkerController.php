@@ -115,7 +115,7 @@ class WorkerController extends Controller
         }
 
         $worker->update($data);
-        return redirect()->route('worker.index');
+        return back();
 
     }
 
