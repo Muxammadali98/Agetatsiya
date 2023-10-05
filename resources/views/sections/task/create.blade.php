@@ -109,6 +109,14 @@
                                             </thead>
                                             <tbody>
                                             @foreach ($companies as $company)
+
+                                                @php
+                                                    $startTime = \Carbon\Carbon::parse($company->cmae);
+                                                   $endTime = \Carbon\Carbon::parse(date('Y-m-d'));
+
+                                                   $time = $endTime->diff($startTime)->h;
+
+                                                @endphp
                                                 <tr>
                                                     <td>
                                                         <div class="check-input-primary">
@@ -123,9 +131,13 @@
                                                     <td>
                                                         <p>{{ $company->title }}</p>
                                                     </td>
-                                                    <td>
-                                                        <p>{{ $company->come}}</p>
-                                                    </td>
+                                                        <td >
+                                                            @if($time <= 30)
+                                                                <p style="background-color: yellow; display: inline-block; border-radius: 3px; padding: 5px; color: black   " >{{ $company->come?? "Borilmagan"}}</p>
+                                                            @else
+                                                                <p style="background-color: green; display: inline-block; border-radius: 3px; padding: 5px; color: white">{{ $company->come?? "Borilmagan"}}</p>
+                                                            @endif
+                                                        </td>
                                                     <td>
                                                         <p>{{ $company->address }}</p>
                                                     </td>

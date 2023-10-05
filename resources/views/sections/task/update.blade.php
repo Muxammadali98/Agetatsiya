@@ -48,7 +48,7 @@
                   <div class="card-style mb-30">
                     <div class="input-style-3" style="display: flex;   justify-content: space-between">
                       <h2>Topshiriqni O'zgartirish</h2>
-                      <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Update</button>
+                      <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">O'zgartirish</button>
                     </div>
                     <div class="row">
                       <div class="col-xxl-4">
@@ -87,10 +87,15 @@
 
                     </div>
                     <div class="row">
-                      <div >
+                      <div class="col-xxl-4" >
 
                         <label for="">Tugatilgan </label>
                         <input {{ $task->status == 1?'checked':'' }} value="1" type="checkbox" name="status">
+                      </div>
+                      <div class="col-xxl-4">
+                                <b> Tashkilot manzili</b>
+                            <label for="">{{ $task->company->address}}</label>
+
                       </div>
                     </div>
 

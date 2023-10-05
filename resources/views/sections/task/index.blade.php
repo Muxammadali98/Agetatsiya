@@ -121,7 +121,7 @@
                           <th><h6> Sana</h6></th>
                           <th><h6> Status</h6></th>
 
-                          <th><h6>O'zgartirish </h6></th>
+                          <th><h6>Batafsil</h6></th>
 
                           <th><h6> O'chirish</h6></th>
                         </tr>
@@ -157,7 +157,7 @@
                             <td>
                               <div class="action">
                                 <a href="{{ route('task.edit', $task->id) }}" class="text-warning fs-5  ">
-                                  <span class="badge rounded-pill bg-success"style="font-size: 14px">O'zgartirish</span>
+                                  <span class="badge rounded-pill bg-success"style="font-size: 14px">Batafsil</span>
                                 </a>
                               </div>
                             </td>
