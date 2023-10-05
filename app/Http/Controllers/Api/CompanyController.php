@@ -17,7 +17,7 @@ class CompanyController extends Controller
 
 
     function index() {
-       
+
         $user = auth()->guard('api')->user();
 
         $data =  Task::with(['company'])->where('status',0)->where('group_id',$user->group_id)->get();
@@ -34,17 +34,18 @@ class CompanyController extends Controller
             'latitude'=>'required',
             'address'=>'required',
 
-     
+
         ]);
 
-
-        $company = Company::create($request->all());
+        $data = $request->all();
+        $data['date'] = date('Y-m-d');
+        $company = Company::create($data);
 
         if(isset($request->images)){
 
             foreach($request->images as $base64Image){
-        
-                // $base64Image = "data:image/png;base64,".$base64Image; 
+
+                // $base64Image = "data:image/png;base64,".$base64Image;
                 // list($type, $base64Data) = explode(';', $base64Image);
                 // list(, $base64Data) = explode(',', $base64Data);
                 // $imageData = base64_decode($base64Data);
@@ -57,7 +58,7 @@ class CompanyController extends Controller
 
                 Image::create(['image'=>$imageName, 'company_id'=>$company->id]);
             }
-    
+
         }
         $user = auth()->guard('api')->user();
 
@@ -71,11 +72,11 @@ class CompanyController extends Controller
 
 
 
- 
 
-        
+
+
         $data = $user->group->tasks->where('status',null);
-        
+
         return $this->success($data ,'client created', 201);;
     }
 }
