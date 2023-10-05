@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('latitude')->nullable();
-            $table->string('longitude')->nullable(); 
+            $table->string('longitude')->nullable();
             $table->string('address');
-            $table->bigInteger('come')->nullable();
+            $table->date('come')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
