@@ -62,7 +62,7 @@
                         @foreach ($companies as $company)
                           <tr>
                             <td>
-                              <h6 class="text-sm">#{{ $loop->iteration }}</h6>
+                              <h6 class="text-sm">{{ $loop->iteration }}</h6>
                             </td>
                             <td>
                               <p>{{ $company->title }}</p>

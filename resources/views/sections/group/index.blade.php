@@ -65,7 +65,7 @@
                         @endphp
                           <tr>
                             <td>
-                              <h6 class="text-sm">#{{ $i }}</h6>
+                              <h6 class="text-sm">{{ $i }}</h6>
                             </td>
                             <td>
                               <p>{{ $group->title }}</p>
