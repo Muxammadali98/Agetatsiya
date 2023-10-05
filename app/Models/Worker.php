@@ -14,7 +14,7 @@ use Laravel\Passport\HasApiTokens;
 
 
 
-class Worker extends  Authenticatable 
+class Worker extends  Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable , SoftDeletes;
 
@@ -36,7 +36,7 @@ class Worker extends  Authenticatable
     function group() {
         return $this->belongsTo(Group::class)->with(['tasks', 'workers'])->withTrashed();
     }
-    
+
     function city() {
         return $this->belongsTo(City::class)->withTrashed();
     }
@@ -47,5 +47,10 @@ class Worker extends  Authenticatable
 
     function images(){
         return $this->hasMany(TaskImage::class);
+    }
+
+    function clients()
+    {
+        return $this->hasMany(Client::class);
     }
 }

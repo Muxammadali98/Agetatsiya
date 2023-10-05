@@ -27,6 +27,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [GroupController::class, 'index'])->middleware(['auth', 'verified']);
 
+Route::get('/statistic/{id}',[\App\Http\Controllers\StatisticController::class, 'index'])->middleware(['auth', 'verified']);
+
 Route::get('/dashboard',[GroupController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

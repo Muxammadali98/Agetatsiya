@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 class TaskController extends Controller
 {
     function index(){
-        $tasks = Task::all();
+        $tasks = Task::orderBy('created_at',"DESC")->get();
         $companies = Company::all();
         $groups = Group::all();
         return view('admin.task.index',compact('tasks','companies', 'groups'));
@@ -28,14 +28,22 @@ class TaskController extends Controller
 
     function store(Request $request) {
         $this->validate($request,[
-            'company_id'=>'required| int | exists:companies,id',
-            'group_id'=>'required| int | exists:groups,id',
+            'group_id'=>'required| int | exists:companies,id',
+            'company_id'=>'required| array ',
             'date'=>'required'
         ],[
             "date.required"=>"Sana kiristish majburiy"
         ]);
 
-        $task = Task::create($request->all());
+        Company::whereIn('id',$request->company_id)->update(['come'=>$request->date]);
+        foreach ($request->company_id as $item){
+
+            $task = Task::create([
+                'group_id'=>$request->group_id,
+                'company_id'=>$item,
+                'date'=>$request->date
+            ]);
+        }
         $data = [
             'id'=>$task->group_id,
             'company'=>$task->company,
@@ -63,7 +71,7 @@ class TaskController extends Controller
             'group_id'=>'required| int | exists:groups,id',
             'date'=>'required'
         ]);
-
+        Company::where('id',$request->company_id)->update(['come'=>$request->date]);
         $task = Task::find($id);
         $data = $request->all();
 
@@ -72,7 +80,7 @@ class TaskController extends Controller
             $task->timestamps = false;
             $data['status'] = false;
         }else{
-          Company::find($request->company_id)->update(['come'=>time()]);
+//          Company::find($request->company_id)->update(['come'=>time()]);
 
         }
         $task->update($data);

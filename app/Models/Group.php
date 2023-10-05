@@ -15,7 +15,11 @@ class Group extends Model
     function workers() {
         return $this->hasMany(Worker::class);
     }
+    function clients() {
+        return $this->hasMany(Client::class);
+    }
     function tasks() {
         return $this->hasMany(Task::class)->with('company');
     }
+
 }

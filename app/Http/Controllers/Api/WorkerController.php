@@ -19,28 +19,28 @@ class WorkerController extends Controller
     public function login(Request $request)
     {
         $data=Validator::make($request->all(), [
-            
+
             'password'=>'required',
             'username'=>'required',
         ]);
-        
+
         if($data->fails()){
             return $this->error("", 400, $data->errors());
         }
-     
+
         if(auth()->guard('user')->attempt(['username'=>$request->username, 'password'=>$request->password])){
 
             $user=auth()->guard('user')->user();
-            
-            
+
+
            $token = $user->createToken('Monitoring')->accessToken;
-            return $this->success(['user'=>$user, 'token'=>$token], "", 201);  
+            return $this->success(['user'=>$user, 'token'=>$token], "", 201);
         }else{
             return $this->error("" , 400, 'parol xato');
         }
     }
 
-    public function register(Request $request)     
+    public function register(Request $request)
     {
 
         $data=Validator::make($request->all(), [
@@ -53,7 +53,7 @@ class WorkerController extends Controller
             'address'=>'required',
             'city_id'=>'required| int | exists:cities,id',
         ]);
-        
+
         if($data->fails()){
             return $this->error("", 400, $data->errors());
         }
@@ -62,12 +62,12 @@ class WorkerController extends Controller
         $data = $request->all();
         $data['password'] = Hash::make($request->password);
 
-        
+
         if(isset($request->image)){
             $imageName = time().'.'.$request->image->getClientOriginalName();
             $request->image->move(public_path('images'), $imageName);
             $data['image'] = $imageName;
-    
+
         }
 
 
@@ -85,9 +85,10 @@ class WorkerController extends Controller
         $user = auth()->guard('api')->user();
 
         $user->tasks = Task::where('group_id',$user->group_id)->get();
+        $user->clients = $user->clients;
 
         return $this->success($user,'your infos');
-        
+
     }
 
     function update(Request $request, $id) {
@@ -117,9 +118,9 @@ class WorkerController extends Controller
             }else{
                 return $this->error('parol xato', 401);
             }
-            
+
         }
-        
+
         if($error->fails()){
             return $this->error("", 400, $error->errors());
         }

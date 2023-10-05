@@ -72,7 +72,7 @@
                                 <select name="company_id">
                                   <option value="">Barchasi</option>
                                   @foreach ($companies as $compony)
-                                  <option {{ !empty($_GET['company_id'])&&$_GET['company_id']==$compony->id? 'selected':''; }} value="{{ $compony->id }}">{{ $compony->title }}</option>
+                                  <option {{ !empty($_GET['company_id'])&&$_GET['company_id']==$compony->id? 'selected':''}} value="{{ $compony->id }}">{{ $compony->title }}</option>
                                   @endforeach
                                 </select>
                               </div>
@@ -85,8 +85,8 @@
                               <div class="select-position">
                                 <select name="status_id">
                                   <option value="">Barchasi</option>
-                                  <option {{ !empty($_GET['status_id'])&&$_GET['status_id']==1? 'selected':''; }} value="{{ 1 }}">Tugatilgan</option>
-                                  <option {{ isset($_GET['status_id'])&&$_GET['status_id']==0? 'selected':''; }} value="{{ 0 }}">Tugatilamagan</option>
+                                  <option {{ !empty($_GET['status_id'])&&$_GET['status_id']==1? 'selected':'' }} value="{{ 1 }}">Tugatilgan</option>
+                                  <option {{ isset($_GET['status_id'])&&$_GET['status_id']==0? 'selected':'' }} value="{{ 0 }}">Tugatilamagan</option>
                                 </select>
                               </div>
                             </div>
@@ -100,7 +100,7 @@
                                 <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"></path>
                               </svg>
                             </a>
-                            <button style="padding: 10px 30px" class="main-btn primary-btn btn-hover">Saralash</button>
+                            <button style="padding: 10px 10px" class="main-btn primary-btn btn-hover">Saralash</button>
                           </div>
 
 

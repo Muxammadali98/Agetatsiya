@@ -60,13 +60,9 @@
                       <tbody>
 
                         @foreach ($companies as $company)
-                        @php
-                           static $i=0;
-                            $i++;
-                        @endphp
                           <tr>
                             <td>
-                              <h6 class="text-sm">#{{ $i }}</h6>
+                              <h6 class="text-sm">#{{ $loop->iteration }}</h6>
                             </td>
                             <td>
                               <p>{{ $company->title }}</p>
