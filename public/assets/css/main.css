@@ -1142,6 +1142,7 @@ h6,
   }
 }
 .table td p {
+    margin: 5px;
   font-size: 14px;
   line-height: 1.5;
   color: #5d657b;
