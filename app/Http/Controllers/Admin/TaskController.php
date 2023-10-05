@@ -35,9 +35,9 @@ class TaskController extends Controller
             "date.required"=>"Sana kiristish majburiy"
         ]);
 
-        Company::whereIn('id',$request->company_id)->update(['come'=>$request->date]);
-        foreach ($request->company_id as $item){
 
+        foreach ($request->company_id as $item){
+            Company::find($item)->update(['come'=>$request->date]);
             $task = Task::create([
                 'group_id'=>$request->group_id,
                 'company_id'=>$item,
