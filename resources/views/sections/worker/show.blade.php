@@ -110,7 +110,7 @@
                                   <label>Guruhlar</label>
                                   <div class="select-position">
                                     <select name="group_id" class="light-bg">
-                                      <option value=""> Bosh </option>
+                                      <option value=""> Bo'sh </option>
                                       @foreach ($groups as $group)
 
                                       <option {{ $group->id == $worker->group_id?'selected':'' }} value="{{ $group->id }}">{{ $group->title }}</option>
