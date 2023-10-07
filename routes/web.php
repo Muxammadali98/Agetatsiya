@@ -24,12 +24,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', [GroupController::class, 'index'])->middleware(['auth', 'verified']);
-
-Route::get('/statistic/{id}',[\App\Http\Controllers\StatisticController::class, 'index'])->middleware(['auth', 'verified']);
-
-Route::get('/dashboard',[GroupController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+require __DIR__.'/auth.php';
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -52,7 +47,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/notifigroup',[NotificationController::class, 'createGroup'])->name('createGroup');
     Route::post('/notifigroup',[NotificationController::class, 'storeGroup'])->name('storeGroup');
     Route::get('/moderation',[WorkerController::class, 'moderation']);
+    Route::get('/dashboard',[\App\Http\Controllers\StatisticController::class, 'index'])->name('dashboard');
+    Route::get('/filterStatistic', [\App\Http\Controllers\StatisticController::class, 'filter']);
+    Route::get('/{id?}', [\App\Http\Controllers\StatisticController::class, 'index']);
 });
 
 
-require __DIR__.'/auth.php';
+

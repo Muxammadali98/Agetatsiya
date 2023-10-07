@@ -18,8 +18,12 @@ class Group extends Model
     function clients() {
         return $this->hasMany(Client::class);
     }
+    public function location() {
+        return $this->hasMany(Task::class)->with('company');
+    }
     function tasks() {
         return $this->hasMany(Task::class)->with('company');
     }
+
 
 }

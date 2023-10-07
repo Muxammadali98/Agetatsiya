@@ -53,4 +53,8 @@ class Worker extends  Authenticatable
     {
         return $this->hasMany(Client::class);
     }
+    function location()
+    {
+        return $this->hasMany(TaskLocation::class);
+    }
 }

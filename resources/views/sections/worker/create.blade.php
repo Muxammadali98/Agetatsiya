@@ -66,8 +66,8 @@
                       <label>Foydalanuvchi Ismi</label>
                       <input type="text" name="username" value="{{old('username')}}"  placeholder="Foydalanuvchi ismi" />
                       @error('username')
-                      <div class="alert alert-danger">{{ $message }}</div>
-                  @enderror
+                          <div class="alert alert-danger">{{ $message }}</div>
+                      @enderror
                     </div>
                     <div class="input-style-1">
                       <label>Telefon Raqami </label>

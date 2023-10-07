@@ -34,13 +34,17 @@
     <!-- ======== sidebar-nav start =========== -->
     <aside class="sidebar-nav-wrapper">
       <div class="navbar-logo">
-        <a href="{{ route('group.index') }}">
+        <a href="/">
           <img src="/assets/images/logo/logo.svg" alt="logo" />
         </a>
       </div>
       <nav class="sidebar-nav">
         <ul>
-          <li class="nav-item {{ request()->is('group')? 'active' : '' }}">
+          <li class="nav-item {{ request()->is('/') || request()->is('2')? 'active' : '' }}">
+            <a href="/" >
+              <span style="{{ request()->is('/') || request()->is('2')? 'color: #4a6cf7;' : '' }}" class="text">Statistika</span>
+            </a>
+          </li>      <li class="nav-item {{ request()->is('group')? 'active' : '' }}">
             <a href="{{ route('group.index') }}" >
               <span style="{{ request()->is('group')? 'color: #4a6cf7;' : '' }}" class="text">Guruhlar</span>
             </a>
