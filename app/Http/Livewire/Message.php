@@ -1,4 +1,4 @@
-<?php   
+<?php
 
 namespace App\Http\Livewire;
 
@@ -18,7 +18,7 @@ class Message extends Component
     public $user_id;
 
     public $chat;
-    
+
 
     protected $listeners = [
         'eventCreated' => 'handleMessage',
@@ -30,14 +30,13 @@ class Message extends Component
 
     public function getMessage($id) {
 
-      
         $this->chatId = $id;
         $chat = $this->chats->where('id',$id)->first();
         if(isset($chat->message)){
             $chat->message = null;
             $chat->timestamps = false;
             $chat->save();
-        } 
+        }
         $this->messages = ModelsMessage::where('chat_id', $id)->get();
         $this->emit('eventChat');
          event(new NotifiAdminEvent());
@@ -52,7 +51,7 @@ class Message extends Component
 
     public function mount()
     {
-        $this->chats = Chat::whereNull('user_id')->orWhere('user_id',auth()->id())->orderBy('updated_at', 'DESC')->get(); 
+        $this->chats = Chat::whereNull('user_id')->orWhere('user_id',auth()->id())->orderBy('updated_at', 'DESC')->get();
         if (isset($_GET['id'])) {
 
             $this->getMessage($_GET['id']);
@@ -60,24 +59,24 @@ class Message extends Component
     }
     public function changeChat()
     {
-        $this->chats = Chat::whereNull('user_id')->orWhere('user_id',auth()->id())->orderBy('updated_at', 'DESC')->get(); 
+        $this->chats = Chat::whereNull('user_id')->orWhere('user_id',auth()->id())->orderBy('updated_at', 'DESC')->get();
     }
 
 
     public function handleMessage($id)
-    {   
-        
+    {
+
         if($id['data'] == $this->chatId){
             Chat::where('id',$this->chatId)->update(['message'=>null]);
-            
-            $this->chats = Chat::whereNull('user_id')->orWhere('user_id',auth()->id())->orderBy('updated_at', 'DESC')->get(); 
+
+            $this->chats = Chat::whereNull('user_id')->orWhere('user_id',auth()->id())->orderBy('updated_at', 'DESC')->get();
 
             $this->messages = ModelsMessage::where('chat_id', $this->chatId)->with('chat')->get();
-              
+
             $this->emit('eventChat');
         }else{
 
-            $this->chats = Chat::whereNull('user_id')->orWhere('user_id',auth()->id())->orderBy('updated_at', 'DESC')->get(); 
+            $this->chats = Chat::whereNull('user_id')->orWhere('user_id',auth()->id())->orderBy('updated_at', 'DESC')->get();
 
         }
     }
@@ -86,7 +85,7 @@ class Message extends Component
     public function addMessage(){
 
         $text = $this->text;
-        $user_id = auth()->user()->id; 
+        $user_id = auth()->user()->id;
 
         $message =  ModelsMessage::create([
             'text' => $this->text,
@@ -107,5 +106,5 @@ class Message extends Component
     {
         return view('livewire.message');
     }
-    
+
 }

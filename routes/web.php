@@ -24,7 +24,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-require __DIR__.'/auth.php';
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [\App\Http\Controllers\StatisticController::class, 'index']);
@@ -51,8 +52,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/moderation',[WorkerController::class, 'moderation']);
     Route::get('/dashboard',[\App\Http\Controllers\StatisticController::class, 'index'])->name('dashboard');
     Route::get('/filterStatistic', [\App\Http\Controllers\StatisticController::class, 'filter']);
-    Route::get('/statistic', [\App\Http\Controllers\StatisticController::class, 'index']);
+    Route::get('/{statistic}', [\App\Http\Controllers\StatisticController::class, 'index',]);
 });
+require __DIR__.'/auth.php';
 
 
 
