@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="shortcut icon"
           href="/assets/images/favicon.svg"
           type="image/x-icon"
     />
 
 
-
     <title>@yield('title')</title>
 
     <!-- ========== All CSS files linkup ========= -->
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/assets/css/lineicons.css" />
-    <link rel="stylesheet" href="/assets/css/materialdesignicons.min.css" />
-    <link rel="stylesheet" href="/assets/css/fullcalendar.css" />
-    <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/assets/css/lineicons.css"/>
+    <link rel="stylesheet" href="/assets/css/materialdesignicons.min.css"/>
+    <link rel="stylesheet" href="/assets/css/fullcalendar.css"/>
+    <link rel="stylesheet" href="/assets/css/main.css"/>
     <link rel="stylesheet" href="/build/assets/app-1e2735e2.css">
     <link rel="stylesheet" type="application/json" href="/build/manifest.json">
 
@@ -34,23 +33,25 @@
 <aside class="sidebar-nav-wrapper">
     <div class="navbar-logo">
         <a href="/">
-            <img src="/assets/images/logo/logo.svg" alt="logo" />
+            <img src="/assets/images/logo/logo.svg" alt="logo"/>
         </a>
     </div>
     <nav class="sidebar-nav">
         <ul>
             <li class="nav-item {{ request()->is('/') || request()->is('2')? 'active' : '' }}">
-                <a href="/" >
+                <a href="/">
                     <span style="{{ request()->is('/') || request()->is('2')? 'color: #4a6cf7;' : '' }}" class="text">Statistika</span>
                 </a>
-            </li>      <li class="nav-item {{ request()->is('group')? 'active' : '' }}">
-                <a href="{{ route('group.index') }}" >
+            </li>
+            <li class="nav-item {{ request()->is('group')? 'active' : '' }}">
+                <a href="{{ route('group.index') }}">
                     <span style="{{ request()->is('group')? 'color: #4a6cf7;' : '' }}" class="text">Guruhlar</span>
                 </a>
             </li>
-            <li class="nav-item {{ request()->is('moderation')? 'active' : '' }}" >
-                <a href="/moderation" >
-                    <span style="{{ request()->is('moderation')? 'color: #4a6cf7;' : '' }}" class="text">Moderatsiya</span>
+            <li class="nav-item {{ request()->is('moderation')? 'active' : '' }}">
+                <a href="/moderation">
+                    <span style="{{ request()->is('moderation')? 'color: #4a6cf7;' : '' }}"
+                          class="text">Moderatsiya</span>
                 </a>
             </li>
             <li class="nav-item {{ request()->is('city')? 'active' : '' }}">
@@ -75,12 +76,14 @@
             </li>
             <li class="nav-item {{ request()->is('status')? 'active' : '' }}">
                 <a href="{{ route('status.index') }}">
-                    <span style="{{ request()->is('status')? 'color: #4a6cf7;' : '' }}" class="text">Holatlar(Status)</span>
+                    <span style="{{ request()->is('status')? 'color: #4a6cf7;' : '' }}"
+                          class="text">Holatlar(Status)</span>
                 </a>
             </li>
             <li class="nav-item {{ request()->is('company')? 'active' : '' }}">
                 <a href="{{ route('company.index') }}">
-                    <span style="{{ request()->is('company')? 'color: #4a6cf7;' : '' }}" class="text">Tashkilotlar</span>
+                    <span style="{{ request()->is('company')? 'color: #4a6cf7;' : '' }}"
+                          class="text">Tashkilotlar</span>
                 </a>
             </li>
             <li class="nav-item {{ request()->is('chat')? 'active' : '' }}">
@@ -90,7 +93,8 @@
             </li>
             <li class="nav-item {{ request()->is('notification')? 'active' : '' }}">
                 <a href="{{ route('notification.index') }}">
-                    <span style="{{ request()->is('notification')? 'color: #4a6cf7;' : '' }}" class="text">Bildirishnoma</span>
+                    <span style="{{ request()->is('notification')? 'color: #4a6cf7;' : '' }}"
+                          class="text">Bildirishnoma</span>
                 </a>
             </li>
         </ul>
@@ -123,9 +127,7 @@
                     <div class="header-right">
 
 
-
                         <livewire:notifikation/>
-
 
 
                         <!-- profile start -->
@@ -152,10 +154,8 @@
                                 </div>
                                 <i class="lni lni-chevron-down"></i>
                             </button>
-                            <ul
-                                class="dropdown-menu dropdown-menu-end"
-                                aria-labelledby="profile"
-                            >
+                            <ul class="dropdown-menu dropdown-menu-end"
+                                aria-labelledby="profile">
                                 <li>
                                     <a href="/profile">
                                         <i class="lni lni-user"></i> Shaxsiy ma'lumotlar
@@ -164,7 +164,8 @@
 
                                 <li>
 
-                                    <button style="display: block; width: 100%; background: none; border: none "  data-bs-toggle="modal" data-bs-target="#logoutModal">
+                                    <button style="display: block; width: 100%; background: none; border: none "
+                                            data-bs-toggle="modal" data-bs-target="#logoutModal">
                                         <a> <i class="lni lni-exit"></i> Chiqish </a>
                                     </button>
                                 </li>
@@ -217,13 +218,14 @@
 
         <!-- Modal -->
         <div class="modal fade " id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg"> <!-- modal-dialog-centered - ekran o'rtasiga joylash -->
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <!-- modal-dialog-centered - ekran o'rtasiga joylash -->
                 <div class="modal-content" style="width: 300px; margin: 0 auto">
                     <div class="modal-header">
                         <h5 class="modal-title " id="exampleModalLabel">{{ "Ma'lumotni o'chirilsinmi?" }}</h5>
                         {{--                          <button type="button"  class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--}}
                     </div>
-                    <div  class="action d-flex justify-content-end ">
+                    <div class="action d-flex justify-content-end ">
                         <button data-bs-dismiss="modal" class="text-danger fs-5 m-2 ">
                             <span class="badge rounded-pill bg-gray-500" style="font-size: 15px">Yopish</span>
                         </button>
@@ -241,13 +243,14 @@
 
 
         <div class="modal fade " id="logoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg"> <!-- modal-dialog-centered - ekran o'rtasiga joylash -->
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <!-- modal-dialog-centered - ekran o'rtasiga joylash -->
                 <div class="modal-content" style="width: 300px; margin: 0 auto">
                     <div class="modal-header">
                         <h5 class="modal-title " id="exampleModalLabel">{{ "Xisobdan chiqmoqchimisiz?" }}</h5>
                         {{--                          <button type="button"  class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--}}
                     </div>
-                    <div  class="action d-flex justify-content-end ">
+                    <div class="action d-flex justify-content-end ">
                         <button data-bs-dismiss="modal" class="text-danger fs-5 m-2 ">
                             <span class="badge rounded-pill bg-gray-500" style="font-size: 15px">Yopish</span>
                         </button>
@@ -282,20 +285,19 @@
 <script src="/build/assets/app-a1256489.js"></script>
 
 
-
 <script>
 
-    function test(url){
+    function test(url) {
 
         let modalImage = document.getElementById('imageModal');
         modalImage.src = url;
     }
-    function ochirish(data){
+
+    function ochirish(data) {
 
         let deleteItem = document.getElementById('deleteItem');
         deleteItem.action = data;
     }
-
 
 
 </script>
