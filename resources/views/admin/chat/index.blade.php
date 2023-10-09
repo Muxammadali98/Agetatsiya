@@ -6,6 +6,6 @@
 
 @section('content')
 
-    <livevare:message />
+    <livewire:message />
 
 @endsection
