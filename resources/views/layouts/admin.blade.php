@@ -345,7 +345,7 @@
     <script src="/assets/js/world-merc.js"></script>
     <script src="/assets/js/polyfill.js"></script>
     <script src="/assets/js/main.js"></script>
-{{--    <script src="/livewire/livewire.js"></script>--}}
+    <script src="/livewire/livewire.js"></script>
 
     <script src="/build/assets/app-a1256489.js"></script>
     <!-- modal -->
