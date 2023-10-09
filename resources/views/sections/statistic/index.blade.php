@@ -46,7 +46,7 @@
                         <a href="/2" style="padding: 10px 10px" class="main-btn primary-btn btn-hover">Hodimlar</a>
                     </div>
 
-                    <form class="col-6"  action="{{ request()->is('/') ? '/' : '/2' }}" method="GET" style="display: flex; justify-content: flex-end; flex-direction: column;">
+                    <form class="col-6"  action="{{ request()->is('/') ? '/' : '/statistic' }}" method="GET" style="display: flex; justify-content: flex-end; flex-direction: column;">
 
                       <div class="row col-lg-12">
 
