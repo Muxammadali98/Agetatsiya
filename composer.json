@@ -13,7 +13,7 @@
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
         "league/oauth2-server": "8.5.2",
-        "livewire/livewire": "^2.12",
+        "livewire/livewire": "^3.0",
         "pusher/pusher-php-server": "^7.2"
     },
     "require-dev": {
