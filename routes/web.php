@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [GroupController::class, 'index'])->middleware(['auth', 'verified']);
+Route::get('/', [\App\Http\Controllers\StatisticController::class,'index'])->middleware(['auth', 'verified']);
 
 Route::get('/dashboard',[GroupController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
