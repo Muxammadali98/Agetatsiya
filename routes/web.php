@@ -27,6 +27,8 @@ use Illuminate\Support\Facades\Route;
 require __DIR__.'/auth.php';
 
 Route::middleware('auth')->group(function () {
+    Route::get('/', [\App\Http\Controllers\StatisticController::class, 'index']);
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -49,7 +51,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/moderation',[WorkerController::class, 'moderation']);
     Route::get('/dashboard',[\App\Http\Controllers\StatisticController::class, 'index'])->name('dashboard');
     Route::get('/filterStatistic', [\App\Http\Controllers\StatisticController::class, 'filter']);
-    Route::get('/', [\App\Http\Controllers\StatisticController::class, 'index']);
     Route::get('/statistic', [\App\Http\Controllers\StatisticController::class, 'index']);
 });
 
