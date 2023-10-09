@@ -335,7 +335,7 @@
       <!-- ========== footer end =========== -->
     </main>
     <!-- ======== main-wrapper end =========== -->
-
+    @livewireScripts
     <!-- ========= All Javascript files linkup ======== -->
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
     <script src="/assets/js/Chart.min.js"></script>
@@ -346,7 +346,7 @@
     <script src="/assets/js/world-merc.js"></script>
     <script src="/assets/js/polyfill.js"></script>
     <script src="/assets/js/main.js"></script>
-    <script src="/livewire/livewire.js"></script>
+{{--    <script src="/livewire/livewire.js"></script>--}}
 
     <script src="/build/assets/app-a1256489.js"></script>
     <!-- modal -->
@@ -874,6 +874,6 @@
       console.log('test delate')
 
     </script>
-     @livewireScripts
+
   </body>
 </html>
