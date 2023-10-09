@@ -5,5 +5,7 @@
 @endsection
 
 @section('content')
-    <livevare:message/>
+
+    <livevare:message />
+
 @endsection
