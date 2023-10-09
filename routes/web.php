@@ -50,8 +50,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/notifigroup',[NotificationController::class, 'createGroup'])->name('createGroup');
     Route::post('/notifigroup',[NotificationController::class, 'storeGroup'])->name('storeGroup');
     Route::get('/moderation',[WorkerController::class, 'moderation']);
-    Route::get('/statistic',[StatusController::class,'index']);
-    Route::get('/statistic/{id}',[StatusController::class,'index']);
+    Route::get('/statistic',[\App\Http\Controllers\StatisticController::class,'index']);
+    Route::get('/statistic/{id}',[\App\Http\Controllers\StatisticController::class,'index']);
 });
 
 
