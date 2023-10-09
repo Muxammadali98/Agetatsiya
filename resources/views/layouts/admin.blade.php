@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="/assets/css/materialdesignicons.min.css" />
     <link rel="stylesheet" href="/assets/css/fullcalendar.css" />
     <link rel="stylesheet" href="/assets/css/main.css" />
-    <link rel="stylesheet" href="/build/assets/app-9273b9a5.css">
+    <link rel="stylesheet" href="/build/assets/app-1e2735e2.css">
     <link rel="stylesheet" href="/build/manifest.json">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
