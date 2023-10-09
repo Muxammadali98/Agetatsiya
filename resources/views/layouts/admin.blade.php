@@ -129,7 +129,6 @@
 
                         <livewire:notifikation/>
 
-
                         <!-- profile start -->
                         <div class="profile-box ml-15">
                             <button
