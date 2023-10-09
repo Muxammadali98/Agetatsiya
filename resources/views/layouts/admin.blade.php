@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="/assets/css/fullcalendar.css" />
     <link rel="stylesheet" href="/assets/css/main.css" />
     <link rel="stylesheet" href="/build/assets/app-1e2735e2.css">
-    <link rel="stylesheet" href="/build/manifest.json">
+    <link rel="stylesheet" type="application/json" href="/build/manifest.json">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <!-- Add Bootstrap CSS and JavaScript to the head of your HTML file -->
@@ -345,7 +345,7 @@
     <script src="/assets/js/world-merc.js"></script>
     <script src="/assets/js/polyfill.js"></script>
     <script src="/assets/js/main.js"></script>
-    <script src="/livewire/livewire.js"></script>
+{{--    <script src="/livewire/livewire.js"></script>--}}
 
     <script src="/build/assets/app-a1256489.js"></script>
     <!-- modal -->
