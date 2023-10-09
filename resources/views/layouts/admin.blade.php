@@ -127,7 +127,7 @@
                     <div class="header-right">
 
 
-                        <livewire:notifikation />
+                        <livevare:notifikation/>
 
                         <!-- profile start -->
                         <div class="profile-box ml-15">
