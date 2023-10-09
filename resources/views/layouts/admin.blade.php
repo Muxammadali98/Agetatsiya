@@ -187,7 +187,7 @@
                         <!-- notification end --> --}}
 
 
-                        @livewire('notifikation')
+                        <livewire:notifikation/>
 
 
                         {{-- <!-- filter start -->
