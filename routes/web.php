@@ -25,11 +25,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', [GroupController::class, 'index'])->middleware(['auth', 'verified']);
 
+Route::get('/dashboard',[GroupController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', [\App\Http\Controllers\StatisticController::class, 'index']);
-
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -50,11 +50,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/notifigroup',[NotificationController::class, 'createGroup'])->name('createGroup');
     Route::post('/notifigroup',[NotificationController::class, 'storeGroup'])->name('storeGroup');
     Route::get('/moderation',[WorkerController::class, 'moderation']);
-    Route::get('/dashboard',[\App\Http\Controllers\StatisticController::class, 'index'])->name('dashboard');
-    Route::get('/filterStatistic', [\App\Http\Controllers\StatisticController::class, 'filter']);
-    Route::get('/{statistic}', [\App\Http\Controllers\StatisticController::class, 'index',]);
 });
+
+
 require __DIR__.'/auth.php';
-
-
-
