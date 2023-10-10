@@ -38,7 +38,7 @@ class Message extends Component
             $chat->save();
         }
         $this->messages = ModelsMessage::where('chat_id', $id)->get();
-        $this->emit('eventChat');
+        $this->dispatch('eventChat');
          event(new NotifiAdminEvent());
     }
 
