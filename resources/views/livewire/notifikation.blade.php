@@ -1,4 +1,4 @@
-<div>
+
     <!-- message start -->
     <div class="header-message-box ml-15 d-none d-md-flex">
         <button
@@ -9,10 +9,10 @@
             aria-expanded="false"
         >
             <i class="lni lni-envelope"></i>
-            @empty(!$count)
+{{--            @empty(!$count)--}}
 
-                <span>{{  $count }}</span>
-            @endempty
+{{--                <span>{{  $count }}</span>--}}
+{{--            @endempty--}}
         </button>
 
 
@@ -45,4 +45,4 @@
         </ul>
     </div>
                       <!-- message end -->
-</div>
+
