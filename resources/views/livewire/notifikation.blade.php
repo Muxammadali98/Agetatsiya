@@ -9,10 +9,10 @@
             aria-expanded="false"
         >
             <i class="lni lni-envelope"></i>
-{{--            @empty(!$count)--}}
+            @empty(!$count)
 
-{{--                <span>{{  $count }}</span>--}}
-{{--            @endempty--}}
+                <span>{{  $count }}</span>
+            @endempty
         </button>
 
 
