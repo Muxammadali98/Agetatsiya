@@ -11,7 +11,7 @@
 
 
     <title>@yield('title')</title>
-
+    @livewireStyles
     <!-- ========== All CSS files linkup ========= -->
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/assets/css/lineicons.css"/>
@@ -26,7 +26,7 @@
 {{--     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">--}}
 
 
-    @livewireStyles
+
 </head>
 <body>
 <!-- ======== sidebar-nav start =========== -->
