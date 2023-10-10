@@ -38,7 +38,7 @@ class Message extends Component
             $chat->save();
         }
         $this->messages = ModelsMessage::where('chat_id', $id)->get();
-        $this->dispatch('eventChat');
+        $this->emit('eventChat');
          event(new NotifiAdminEvent());
     }
 
@@ -73,7 +73,7 @@ class Message extends Component
 
             $this->messages = ModelsMessage::where('chat_id', $this->chatId)->with('chat')->get();
 
-            $this->dispatch('eventChat');
+            $this->emit('eventChat');
         }else{
 
             $this->chats = Chat::whereNull('user_id')->orWhere('user_id',auth()->id())->orderBy('updated_at', 'DESC')->get();
@@ -97,7 +97,7 @@ class Message extends Component
 
         Chat::where('id',$this->chatId)->update(['user_id'=>auth()->id()]);
         event(new MessageEvent($message));
-        $this->dispatch('eventChat');
+        $this->emit('eventChat');
         $this->text = '';
     }
 

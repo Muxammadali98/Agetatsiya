@@ -51,6 +51,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 
 import Pusher from 'pusher-js';
+import Livewire from 'livewire';
+
+window.Livewire = Livewire;
 
 
 const pusher = new Pusher(import.meta.env.VITE_PUSHER_APP_KEY, {
