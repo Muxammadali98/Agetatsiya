@@ -10,8 +10,8 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="/build/manifest.json ">
-        <link rel="stylesheet" href="/build/assets/app-1e2735e2.css">
+        <link rel="stylesheet" type="application/json" href="/build/manifest.json ">
+        <link rel="stylesheet" href="/build/assets/app-7856b779.css">
 
         <!-- Scripts -->
     </head>
@@ -34,6 +34,6 @@
             </main>
         </div>
     </body>
-    <script src="/build/assets/app-a1256489.js"></script>
+    <script src="/build/assets/app-945694a3.js"></script>
 
 </html>
